@@ -1,0 +1,34 @@
+Как правильно делать возврат продажи?
+Так:
+driver.CheckType = 2; // 2 - Возврат прихода
+driver.CheckMode = 1;
+driver.OpenCheck();
+driver.Name = "...";
+driver.Price = 100;
+driver.Quantity = 1;
+driver.Department = 0;
+driver.Registration();
+driver.TypeClose = 0; // 0 - Наличными
+driver.Summ = 50.00;
+driver.Payment();
+driver.TypeClose = 1; // 1 - Электронными средствами платежа
+driver.Summ = 50.00;
+driver.Payment();
+driver.CloseCheck();
+
+или так:
+driver.CheckType = 2; // 2 - Возврат прихода
+driver.CheckMode = 1;
+driver.OpenCheck();
+driver.Name = "...";
+driver.Price = 100;
+driver.Quantity = 1;
+driver.Department = 0;
+driver.Return();
+driver.TypeClose = 0; // 0 - Наличными
+driver.Summ = 50.00;
+driver.StornoPayment();
+driver.TypeClose = 1; // 1 - Электронными средствами платежа
+driver.Summ = 50.00;
+driver.StornoPayment();
+driver.CloseCheck();
