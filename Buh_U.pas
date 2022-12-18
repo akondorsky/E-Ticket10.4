@@ -286,23 +286,8 @@ procedure TBuh_F.A_DelDocExecute(Sender: TObject);
 var
  Id_rec, rec_zayv:Integer;
  s:String;
- qry:TIBQuery;
 begin
   Id_rec:=DM.Qry_ClAc.FieldByName('ID').AsInteger;
-  qry:=TIBQuery.Create(Self);
-  try
-    qry.Database:=Dm.DB;
-    qry.SQL.Add('select count(*) from dolg_writeoff where id_account=:p0');
-    qry.Params[0].AsInteger:=Id_rec;
-    qry.Open;
-    if qry.Fields[0].AsInteger > 0 then
-      begin
-        Application.MessageBox('Удаление документа невозможно.Обратитесь к системному администратору.','Внимание!',MB_OK+MB_ICONERROR);
-        Exit;
-      end;
-  finally
-    qry.Free;
-  end;
 
  if Application.MessageBox(
       'Данные будут безвозвратно удалены.Продолжить?','Внимание',MB_ICONWARNING+MB_YESNO) <> ID_YES then Exit ;

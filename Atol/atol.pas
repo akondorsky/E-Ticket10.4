@@ -120,43 +120,6 @@ try
     //flag:= true;
     //if flag then
        begin
-          //списываем долги если есть
-         qry.Close;
-         qry.SQL.Clear;
-         qry.SQL.Add(' select count(id) from reasondolg where id_plat=:p0 and iif(delete_flag > 0,1,0) <> 1 and dolg_rest > 0');
-         qry.Params[0].AsInteger:= PlatNum;
-         qry.Open;
-         if qry.Fields[0].AsInteger > 0 then
-           begin
-            qry.Close;
-            qry.SQL.Clear;
-            qry.SQL.Add('select id,dolg_rest from reasondolg where id_plat=:p0 and iif(delete_flag > 0,1,0) <> 1 and dolg_rest > 0 order by dt_is,id');
-            qry.Params[0].AsInteger:= PlatNum;
-            qry.Open;
-            DM.Sql.Close;
-            DM.Sql.SQL.Clear;
-            DM.Sql.SQL.Add('insert into dolg_writeoff(id_dolg,id_account,summa) values(:p0,:p1,:p2) ');
-            while (not qry.Eof) and (Itogo > 0)  do
-              begin
-                if Itogo >= qry.FieldByName('dolg_rest').AsFloat then
-                  begin
-                   sum_spis:= qry.FieldByName('dolg_rest').AsFloat;
-                   Itogo:= Itogo - sum_spis;
-                  end
-                else
-                  begin
-                   sum_spis:= Itogo;
-                   Itogo:= Itogo - sum_spis;
-                  end;
-                if DM.Sql.Open then DM.Sql.Close;
-                DM.Sql.Params[0].AsInteger:=qry.FieldByName('id').AsInteger;
-                DM.Sql.Params[1].AsInteger:=IdAccount;
-                DM.Sql.Params[2].AsFloat:=sum_spis;
-                DM.Sql.ExecQuery;
-                qry.Next;
-              end;
-           end;
-      ///////////////////////////////////////////////
           DM.Sql.Transaction.Commit;
           DM.Qry_ClAc.Close;
           DM.Qry_ClAc.open;

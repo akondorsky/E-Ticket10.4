@@ -115,12 +115,6 @@ try
     end;
   Sum:= StrToFloat(E_Sum.Text);
 
-  if flag  then
-    if Sum <> SummaOld  then
-      begin
-        Application.MessageBox('Изменение документа невозможно.Обратитесь к системному администратору.','Внимание!',MB_OK+MB_ICONERROR);
-        Exit;
-      end;
   if Length(Trim(E_VidDoc.Text))=0 then
     begin
       Application.MessageBox('Неверное значение вида документа','Внимание!',mb_OK+mb_iconstop);
@@ -163,6 +157,16 @@ try
      DM.Sql.Params[6].AsString:=F;
      DM.Sql.Params[7].AsInteger:=Id_rec;
      DM.Sql.ExecQuery;
+     if flag then
+        begin
+         DM.Sql.Close;
+         DM.Sql.SQL.Clear;
+         DM.Sql.SQL.Add('update dolg_writeoff set summa = :p0 where id_account = :p1 ');
+         DM.SQl.Params[0].AsCurrency:=Sum;
+         DM.Sql.Params[1].AsInteger:=Id_rec;
+         DM.Sql.ExecQuery;
+        end;
+
      DM.Sql.Transaction.Commit;
      ModalResult:=mrOk;
      Buh_F.A_RefrDoc.Execute;
