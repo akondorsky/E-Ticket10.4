@@ -91,6 +91,7 @@ type
 
 var
   RegTiAdd_F: TRegTiAdd_F;
+  Scale:Single;
 
 implementation
 uses dm_u, myutils,main, Hold_U, Prices_U, Regti_U;
@@ -167,21 +168,22 @@ if (Role = 'MANAGER') OR (Role = 'SYSADMIN') then
 
 FindStdPrice;
 L_hold.Color:=LighterColor(clYellow,30);
+Scale := TControl(E_House).ScaleFactor;
 E_Phone:=TMyMaskEdit.Create(Self);
     with E_Phone do
      begin;
       Parent:= GroupBox2;
-      Left := 104;
-      Top := 133;
-      Width := 114;
-      Height := 21;
+      Left := E_House.Left;
+      Top := E_House.Top + E_House.Height+2;
+      Width := Round(114*Scale);
+      Height := Round(21*Scale);
       Font.Charset := DEFAULT_CHARSET;
       EditMask:='\8\ \(000\)\ 000\ 00\ 00;1;_';
-      Font.Color := clWindowText;
-      Font.Height := -11;
-      Font.Name := 'MS Sans Serif';
-      Font.Style := [];
-      ParentFont := False;
+      //Font.Color := clWindowText;
+      //Font.Height := -11;
+      //Font.Name := 'MS Sans Serif';
+      //Font.Style := [];
+      ParentFont := True;
       TabOrder := 5;
       Text := '8 (   )          ';
       MaxLength:=17;
@@ -189,6 +191,7 @@ E_Phone:=TMyMaskEdit.Create(Self);
     end;
 GetValues;
 CancBtn.SetFocus;
+
 end;
 
 procedure TRegTiAdd_F.E_ZayvKeyPress(Sender: TObject; var Key: Char);

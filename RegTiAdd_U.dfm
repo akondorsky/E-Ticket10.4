@@ -159,7 +159,7 @@ object RegTiAdd_F: TRegTiAdd_F
     end
     object E_House: TEdit
       Left = 104
-      Top = 110
+      Top = 111
       Width = 177
       Height = 21
       CharCase = ecUpperCase
