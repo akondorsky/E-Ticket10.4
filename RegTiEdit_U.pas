@@ -394,7 +394,7 @@ try
      DM.Sql.Params[10].asInteger:= 0
     else
      DM.Sql.Params[10].asInteger:= StrToInt(E_Discount.Text);
-  if Length(Trim(L_Hold.Text)) <> 0 then
+  if Length(Trim(L_Hold.Text)) > 1 then
      DM.Sql.Params[11].AsInteger:=DM.Qry_Hold.FieldByName('ID').AsInteger
    else
      DM.Sql.Params[11].Value:=Null;
