@@ -349,11 +349,14 @@ begin
     Xml. Add ('                </catWH_ru:Consignor>');
     Xml. Add ('                <catWH_ru:Consignee>');
     Xml. Add (format('            <cat_ru:OrganizationName>%s</cat_ru:OrganizationName>',[XMLCorrect(DM.Qry.FieldByName('R_NAME').AsString)]));
-    Xml. Add ('                   <cat_ru:RFOrganizationFeatures>');
-    Xml. Add (format('              <cat_ru:OGRN>%s</cat_ru:OGRN>',[DM.Qry.FieldByName('R_OGRN').AsString]));
-    Xml. Add (format('              <cat_ru:INN>%s</cat_ru:INN>',[DM.Qry.FieldByName('R_INN').AsString]));
-    Xml. Add (format('              <cat_ru:KPP>%s</cat_ru:KPP>',[DM.Qry.FieldByName('R_KPP').AsString]));
-    Xml. Add ('                   </cat_ru:RFOrganizationFeatures>');
+    if DM.Qry.FieldByName('R_COUNTRY').AsString = 'RU' then
+      begin
+        Xml. Add ('                   <cat_ru:RFOrganizationFeatures>');
+        Xml. Add (format('              <cat_ru:OGRN>%s</cat_ru:OGRN>',[DM.Qry.FieldByName('R_OGRN').AsString]));
+        Xml. Add (format('              <cat_ru:INN>%s</cat_ru:INN>',[DM.Qry.FieldByName('R_INN').AsString]));
+        Xml. Add (format('              <cat_ru:KPP>%s</cat_ru:KPP>',[DM.Qry.FieldByName('R_KPP').AsString]));
+        Xml. Add ('                   </cat_ru:RFOrganizationFeatures>');
+      end;
     Xml. Add ('                   <catWH_ru:Address>');
     Xml. Add (format('                <catWH_ru:AddressLine>%s</catWH_ru:AddressLine>',[XMLCorrect(DM.Qry.FieldByName('R_ADDRESS').AsString)]));
     Xml. Add ('                   </catWH_ru:Address>');

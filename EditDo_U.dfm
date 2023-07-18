@@ -30,7 +30,7 @@ object EditDo_F: TEditDo_F
     Top = 8
     Width = 920
     Height = 633
-    ActivePage = Tab_Do2
+    ActivePage = Tab_1
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
     Font.Height = -11
@@ -398,6 +398,13 @@ object EditDo_F: TEditDo_F
           Height = 13
           Caption = #1054#1043#1056#1053
         end
+        object Label1: TLabel
+          Left = 760
+          Top = 16
+          Width = 36
+          Height = 13
+          Caption = #1057#1090#1088#1072#1085#1072
+        end
         object E_RAddr: TEdit
           Left = 90
           Top = 39
@@ -446,6 +453,28 @@ object EditDo_F: TEditDo_F
           OnChange = E_RNameChange
           OnKeyPress = E_FAddrKeyPress
         end
+        object E_RCountryName: TEdit
+          Left = 760
+          Top = 38
+          Width = 121
+          Height = 21
+          Enabled = False
+          TabOrder = 5
+        end
+        object E_RCountryCode: TButtonedEdit
+          Left = 821
+          Top = 13
+          Width = 60
+          Height = 21
+          Images = Main_F.ImL_Buttons16
+          MaxLength = 2
+          RightButton.ImageIndex = 1
+          RightButton.Visible = True
+          TabOrder = 6
+          OnChange = E_RCountryCodeChange
+          OnKeyPress = E_RCountryCodeKeyPress
+          OnRightButtonClick = E_RCountryCodeRightButtonClick
+        end
       end
       object E_G072: TDBDateTimeEditEh
         Left = 196
@@ -491,12 +520,12 @@ object EditDo_F: TEditDo_F
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           FooterParams.Color = clWindow
-          IndicatorOptions = [gioShowRowIndicatorEh]
           Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
           ParentFont = False
           TabOrder = 0
           Columns = <
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'VIDTRANS'
@@ -505,6 +534,7 @@ object EditDo_F: TEditDo_F
               Width = 39
             end
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'NTRANS'
@@ -521,7 +551,6 @@ object EditDo_F: TEditDo_F
           Width = 97
           Height = 25
           Caption = #1044#1086#1073#1072#1074#1080#1090#1100
-          DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -562,7 +591,6 @@ object EditDo_F: TEditDo_F
             ECFFF2E6D7FFE2B27DFFDB9465F5B3683B07FFFFFF00FFFFFF00FFFFFF00C17D
             4460C88B4DBBC88C4FEEC88C4FF6C88C4FF7C88C4FF7C88D4FF7C98C4FF7C78B
             4FF7C5894BD4C4763B91B3683C06FFFFFF00FFFFFF00FFFFFF00}
-          ParentDoubleBuffered = False
           ParentFont = False
           TabOrder = 1
           OnClick = Btn_TransAddClick
@@ -573,7 +601,6 @@ object EditDo_F: TEditDo_F
           Width = 97
           Height = 25
           Caption = #1048#1079#1084#1077#1085#1080#1090#1100
-          DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -614,7 +641,6 @@ object EditDo_F: TEditDo_F
             ECFFF2E6D7FFE2B27DFFDB9465F5B3683B07FFFFFF00FFFFFF00FFFFFF00C17D
             4460C88B4DBBC88C4FEEC88C4FF6C88C4FF7C88C4FF7C88D4FF7C98C4FF7C78B
             4FF7C5894BD4C4763B91B3683C06FFFFFF00FFFFFF00FFFFFF00}
-          ParentDoubleBuffered = False
           ParentFont = False
           TabOrder = 2
           OnClick = Btn_TransEditClick
@@ -625,7 +651,6 @@ object EditDo_F: TEditDo_F
           Width = 97
           Height = 25
           Caption = #1059#1076#1072#1083#1080#1090#1100
-          DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -674,7 +699,6 @@ object EditDo_F: TEditDo_F
             F6090909090909FFE2FFFFE2FF09F60909090909F6F6FFF6E2FFFFE2FF090909
             09090909FF0909F4E2FFFFE2FF09090909090909FF09F4EBDAFFFFE2F6FFFFFF
             FFFFFFF6F6F4EBDAFFFFFFE2E2E2E2E2E2E2E2E2E2E2DAFFFFFF}
-          ParentDoubleBuffered = False
           ParentFont = False
           TabOrder = 3
           OnClick = Btn_TransDelClick
@@ -709,12 +733,12 @@ object EditDo_F: TEditDo_F
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           FooterParams.Color = clWindow
-          IndicatorOptions = [gioShowRowIndicatorEh]
           Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
           ParentFont = False
           TabOrder = 0
           Columns = <
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'N_TD'
@@ -723,6 +747,7 @@ object EditDo_F: TEditDo_F
               Width = 37
             end
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'TYPE_DOC'
@@ -731,6 +756,7 @@ object EditDo_F: TEditDo_F
               Width = 37
             end
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'NAME'
@@ -739,6 +765,7 @@ object EditDo_F: TEditDo_F
               Width = 336
             end
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'N_DOC'
@@ -747,6 +774,7 @@ object EditDo_F: TEditDo_F
               Width = 236
             end
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'D_DOC'
@@ -763,7 +791,6 @@ object EditDo_F: TEditDo_F
           Width = 97
           Height = 25
           Caption = #1044#1086#1073#1072#1074#1080#1090#1100
-          DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -804,7 +831,6 @@ object EditDo_F: TEditDo_F
             ECFFF2E6D7FFE2B27DFFDB9465F5B3683B07FFFFFF00FFFFFF00FFFFFF00C17D
             4460C88B4DBBC88C4FEEC88C4FF6C88C4FF7C88C4FF7C88D4FF7C98C4FF7C78B
             4FF7C5894BD4C4763B91B3683C06FFFFFF00FFFFFF00FFFFFF00}
-          ParentDoubleBuffered = False
           ParentFont = False
           TabOrder = 1
           OnClick = Btn_CustAddClick
@@ -815,7 +841,6 @@ object EditDo_F: TEditDo_F
           Width = 97
           Height = 25
           Caption = #1048#1079#1084#1077#1085#1080#1090#1100
-          DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -856,7 +881,6 @@ object EditDo_F: TEditDo_F
             ECFFF2E6D7FFE2B27DFFDB9465F5B3683B07FFFFFF00FFFFFF00FFFFFF00C17D
             4460C88B4DBBC88C4FEEC88C4FF6C88C4FF7C88C4FF7C88D4FF7C98C4FF7C78B
             4FF7C5894BD4C4763B91B3683C06FFFFFF00FFFFFF00FFFFFF00}
-          ParentDoubleBuffered = False
           ParentFont = False
           TabOrder = 2
           OnClick = Btn_DoCustEditClick
@@ -867,7 +891,6 @@ object EditDo_F: TEditDo_F
           Width = 97
           Height = 25
           Caption = #1059#1076#1072#1083#1080#1090#1100
-          DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -916,7 +939,6 @@ object EditDo_F: TEditDo_F
             F6090909090909FFE2FFFFE2FF09F60909090909F6F6FFF6E2FFFFE2FF090909
             09090909FF0909F4E2FFFFE2FF09090909090909FF09F4EBDAFFFFE2F6FFFFFF
             FFFFFFF6F6F4EBDAFFFFFFE2E2E2E2E2E2E2E2E2E2E2DAFFFFFF}
-          ParentDoubleBuffered = False
           ParentFont = False
           TabOrder = 3
           OnClick = Btn_DoCustDelClick
@@ -951,12 +973,12 @@ object EditDo_F: TEditDo_F
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           FooterParams.Color = clWindow
-          IndicatorOptions = [gioShowRowIndicatorEh]
           Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
           ParentFont = False
           TabOrder = 0
           Columns = <
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'N_TD'
@@ -965,6 +987,7 @@ object EditDo_F: TEditDo_F
               Width = 35
             end
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'TYPE_DOC'
@@ -973,6 +996,7 @@ object EditDo_F: TEditDo_F
               Width = 39
             end
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'NAME'
@@ -981,6 +1005,7 @@ object EditDo_F: TEditDo_F
               Width = 275
             end
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'NDOC'
@@ -989,6 +1014,7 @@ object EditDo_F: TEditDo_F
               Width = 234
             end
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'DDOC'
@@ -998,6 +1024,7 @@ object EditDo_F: TEditDo_F
             end
             item
               Alignment = taCenter
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'KOL_TOV'
@@ -1013,7 +1040,6 @@ object EditDo_F: TEditDo_F
           Width = 97
           Height = 25
           Caption = #1044#1086#1073#1072#1074#1080#1090#1100
-          DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -1054,7 +1080,6 @@ object EditDo_F: TEditDo_F
             ECFFF2E6D7FFE2B27DFFDB9465F5B3683B07FFFFFF00FFFFFF00FFFFFF00C17D
             4460C88B4DBBC88C4FEEC88C4FF6C88C4FF7C88C4FF7C88D4FF7C98C4FF7C78B
             4FF7C5894BD4C4763B91B3683C06FFFFFF00FFFFFF00FFFFFF00}
-          ParentDoubleBuffered = False
           ParentFont = False
           TabOrder = 1
           OnClick = Btn_DoTrandAddClick
@@ -1065,7 +1090,6 @@ object EditDo_F: TEditDo_F
           Width = 97
           Height = 25
           Caption = #1048#1079#1084#1077#1085#1080#1090#1100
-          DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -1106,7 +1130,6 @@ object EditDo_F: TEditDo_F
             ECFFF2E6D7FFE2B27DFFDB9465F5B3683B07FFFFFF00FFFFFF00FFFFFF00C17D
             4460C88B4DBBC88C4FEEC88C4FF6C88C4FF7C88C4FF7C88D4FF7C98C4FF7C78B
             4FF7C5894BD4C4763B91B3683C06FFFFFF00FFFFFF00FFFFFF00}
-          ParentDoubleBuffered = False
           ParentFont = False
           TabOrder = 2
           OnClick = Btn_DoTrandEditClick
@@ -1117,7 +1140,6 @@ object EditDo_F: TEditDo_F
           Width = 97
           Height = 25
           Caption = #1059#1076#1072#1083#1080#1090#1100
-          DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -1166,7 +1188,6 @@ object EditDo_F: TEditDo_F
             F6090909090909FFE2FFFFE2FF09F60909090909F6F6FFF6E2FFFFE2FF090909
             09090909FF0909F4E2FFFFE2FF09090909090909FF09F4EBDAFFFFE2F6FFFFFF
             FFFFFFF6F6F4EBDAFFFFFFE2E2E2E2E2E2E2E2E2E2E2DAFFFFFF}
-          ParentDoubleBuffered = False
           ParentFont = False
           TabOrder = 3
           OnClick = Btn_DoTrandDelClick
@@ -1200,7 +1221,6 @@ object EditDo_F: TEditDo_F
             Flat = True
             FooterRowCount = 1
             FooterParams.Color = clWhite
-            IndicatorOptions = [gioShowRowIndicatorEh]
             Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
             SumList.Active = True
             TabOrder = 0
@@ -1209,6 +1229,7 @@ object EditDo_F: TEditDo_F
             Columns = <
               item
                 Alignment = taCenter
+                CellButtons = <>
                 DynProps = <>
                 EditButtons = <>
                 FieldName = 'G32'
@@ -1220,6 +1241,7 @@ object EditDo_F: TEditDo_F
                 Width = 25
               end
               item
+                CellButtons = <>
                 DynProps = <>
                 EditButtons = <>
                 FieldName = 'G33'
@@ -1228,9 +1250,9 @@ object EditDo_F: TEditDo_F
                     Color = clBtnShadow
                   end>
                 Title.Caption = #1050#1086#1076' '#1058#1053#1042#1069#1044
-                Width = 50
               end
               item
+                CellButtons = <>
                 DynProps = <>
                 EditButtons = <>
                 FieldName = 'G31_1'
@@ -1243,6 +1265,7 @@ object EditDo_F: TEditDo_F
               end
               item
                 Alignment = taCenter
+                CellButtons = <>
                 DynProps = <>
                 EditButtons = <>
                 FieldName = 'G221'
@@ -1262,6 +1285,7 @@ object EditDo_F: TEditDo_F
               end
               item
                 Alignment = taRightJustify
+                CellButtons = <>
                 DynProps = <>
                 EditButtons = <>
                 FieldName = 'G42'
@@ -1283,6 +1307,7 @@ object EditDo_F: TEditDo_F
               end
               item
                 Alignment = taRightJustify
+                CellButtons = <>
                 DynProps = <>
                 EditButtons = <>
                 FieldName = 'G42_OST'
@@ -1306,6 +1331,7 @@ object EditDo_F: TEditDo_F
               end
               item
                 Alignment = taCenter
+                CellButtons = <>
                 DynProps = <>
                 EditButtons = <>
                 FieldName = 'G31_2_HUMAN'
@@ -1326,6 +1352,7 @@ object EditDo_F: TEditDo_F
               end
               item
                 Alignment = taCenter
+                CellButtons = <>
                 DynProps = <>
                 EditButtons = <>
                 FieldName = 'G31_2_OST_HUMAN'
@@ -1346,6 +1373,7 @@ object EditDo_F: TEditDo_F
               end
               item
                 Alignment = taRightJustify
+                CellButtons = <>
                 DynProps = <>
                 EditButtons = <>
                 FieldName = 'G35'
@@ -1366,6 +1394,7 @@ object EditDo_F: TEditDo_F
               end
               item
                 Alignment = taRightJustify
+                CellButtons = <>
                 DynProps = <>
                 EditButtons = <>
                 FieldName = 'G35_OST'
@@ -1393,7 +1422,6 @@ object EditDo_F: TEditDo_F
             Width = 97
             Height = 25
             Caption = #1044#1086#1073#1072#1074#1080#1090#1100
-            DoubleBuffered = True
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
@@ -1434,7 +1462,6 @@ object EditDo_F: TEditDo_F
               ECFFF2E6D7FFE2B27DFFDB9465F5B3683B07FFFFFF00FFFFFF00FFFFFF00C17D
               4460C88B4DBBC88C4FEEC88C4FF6C88C4FF7C88C4FF7C88D4FF7C98C4FF7C78B
               4FF7C5894BD4C4763B91B3683C06FFFFFF00FFFFFF00FFFFFF00}
-            ParentDoubleBuffered = False
             ParentFont = False
             TabOrder = 1
             OnClick = Btn_DoTovarAddClick
@@ -1445,7 +1472,6 @@ object EditDo_F: TEditDo_F
             Width = 97
             Height = 25
             Caption = #1048#1079#1084#1077#1085#1080#1090#1100
-            DoubleBuffered = True
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
@@ -1486,7 +1512,6 @@ object EditDo_F: TEditDo_F
               ECFFF2E6D7FFE2B27DFFDB9465F5B3683B07FFFFFF00FFFFFF00FFFFFF00C17D
               4460C88B4DBBC88C4FEEC88C4FF6C88C4FF7C88C4FF7C88D4FF7C98C4FF7C78B
               4FF7C5894BD4C4763B91B3683C06FFFFFF00FFFFFF00FFFFFF00}
-            ParentDoubleBuffered = False
             ParentFont = False
             TabOrder = 2
             OnClick = Btn_DoTovarEditClick
@@ -1497,7 +1522,6 @@ object EditDo_F: TEditDo_F
             Width = 97
             Height = 25
             Caption = #1059#1076#1072#1083#1080#1090#1100
-            DoubleBuffered = True
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
@@ -1546,7 +1570,6 @@ object EditDo_F: TEditDo_F
               F6090909090909FFE2FFFFE2FF09F60909090909F6F6FFF6E2FFFFE2FF090909
               09090909FF0909F4E2FFFFE2FF09090909090909FF09F4EBDAFFFFE2F6FFFFFF
               FFFFFFF6F6F4EBDAFFFFFFE2E2E2E2E2E2E2E2E2E2E2DAFFFFFF}
-            ParentDoubleBuffered = False
             ParentFont = False
             TabOrder = 3
             OnClick = Btn_DoTovarDelClick
@@ -1592,13 +1615,13 @@ object EditDo_F: TEditDo_F
           DynProps = <>
           Flat = True
           FooterParams.Color = clWindow
-          IndicatorOptions = [gioShowRowIndicatorEh]
           ReadOnly = True
           TabOrder = 0
           TitleParams.RowLines = 2
           Columns = <
             item
               Alignment = taCenter
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'NPP'
@@ -1608,6 +1631,7 @@ object EditDo_F: TEditDo_F
               Width = 65
             end
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'NAME_DOC'
@@ -1617,6 +1641,7 @@ object EditDo_F: TEditDo_F
               Width = 303
             end
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'NUM_DOC'
@@ -1626,6 +1651,7 @@ object EditDo_F: TEditDo_F
               Width = 108
             end
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'DATE_DOC'
@@ -1635,6 +1661,7 @@ object EditDo_F: TEditDo_F
               Width = 117
             end
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'OPERATOR_FAM'
@@ -1653,7 +1680,6 @@ object EditDo_F: TEditDo_F
           Height = 25
           Action = A_ActComAdd
           Caption = #1044#1086#1073#1072#1074#1080#1090#1100
-          DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -1694,7 +1720,6 @@ object EditDo_F: TEditDo_F
             ECFFF2E6D7FFE2B27DFFDB9465F5B3683B07FFFFFF00FFFFFF00FFFFFF00C17D
             4460C88B4DBBC88C4FEEC88C4FF6C88C4FF7C88C4FF7C88D4FF7C98C4FF7C78B
             4FF7C5894BD4C4763B91B3683C06FFFFFF00FFFFFF00FFFFFF00}
-          ParentDoubleBuffered = False
           ParentFont = False
           TabOrder = 1
         end
@@ -1705,7 +1730,6 @@ object EditDo_F: TEditDo_F
           Height = 25
           Action = A_ActComEdit
           Caption = #1048#1079#1084#1077#1085#1080#1090#1100
-          DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -1746,7 +1770,6 @@ object EditDo_F: TEditDo_F
             ECFFF2E6D7FFE2B27DFFDB9465F5B3683B07FFFFFF00FFFFFF00FFFFFF00C17D
             4460C88B4DBBC88C4FEEC88C4FF6C88C4FF7C88C4FF7C88D4FF7C98C4FF7C78B
             4FF7C5894BD4C4763B91B3683C06FFFFFF00FFFFFF00FFFFFF00}
-          ParentDoubleBuffered = False
           ParentFont = False
           TabOrder = 2
         end
@@ -1757,7 +1780,6 @@ object EditDo_F: TEditDo_F
           Height = 25
           Action = A_ActComDelete
           Caption = #1059#1076#1072#1083#1080#1090#1100
-          DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -1806,7 +1828,6 @@ object EditDo_F: TEditDo_F
             F6090909090909FFE2FFFFE2FF09F60909090909F6F6FFF6E2FFFFE2FF090909
             09090909FF0909F4E2FFFFE2FF09090909090909FF09F4EBDAFFFFE2F6FFFFFF
             FFFFFFF6F6F4EBDAFFFFFFE2E2E2E2E2E2E2E2E2E2E2DAFFFFFF}
-          ParentDoubleBuffered = False
           ParentFont = False
           TabOrder = 3
         end
@@ -1828,13 +1849,13 @@ object EditDo_F: TEditDo_F
           DynProps = <>
           Flat = True
           FooterParams.Color = clWindow
-          IndicatorOptions = [gioShowRowIndicatorEh]
           RowHeight = 2
           RowLines = 1
           TabOrder = 0
           TitleParams.RowLines = 2
           Columns = <
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'DT_MISM'
@@ -1844,6 +1865,7 @@ object EditDo_F: TEditDo_F
               Width = 132
             end
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'REASONS'
@@ -1853,6 +1875,7 @@ object EditDo_F: TEditDo_F
               Width = 349
             end
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'DESCRIPTION'
@@ -1871,7 +1894,6 @@ object EditDo_F: TEditDo_F
           Height = 25
           Action = A_MismTovAdd
           Caption = #1044#1086#1073#1072#1074#1080#1090#1100
-          DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -1912,7 +1934,6 @@ object EditDo_F: TEditDo_F
             ECFFF2E6D7FFE2B27DFFDB9465F5B3683B07FFFFFF00FFFFFF00FFFFFF00C17D
             4460C88B4DBBC88C4FEEC88C4FF6C88C4FF7C88C4FF7C88D4FF7C98C4FF7C78B
             4FF7C5894BD4C4763B91B3683C06FFFFFF00FFFFFF00FFFFFF00}
-          ParentDoubleBuffered = False
           ParentFont = False
           TabOrder = 1
         end
@@ -1923,7 +1944,6 @@ object EditDo_F: TEditDo_F
           Height = 25
           Action = A_MismTovEdit
           Caption = #1048#1079#1084#1077#1085#1080#1090#1100
-          DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -1964,7 +1984,6 @@ object EditDo_F: TEditDo_F
             ECFFF2E6D7FFE2B27DFFDB9465F5B3683B07FFFFFF00FFFFFF00FFFFFF00C17D
             4460C88B4DBBC88C4FEEC88C4FF6C88C4FF7C88C4FF7C88D4FF7C98C4FF7C78B
             4FF7C5894BD4C4763B91B3683C06FFFFFF00FFFFFF00FFFFFF00}
-          ParentDoubleBuffered = False
           ParentFont = False
           TabOrder = 2
         end
@@ -1975,7 +1994,6 @@ object EditDo_F: TEditDo_F
           Height = 25
           Action = A_MismTovDelete
           Caption = #1059#1076#1072#1083#1080#1090#1100
-          DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -2024,7 +2042,6 @@ object EditDo_F: TEditDo_F
             F6090909090909FFE2FFFFE2FF09F60909090909F6F6FFF6E2FFFFE2FF090909
             09090909FF0909F4E2FFFFE2FF09090909090909FF09F4EBDAFFFFE2F6FFFFFF
             FFFFFFF6F6F4EBDAFFFFFFE2E2E2E2E2E2E2E2E2E2E2DAFFFFFF}
-          ParentDoubleBuffered = False
           ParentFont = False
           TabOrder = 3
         end
@@ -2069,7 +2086,6 @@ object EditDo_F: TEditDo_F
               DynProps = <>
               Flat = True
               FooterParams.Color = clWindow
-              IndicatorOptions = [gioShowRowIndicatorEh]
               Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
               ReadOnly = True
               TabOrder = 0
@@ -2077,6 +2093,7 @@ object EditDo_F: TEditDo_F
               Columns = <
                 item
                   Alignment = taCenter
+                  CellButtons = <>
                   DynProps = <>
                   EditButtons = <>
                   FieldName = 'NPP'
@@ -2085,6 +2102,7 @@ object EditDo_F: TEditDo_F
                   Title.Caption = #8470' '#1087'/'#1087
                 end
                 item
+                  CellButtons = <>
                   DynProps = <>
                   EditButtons = <>
                   FieldName = 'NAME'
@@ -2095,6 +2113,7 @@ object EditDo_F: TEditDo_F
                 end
                 item
                   Alignment = taCenter
+                  CellButtons = <>
                   DynProps = <>
                   EditButtons = <>
                   FieldName = 'NDOC'
@@ -2105,6 +2124,7 @@ object EditDo_F: TEditDo_F
                 end
                 item
                   Alignment = taCenter
+                  CellButtons = <>
                   DynProps = <>
                   EditButtons = <>
                   FieldName = 'DDOC'
@@ -2123,7 +2143,6 @@ object EditDo_F: TEditDo_F
               Height = 44
               Action = A_LinkGtdTov
               Caption = #1055#1088#1080#1082#1088#1077#1087#1080#1090#1100
-              DoubleBuffered = True
               Glyph.Data = {
                 36030000424D3603000000000000360000002800000010000000100000000100
                 1800000000000003000000000000000000000000000000000000FFFFFFFFFFFF
@@ -2151,7 +2170,6 @@ object EditDo_F: TEditDo_F
                 FFFFFFFFFFFFFFFFFF202020000000FFFFFF606060202020FFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000040
                 4040202020000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-              ParentDoubleBuffered = False
               TabOrder = 1
             end
             object Btn_DetachDoc: TBitBtn
@@ -2160,7 +2178,6 @@ object EditDo_F: TEditDo_F
               Width = 89
               Height = 25
               Caption = #1054#1090#1082#1088#1077#1087#1080#1090#1100
-              DoubleBuffered = True
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clWindowText
               Font.Height = -11
@@ -2209,7 +2226,6 @@ object EditDo_F: TEditDo_F
                 F6090909090909FFE2FFFFE2FF09F60909090909F6F6FFF6E2FFFFE2FF090909
                 09090909FF0909F4E2FFFFE2FF09090909090909FF09F4EBDAFFFFE2F6FFFFFF
                 FFFFFFF6F6F4EBDAFFFFFFE2E2E2E2E2E2E2E2E2E2E2DAFFFFFF}
-              ParentDoubleBuffered = False
               ParentFont = False
               TabOrder = 2
               OnClick = Btn_DetachDocClick
@@ -2234,7 +2250,6 @@ object EditDo_F: TEditDo_F
               Flat = True
               FooterRowCount = 1
               FooterParams.Color = clWhite
-              IndicatorOptions = [gioShowRowIndicatorEh]
               Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgMultiSelect]
               ReadOnly = True
               SumList.Active = True
@@ -2244,6 +2259,7 @@ object EditDo_F: TEditDo_F
               OnDrawColumnCell = Grid_Do2TovDrawColumnCell
               Columns = <
                 item
+                  CellButtons = <>
                   DynProps = <>
                   EditButtons = <>
                   FieldName = 'G42_OST'
@@ -2259,6 +2275,7 @@ object EditDo_F: TEditDo_F
                   Width = 25
                 end
                 item
+                  CellButtons = <>
                   DynProps = <>
                   EditButtons = <>
                   FieldName = 'G33'
@@ -2268,6 +2285,7 @@ object EditDo_F: TEditDo_F
                 end
                 item
                   Alignment = taCenter
+                  CellButtons = <>
                   DynProps = <>
                   EditButtons = <>
                   FieldName = 'G32_N'
@@ -2277,6 +2295,7 @@ object EditDo_F: TEditDo_F
                 end
                 item
                   Alignment = taCenter
+                  CellButtons = <>
                   DynProps = <>
                   EditButtons = <>
                   FieldName = 'G32'
@@ -2288,6 +2307,7 @@ object EditDo_F: TEditDo_F
                   Width = 36
                 end
                 item
+                  CellButtons = <>
                   DynProps = <>
                   EditButtons = <>
                   FieldName = 'G31_1'
@@ -2300,6 +2320,7 @@ object EditDo_F: TEditDo_F
                 end
                 item
                   Alignment = taCenter
+                  CellButtons = <>
                   DynProps = <>
                   EditButtons = <>
                   FieldName = 'G221'
@@ -2319,6 +2340,7 @@ object EditDo_F: TEditDo_F
                 end
                 item
                   Alignment = taRightJustify
+                  CellButtons = <>
                   DisplayFormat = '0.00'
                   DynProps = <>
                   EditButtons = <>
@@ -2340,6 +2362,7 @@ object EditDo_F: TEditDo_F
                 end
                 item
                   Alignment = taRightJustify
+                  CellButtons = <>
                   Color = clYellow
                   DynProps = <>
                   EditButtons = <>
@@ -2366,6 +2389,7 @@ object EditDo_F: TEditDo_F
                 end
                 item
                   Alignment = taCenter
+                  CellButtons = <>
                   DynProps = <>
                   EditButtons = <>
                   FieldName = 'G31_2_HUMAN'
@@ -2386,6 +2410,7 @@ object EditDo_F: TEditDo_F
                 end
                 item
                   Alignment = taCenter
+                  CellButtons = <>
                   Color = clYellow
                   DynProps = <>
                   EditButtons = <>
@@ -2412,6 +2437,7 @@ object EditDo_F: TEditDo_F
                 end
                 item
                   Alignment = taRightJustify
+                  CellButtons = <>
                   DynProps = <>
                   EditButtons = <>
                   FieldName = 'G35'
@@ -2432,6 +2458,7 @@ object EditDo_F: TEditDo_F
                 end
                 item
                   Alignment = taRightJustify
+                  CellButtons = <>
                   Color = clYellow
                   DynProps = <>
                   EditButtons = <>
@@ -2465,7 +2492,6 @@ object EditDo_F: TEditDo_F
               Width = 97
               Height = 25
               Caption = #1044#1086#1073#1072#1074#1080#1090#1100
-              DoubleBuffered = True
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clWindowText
               Font.Height = -11
@@ -2506,7 +2532,6 @@ object EditDo_F: TEditDo_F
                 ECFFF2E6D7FFE2B27DFFDB9465F5B3683B07FFFFFF00FFFFFF00FFFFFF00C17D
                 4460C88B4DBBC88C4FEEC88C4FF6C88C4FF7C88C4FF7C88D4FF7C98C4FF7C78B
                 4FF7C5894BD4C4763B91B3683C06FFFFFF00FFFFFF00FFFFFF00}
-              ParentDoubleBuffered = False
               ParentFont = False
               TabOrder = 1
               OnClick = Btn_Do2TovAddClick
@@ -2517,7 +2542,6 @@ object EditDo_F: TEditDo_F
               Width = 97
               Height = 25
               Caption = #1048#1079#1084#1077#1085#1080#1090#1100
-              DoubleBuffered = True
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clWindowText
               Font.Height = -11
@@ -2558,7 +2582,6 @@ object EditDo_F: TEditDo_F
                 ECFFF2E6D7FFE2B27DFFDB9465F5B3683B07FFFFFF00FFFFFF00FFFFFF00C17D
                 4460C88B4DBBC88C4FEEC88C4FF6C88C4FF7C88C4FF7C88D4FF7C98C4FF7C78B
                 4FF7C5894BD4C4763B91B3683C06FFFFFF00FFFFFF00FFFFFF00}
-              ParentDoubleBuffered = False
               ParentFont = False
               TabOrder = 2
               OnClick = Btn_Do2TovEditClick
@@ -2569,7 +2592,6 @@ object EditDo_F: TEditDo_F
               Width = 89
               Height = 25
               Caption = #1059#1076#1072#1083#1080#1090#1100
-              DoubleBuffered = True
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clWindowText
               Font.Height = -11
@@ -2618,7 +2640,6 @@ object EditDo_F: TEditDo_F
                 F6090909090909FFE2FFFFE2FF09F60909090909F6F6FFF6E2FFFFE2FF090909
                 09090909FF0909F4E2FFFFE2FF09090909090909FF09F4EBDAFFFFE2F6FFFFFF
                 FFFFFFF6F6F4EBDAFFFFFFE2E2E2E2E2E2E2E2E2E2E2DAFFFFFF}
-              ParentDoubleBuffered = False
               ParentFont = False
               TabOrder = 3
               OnClick = Btn_Do2TovDel
@@ -2645,11 +2666,11 @@ object EditDo_F: TEditDo_F
               DynProps = <>
               Flat = True
               FooterParams.Color = clWindow
-              IndicatorOptions = [gioShowRowIndicatorEh]
               TabOrder = 0
               TitleParams.RowLines = 2
               Columns = <
                 item
+                  CellButtons = <>
                   DynProps = <>
                   EditButtons = <>
                   FieldName = 'NPP'
@@ -2659,6 +2680,7 @@ object EditDo_F: TEditDo_F
                   Width = 52
                 end
                 item
+                  CellButtons = <>
                   DynProps = <>
                   EditButtons = <>
                   FieldName = 'TYPE_DOC'
@@ -2668,6 +2690,7 @@ object EditDo_F: TEditDo_F
                   Width = 46
                 end
                 item
+                  CellButtons = <>
                   DynProps = <>
                   EditButtons = <>
                   FieldName = 'NAME'
@@ -2677,6 +2700,7 @@ object EditDo_F: TEditDo_F
                   Width = 228
                 end
                 item
+                  CellButtons = <>
                   DynProps = <>
                   EditButtons = <>
                   FieldName = 'NDOC'
@@ -2686,6 +2710,7 @@ object EditDo_F: TEditDo_F
                   Width = 237
                 end
                 item
+                  CellButtons = <>
                   DynProps = <>
                   EditButtons = <>
                   FieldName = 'DDOC'
@@ -2695,6 +2720,7 @@ object EditDo_F: TEditDo_F
                   Width = 149
                 end
                 item
+                  CellButtons = <>
                   DynProps = <>
                   EditButtons = <>
                   FieldName = 'TDOC'
@@ -2720,7 +2746,6 @@ object EditDo_F: TEditDo_F
               Width = 97
               Height = 28
               Caption = #1044#1086#1073#1072#1074#1080#1090#1100
-              DoubleBuffered = True
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clWindowText
               Font.Height = -11
@@ -2761,7 +2786,6 @@ object EditDo_F: TEditDo_F
                 ECFFF2E6D7FFE2B27DFFDB9465F5B3683B07FFFFFF00FFFFFF00FFFFFF00C17D
                 4460C88B4DBBC88C4FEEC88C4FF6C88C4FF7C88C4FF7C88D4FF7C98C4FF7C78B
                 4FF7C5894BD4C4763B91B3683C06FFFFFF00FFFFFF00FFFFFF00}
-              ParentDoubleBuffered = False
               ParentFont = False
               TabOrder = 0
               OnClick = Btn_Do2DocAddClick
@@ -2772,7 +2796,6 @@ object EditDo_F: TEditDo_F
               Width = 96
               Height = 28
               Caption = #1048#1079#1084#1077#1085#1080#1090#1100
-              DoubleBuffered = True
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clWindowText
               Font.Height = -11
@@ -2813,7 +2836,6 @@ object EditDo_F: TEditDo_F
                 ECFFF2E6D7FFE2B27DFFDB9465F5B3683B07FFFFFF00FFFFFF00FFFFFF00C17D
                 4460C88B4DBBC88C4FEEC88C4FF6C88C4FF7C88C4FF7C88D4FF7C98C4FF7C78B
                 4FF7C5894BD4C4763B91B3683C06FFFFFF00FFFFFF00FFFFFF00}
-              ParentDoubleBuffered = False
               ParentFont = False
               TabOrder = 1
               OnClick = Btn_Do2DocEditClick
@@ -2824,7 +2846,6 @@ object EditDo_F: TEditDo_F
               Width = 87
               Height = 28
               Caption = #1059#1076#1072#1083#1080#1090#1100
-              DoubleBuffered = True
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clWindowText
               Font.Height = -11
@@ -2873,7 +2894,6 @@ object EditDo_F: TEditDo_F
                 F6090909090909FFE2FFFFE2FF09F60909090909F6F6FFF6E2FFFFE2FF090909
                 09090909FF0909F4E2FFFFE2FF09090909090909FF09F4EBDAFFFFE2F6FFFFFF
                 FFFFFFF6F6F4EBDAFFFFFFE2E2E2E2E2E2E2E2E2E2E2DAFFFFFF}
-              ParentDoubleBuffered = False
               ParentFont = False
               TabOrder = 2
               OnClick = Btn_Do2DocDelClick
@@ -2913,7 +2933,6 @@ object EditDo_F: TEditDo_F
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           FooterParams.Color = clWindow
-          IndicatorOptions = [gioShowRowIndicatorEh]
           Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
           ParentFont = False
           ReadOnly = True
@@ -2921,6 +2940,7 @@ object EditDo_F: TEditDo_F
           TitleParams.RowLines = 2
           Columns = <
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'DO2_STATN'
@@ -2930,6 +2950,7 @@ object EditDo_F: TEditDo_F
               Width = 77
             end
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'G072'
@@ -2939,6 +2960,7 @@ object EditDo_F: TEditDo_F
               Width = 119
             end
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'LIC_NUM'
@@ -2948,6 +2970,7 @@ object EditDo_F: TEditDo_F
               Width = 149
             end
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'LIC_DATE'
@@ -2957,6 +2980,7 @@ object EditDo_F: TEditDo_F
               Width = 125
             end
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'G02_2'
@@ -2966,6 +2990,7 @@ object EditDo_F: TEditDo_F
               Width = 132
             end
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'G02_3'
@@ -2975,6 +3000,7 @@ object EditDo_F: TEditDo_F
               Width = 138
             end
             item
+              CellButtons = <>
               DynProps = <>
               EditButtons = <>
               FieldName = 'ID_ACT_OUT'
@@ -2989,7 +3015,6 @@ object EditDo_F: TEditDo_F
           Width = 97
           Height = 25
           Caption = #1044#1086#1073#1072#1074#1080#1090#1100
-          DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -3030,7 +3055,6 @@ object EditDo_F: TEditDo_F
             ECFFF2E6D7FFE2B27DFFDB9465F5B3683B07FFFFFF00FFFFFF00FFFFFF00C17D
             4460C88B4DBBC88C4FEEC88C4FF6C88C4FF7C88C4FF7C88D4FF7C98C4FF7C78B
             4FF7C5894BD4C4763B91B3683C06FFFFFF00FFFFFF00FFFFFF00}
-          ParentDoubleBuffered = False
           ParentFont = False
           TabOrder = 1
           OnClick = Btn_Do2Hd_AddClick
@@ -3041,7 +3065,6 @@ object EditDo_F: TEditDo_F
           Width = 97
           Height = 25
           Caption = #1048#1079#1084#1077#1085#1080#1090#1100
-          DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -3082,7 +3105,6 @@ object EditDo_F: TEditDo_F
             ECFFF2E6D7FFE2B27DFFDB9465F5B3683B07FFFFFF00FFFFFF00FFFFFF00C17D
             4460C88B4DBBC88C4FEEC88C4FF6C88C4FF7C88C4FF7C88D4FF7C98C4FF7C78B
             4FF7C5894BD4C4763B91B3683C06FFFFFF00FFFFFF00FFFFFF00}
-          ParentDoubleBuffered = False
           ParentFont = False
           TabOrder = 2
         end
@@ -3093,7 +3115,6 @@ object EditDo_F: TEditDo_F
           Height = 25
           Action = A_Do2Delete
           Caption = #1059#1076#1072#1083#1080#1090#1100
-          DoubleBuffered = True
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -3142,7 +3163,6 @@ object EditDo_F: TEditDo_F
             F6090909090909FFE2FFFFE2FF09F60909090909F6F6FFF6E2FFFFE2FF090909
             09090909FF0909F4E2FFFFE2FF09090909090909FF09F4EBDAFFFFE2F6FFFFFF
             FFFFFFF6F6F4EBDAFFFFFFE2E2E2E2E2E2E2E2E2E2E2DAFFFFFF}
-          ParentDoubleBuffered = False
           ParentFont = False
           TabOrder = 3
         end
@@ -3155,7 +3175,6 @@ object EditDo_F: TEditDo_F
     Width = 96
     Height = 25
     Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
-    DoubleBuffered = True
     Glyph.Data = {
       36030000424D3603000000000000360000002800000010000000100000000100
       1800000000000003000000000000000000000000000000000000202020404040
@@ -3183,7 +3202,6 @@ object EditDo_F: TEditDo_F
       C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C060DF
       6090B090C0C0C04040403F3F3F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F
       7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F202020}
-    ParentDoubleBuffered = False
     TabOrder = 1
     OnClick = SaveBtnClick
   end
@@ -3193,7 +3211,6 @@ object EditDo_F: TEditDo_F
     Width = 88
     Height = 25
     Caption = #1042#1099#1093#1086#1076
-    DoubleBuffered = True
     Glyph.Data = {
       36030000424D3603000000000000360000002800000010000000100000000100
       1800000000000003000000000000000000000000000000000000FFFFFFFFFFFF
@@ -3222,7 +3239,6 @@ object EditDo_F: TEditDo_F
       20FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00004000007F0000BF00
       00BF0000BF00007F000040FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
     ModalResult = 2
-    ParentDoubleBuffered = False
     TabOrder = 2
     OnClick = CancBtnClick
   end
@@ -3232,7 +3248,6 @@ object EditDo_F: TEditDo_F
     Width = 96
     Height = 25
     Caption = #1055#1077#1095#1072#1090#1100
-    DoubleBuffered = True
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       2000000000000004000000000000000000000000000000000000FF00FF00FF00
@@ -3268,7 +3283,6 @@ object EditDo_F: TEditDo_F
       7F007F7F7F007F7F7F007F7F7F003F3F3F00FF00FF00FF00FF00FF00FF00FF00
       FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
       FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00}
-    ParentDoubleBuffered = False
     TabOrder = 3
     OnClick = PrintBtnClick
   end
@@ -3278,7 +3292,6 @@ object EditDo_F: TEditDo_F
     Width = 89
     Height = 25
     Caption = #1054#1073#1085#1086#1074#1080#1090#1100
-    DoubleBuffered = True
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       2000000000000004000000000000000000000000000000000000FF00FF00FF00
@@ -3314,7 +3327,6 @@ object EditDo_F: TEditDo_F
       C000A4A0A000A4A0A000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00C0C0
       C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
       C000A4A0A000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00}
-    ParentDoubleBuffered = False
     TabOrder = 4
     OnClick = RefBtnClick
   end
@@ -3370,7 +3382,7 @@ object EditDo_F: TEditDo_F
     Left = 568
     Top = 96
     Bitmap = {
-      494C0101010084002C0110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010101008400040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

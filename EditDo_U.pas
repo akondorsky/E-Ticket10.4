@@ -8,7 +8,7 @@ uses
   DBGridEh, ActnList, DBGridEhGrouping, GridsEh, DBCtrls, Menus, DB,
   ImgList, PropFilerEh, PropStorageEh,Consts, ExtCtrls, ToolCtrlsEh,
   DBGridEhToolCtrls, DynVarsEh, DBAxisGridsEh, PlatformDefaultStyleActnCtrls,
-  ActnMan, DBCtrlsEh;
+  ActnMan, DBCtrlsEh, System.ImageList, System.Actions, EhLibVCL;
 
 type
   TEditDo_F = class(TForm)
@@ -146,6 +146,9 @@ type
     A_LinkGtdTov: TAction;
     E_FName: TButtonedEdit;
     E_G072: TDBDateTimeEditEh;
+    Label1: TLabel;
+    E_RCountryName: TEdit;
+    E_RCountryCode: TButtonedEdit;
     procedure CancBtnClick(Sender: TObject);
     procedure SaveBtnClick(Sender: TObject);
     procedure E_G14FamKeyPress(Sender: TObject; var Key: Char);
@@ -252,6 +255,9 @@ type
     procedure E_FNameRightButtonClick(Sender: TObject);
     procedure E_CntryKodKeyPress(Sender: TObject; var Key: Char);
     procedure E_FCntryKodKeyPress(Sender: TObject; var Key: Char);
+    procedure E_RCountryCodeChange(Sender: TObject);
+    procedure E_RCountryCodeKeyPress(Sender: TObject; var Key: Char);
+    procedure E_RCountryCodeRightButtonClick(Sender: TObject);
   private
     { Private declarations }
     procedure GetValues;
@@ -486,8 +492,11 @@ begin
   E_RName.Text:=DM.Qry_DoHead.FieldByName('R_NAME').AsString;
   E_RAddr.Text:=DM.Qry_DoHead.FieldByName('R_ADDRESS').AsString;
   E_RInn.Text:=DM.Qry_DoHead.FieldByName('R_INN').AsString;
+  E_RInn.Enabled:=True;
   E_RKpp.Text:=DM.Qry_DoHead.FieldByName('R_KPP').AsString;
+  E_RKPP.Enabled:=True;
   E_ROgrn.Text:=DM.Qry_DoHead.FieldByName('R_OGRN').AsString;
+  E_ROGRN.Enabled:=True;
   E_CName.Text:=DM.Qry_DoHead.FieldByName('C_NAME').AsString;
   E_CADDR.Text:=DM.Qry_DoHead.FieldByName('C_ADDR').AsString;
   E_CINN.Text:=DM.Qry_DoHead.FieldByName('C_INN').AsString;
@@ -495,6 +504,7 @@ begin
   E_CKPP.Text:=DM.Qry_DoHead.FieldByName('C_KPP').AsString;
   E_CFAM.Text:=DM.Qry_DoHead.FieldByName('C_FAM').AsString;
   E_CntryKod.Text:=DM.Qry_DoHead.FieldByName('C_COUNTRY').AsString;
+  E_RCountryCode.Text:=DM.Qry_DoHead.FieldByName('R_COUNTRY').AsString;
 end;
 procedure TEditDo_F.CancBtnClick(Sender: TObject);
 begin
@@ -513,7 +523,7 @@ try
  s:='update do_head set  ';
  s:=s+'  c_inn=:p0,  c_name=:p1,  c_addr=:p2,  c_ogrn=:p3,  c_kpp=:p4,  c_fam=:p5,c_country=:p6, '  ;
  s:=s+'  f_name=:p7,f_address=:p8, f_country=:p9,   r_name=:p10,r_address=:p11,r_inn=:p12,r_kpp=:p13,r_ogrn=:p14,';
- s:=s+'  g072=:p15 where id=:p16  ';
+ s:=s+'  g072=:p15, r_country=:p16 where id=:p17  ';
  DM.sql.Close;
  DM.sql.SQL.Clear;
  DM.sql.SQL.Add(s);
@@ -534,7 +544,8 @@ try
   DM.Sql.Params[13].AsString:=E_RKPP.Text;
   DM.Sql.Params[14].AsString:=E_ROGRN.Text;
   DM.Sql.Params[15].value:= E_G072.Value;
-  DM.Sql.Params[16].AsInteger:=Id_rec;
+  DM.Sql.Params[16].AsString:=E_RCountryCode.Text;
+  DM.Sql.Params[17].AsInteger:=Id_rec;
   DM.Sql.ExecQuery;
   (Sender as TBitBtn).Enabled:=False;
    SetEditColor;
@@ -626,12 +637,18 @@ begin
          SelectNext(Sender as TWinControl, True, True);
          Key := #0;
        end
-     else if  not ( Key in ['A'..'Z']) then Key:=#0;
+     else if  not ( Key in ['A'..'Z',#8]) then Key:=#0;
 end;
 
 procedure TEditDo_F.E_CntryKodRightButtonClick(Sender: TObject);
 begin
- if CountryCode_F.ShowModal=mrOk then E_CntryKod.Text:=CountryCode_F.Grid_Countries.DataSource.DataSet.FieldByName('ALPHA2').AsString;
+ if CountryCode_F.ShowModal=mrOk then
+    begin
+     E_CntryKod.Text:=CountryCode_F.Grid_Countries.DataSource.DataSet.FieldByName('ALPHA2').AsString;
+     E_CountryName.Text:=CountryCode_F.Grid_Countries.DataSource.DataSet.FieldByName('NAME').AsString;
+    end;
+
+
 
 end;
 
@@ -772,6 +789,12 @@ GetValues;
 SetEditColor;
 PageControl1.ActivePageIndex:=0;
 SaveBtn.Enabled:=False;
+if E_RCountryCode.Text <> 'RU' then
+  begin
+    E_RInn.Enabled:=False;
+    E_RKPP.Enabled:=False;
+    E_ROGRN.Enabled:=False;
+  end;
 // проверим, кто вызвал форму
 case Do1_F.DoEdit_Sender of
   // GridDo1 - редактирование разрешено
@@ -875,6 +898,48 @@ begin
  if not SaveBtn.Enabled then SaveBtn.Enabled:=True;
 end;
 
+procedure TEditDo_F.E_RCountryCodeChange(Sender: TObject);
+begin
+  E_RCountryName.Text:=CountryCode_F.FindCountry(Trim(E_RCountryCode.Text));
+ (Sender as TButtonedEdit).Color:=clYellow;
+ (Sender as TButtonedEdit).Font.Color:=clBlue;
+ if not SaveBtn.Enabled then SaveBtn.Enabled:=True;
+ if E_RCountryCode.Text <> 'RU' then
+    begin
+      E_RInn.Clear;
+      E_RInn.Enabled:=False;
+      E_RKPP.Clear;
+      E_RKPP.Enabled:=False;
+      E_ROGRN.Clear;
+      E_ROGRN.Enabled:=False;
+    end
+   else
+    begin
+      E_RInn.Enabled:=True;
+      E_RKPP.Enabled:=True;
+      E_ROGRN.Enabled:=True;
+    end;
+end;
+
+procedure TEditDo_F.E_RCountryCodeKeyPress(Sender: TObject; var Key: Char);
+begin
+     if Key = #13 then
+       begin
+         SelectNext(Sender as TWinControl, True, True);
+         Key := #0;
+       end
+     else if  not ( Key in ['A'..'Z',#8]) then Key:=#0;
+end;
+
+procedure TEditDo_F.E_RCountryCodeRightButtonClick(Sender: TObject);
+begin
+if CountryCode_F.ShowModal=mrOk then
+  begin
+     E_RCountryCode.Text:=CountryCode_F.Grid_Countries.DataSource.DataSet.FieldByName('ALPHA2').AsString;
+     E_RCountryName.Text:=CountryCode_F.Grid_Countries.DataSource.DataSet.FieldByName('NAME').AsString;
+  end;
+end;
+
 procedure TEditDo_F.E_RCountryExit(Sender: TObject);
 begin
 //E_RCntryname.Text:=FormOksmt.FindCountry(Trim(E_RCountry.Text));
@@ -963,12 +1028,16 @@ begin
          SelectNext(Sender as TWinControl, True, True);
          Key := #0;
        end
-     else if  not ( Key in ['A'..'Z']) then Key:=#0;
+     else if  not ( Key in ['A'..'Z',#8]) then Key:=#0;
 end;
 
 procedure TEditDo_F.E_FCntryKodRightButtonClick(Sender: TObject);
 begin
-if CountryCode_F.ShowModal=mrOk then E_FCntryKod.Text:=CountryCode_F.Grid_Countries.DataSource.DataSet.FieldByName('ALPHA2').AsString;
+if CountryCode_F.ShowModal=mrOk then
+  begin
+     E_FCntryKod.Text:=CountryCode_F.Grid_Countries.DataSource.DataSet.FieldByName('ALPHA2').AsString;
+     E_FCNTRYName.Text:=CountryCode_F.Grid_Countries.DataSource.DataSet.FieldByName('NAME').AsString;
+  end;
 end;
 
 procedure TEditDo_F.Btn_TransAddClick(Sender: TObject);
