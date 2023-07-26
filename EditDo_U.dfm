@@ -410,7 +410,7 @@ object EditDo_F: TEditDo_F
           Top = 39
           Width = 641
           Height = 21
-          TabOrder = 0
+          TabOrder = 1
           OnChange = E_RAddrChange
         end
         object E_RInn: TEdit
@@ -431,7 +431,7 @@ object EditDo_F: TEditDo_F
           Height = 21
           MaxLength = 9
           NumbersOnly = True
-          TabOrder = 1
+          TabOrder = 4
           OnChange = E_RKPPChange
         end
         object E_ROGRN: TEdit
@@ -441,7 +441,7 @@ object EditDo_F: TEditDo_F
           Height = 21
           MaxLength = 15
           NumbersOnly = True
-          TabOrder = 2
+          TabOrder = 5
           OnChange = E_ROGRNChange
         end
         object E_RName: TEdit
@@ -449,7 +449,7 @@ object EditDo_F: TEditDo_F
           Top = 15
           Width = 641
           Height = 21
-          TabOrder = 4
+          TabOrder = 0
           OnChange = E_RNameChange
           OnKeyPress = E_FAddrKeyPress
         end
@@ -459,7 +459,7 @@ object EditDo_F: TEditDo_F
           Width = 121
           Height = 21
           Enabled = False
-          TabOrder = 5
+          TabOrder = 6
         end
         object E_RCountryCode: TButtonedEdit
           Left = 821
@@ -470,8 +470,8 @@ object EditDo_F: TEditDo_F
           MaxLength = 2
           RightButton.ImageIndex = 1
           RightButton.Visible = True
-          TabOrder = 6
-          OnChange = E_RCountryCodeChange
+          TabOrder = 2
+          OnExit = E_RCountryCodeExit
           OnKeyPress = E_RCountryCodeKeyPress
           OnRightButtonClick = E_RCountryCodeRightButtonClick
         end

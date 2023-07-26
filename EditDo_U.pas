@@ -255,9 +255,9 @@ type
     procedure E_FNameRightButtonClick(Sender: TObject);
     procedure E_CntryKodKeyPress(Sender: TObject; var Key: Char);
     procedure E_FCntryKodKeyPress(Sender: TObject; var Key: Char);
-    procedure E_RCountryCodeChange(Sender: TObject);
     procedure E_RCountryCodeKeyPress(Sender: TObject; var Key: Char);
     procedure E_RCountryCodeRightButtonClick(Sender: TObject);
+    procedure E_RCountryCodeExit(Sender: TObject);
   private
     { Private declarations }
     procedure GetValues;
@@ -898,7 +898,7 @@ begin
  if not SaveBtn.Enabled then SaveBtn.Enabled:=True;
 end;
 
-procedure TEditDo_F.E_RCountryCodeChange(Sender: TObject);
+procedure TEditDo_F.E_RCountryCodeExit(Sender: TObject);
 begin
   E_RCountryName.Text:=CountryCode_F.FindCountry(Trim(E_RCountryCode.Text));
  (Sender as TButtonedEdit).Color:=clYellow;
@@ -938,6 +938,7 @@ if CountryCode_F.ShowModal=mrOk then
      E_RCountryCode.Text:=CountryCode_F.Grid_Countries.DataSource.DataSet.FieldByName('ALPHA2').AsString;
      E_RCountryName.Text:=CountryCode_F.Grid_Countries.DataSource.DataSet.FieldByName('NAME').AsString;
   end;
+E_RCountryCodeExit(Sender as TButtonedEdit);
 end;
 
 procedure TEditDo_F.E_RCountryExit(Sender: TObject);
