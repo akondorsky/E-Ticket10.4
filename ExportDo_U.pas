@@ -469,7 +469,7 @@ var
   Guid:TGUID;
   DocId,ReportDate,ReportTime,CarCntryName:String;
   TotalPlaces:Double;
-  ConsName,ConsAddress,ConsInn,ConsKpp,ConsOgrn:String ;
+  ConsName,ConsAddress,ConsInn,ConsKpp,ConsOgrn,ConsCountry:String ;
   Qry_svh:TIbquery;
 begin
  try
@@ -491,7 +491,7 @@ begin
  //открываем источник До2
  DM.Qry.Close;
  DM.Qry.SQL.Clear;
- DM.Qry.SQL.Add('select a.*,c.r_name,c.r_address,c.r_inn,c.r_kpp,c.r_ogrn,c.id_svh as svh ');
+ DM.Qry.SQL.Add('select a.*,c.r_name,c.r_address,c.r_inn,c.r_kpp,c.r_ogrn,c.id_svh as svh,c.r_country ');
  DM.Qry.SQL.Add(format(' from do_outhd a left join do_head_vw c on a.id_do1=c.id where a.id = %s ',[IntToStr(Id_Do2)]));
  DM.Qry.Open;
  ConsName:=DM.Qry.FieldByName('R_NAME').AsString;
@@ -499,6 +499,7 @@ begin
  ConsInn:=DM.Qry.FieldByName('R_INN').AsString;
  ConsKpp:=DM.Qry.FieldByName('R_KPP').AsString;
  ConsOgrn:=DM.Qry.FieldByName('R_OGRN').AsString;
+ ConsCountry:=DM.Qry.FieldByName('R_COUNTRY').AsString;
  //получили свидетельство и данные владельца
  Qry_svh.SQL.Add('select * from svh where id = :p0');
  Qry_svh.Params[0].AsInteger:=DM.Qry.FieldByName('SVH').AsInteger;;
@@ -675,11 +676,14 @@ begin
     Xml. Add (format('           <do2r:OutputTime>%s</do2r:OutputTime>',[ReportTime]));
     Xml. Add ('                  <do2r:Consignee>');
     Xml. Add (format('               <cat_ru:OrganizationName>%s</cat_ru:OrganizationName>',[ConsName]));
-    Xml. Add ('                      <cat_ru:RFOrganizationFeatures>');
-    Xml. Add (format('               <cat_ru:OGRN>%s</cat_ru:OGRN>',[ConsOgrn]));
-    Xml. Add (format('               <cat_ru:INN>%s</cat_ru:INN>',[ConsInn]));
-    Xml. Add (format('               <cat_ru:KPP>%s</cat_ru:KPP>',[ConsKpp]));
-    Xml. Add ('                      </cat_ru:RFOrganizationFeatures>');
+        if ConsCountry = 'RU' then
+      begin
+        Xml. Add ('                   <cat_ru:RFOrganizationFeatures>');
+        Xml. Add (format('               <cat_ru:OGRN>%s</cat_ru:OGRN>',[ConsOgrn]));
+        Xml. Add (format('               <cat_ru:INN>%s</cat_ru:INN>',[ConsInn]));
+        Xml. Add (format('               <cat_ru:KPP>%s</cat_ru:KPP>',[ConsKpp]));
+        Xml. Add ('                   </cat_ru:RFOrganizationFeatures>');
+      end;
     Xml. Add ('                      <catWH_ru:Address>');
     Xml. Add (format('                   <catWH_ru:AddressLine>%s</catWH_ru:AddressLine>',[ConsAddress]));
     Xml. Add ('                      </catWH_ru:Address>');
