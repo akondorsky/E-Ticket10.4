@@ -210,9 +210,11 @@ begin
  for i:=1 to Length(Source) do
   begin
     case Source[i] of
-      #38: d:='&amp;';
-      #60: d:='&lt;';
-      #62: d:='&gt;';
+     '<' : d:= '&lt;';
+     '>' : d:= '&gt;';
+     '&' : d:= '&amp;';
+     #39 : d:= '&apos;';
+     #34 : d:= '&quot;';
      else
       d:=Source[i];
     end;
@@ -220,6 +222,7 @@ begin
   end;
 Result:=Dest;
 end;
+
 
 function CalledMethName(Obj: TObject): string;
 var

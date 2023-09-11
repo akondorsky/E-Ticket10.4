@@ -39,7 +39,6 @@ implementation
 {$R *.dfm}
 uses dm_u, Do1_u,myutils;
 
-
 procedure TExportDo_F.BitBtn1Click(Sender: TObject);
 var
  N_Do1,N_Do2:String;
@@ -295,10 +294,11 @@ begin
    Xml. Add ('          </catWH_ru:WarehousePerson>');
    Xml. Add ('				</catWH_ru:WarehouseOwner>');
    Xml. Add ('				<do1r:Carrier>');
+
    Xml. Add (format('      <cat_ru:OrganizationName>%s</cat_ru:OrganizationName>',[XMLCorrect(DM.Qry.FieldByName('C_NAME').AsString)]));
    Xml. Add (format('      <catWH_ru:CountryCode>%s</catWH_ru:CountryCode>',[DM.Qry.FieldByName('C_COUNTRY').AsString]));
    Xml. Add ('             <catWH_ru:Address>');
-   Xml. Add (format('        <catWH_ru:AddressLine>%s</catWH_ru:AddressLine>',[DM.Qry.FieldByName('C_ADDR').AsString]));
+   Xml. Add (format('        <catWH_ru:AddressLine>%s</catWH_ru:AddressLine>',[XMLCorrect(DM.Qry.FieldByName('C_ADDR').AsString])));
    Xml. Add ('             </catWH_ru:Address>');
    Xml. Add ('             <catWH_ru:CarrierPerson>');
    Xml. Add (format('        <cat_ru:PersonSurname>%s</cat_ru:PersonSurname>',[PersonLastName(DM.Qry.FieldByName('C_FAM').AsString)]));
@@ -494,8 +494,8 @@ begin
  DM.Qry.SQL.Add('select a.*,c.r_name,c.r_address,c.r_inn,c.r_kpp,c.r_ogrn,c.id_svh as svh,c.r_country ');
  DM.Qry.SQL.Add(format(' from do_outhd a left join do_head_vw c on a.id_do1=c.id where a.id = %s ',[IntToStr(Id_Do2)]));
  DM.Qry.Open;
- ConsName:=DM.Qry.FieldByName('R_NAME').AsString;
- ConsAddress:=DM.Qry.FieldByName('R_ADDRESS').AsString;
+ ConsName:=XMLCorrect(DM.Qry.FieldByName('R_NAME').AsString);
+ ConsAddress:=XMLCorrect(DM.Qry.FieldByName('R_ADDRESS').AsString);
  ConsInn:=DM.Qry.FieldByName('R_INN').AsString;
  ConsKpp:=DM.Qry.FieldByName('R_KPP').AsString;
  ConsOgrn:=DM.Qry.FieldByName('R_OGRN').AsString;
@@ -591,11 +591,6 @@ begin
     Xml. Add (format('    <cat_ru:PrDocumentNumber>%s</cat_ru:PrDocumentNumber>',[DM.Qry.FieldByName('NDOC').AsString]));
     Xml. Add (format('    <cat_ru:PrDocumentDate>%s</cat_ru:PrDocumentDate>',[DateToIso(DM.Qry.FieldByName('DDOC').AsDateTime)]));
     Xml. Add (format('    <catWH_ru:PresentedDocumentModeCode>%s</catWH_ru:PresentedDocumentModeCode>',[DM.Qry.FieldByName('TYPE_DOC').AsString]));
-//    Xml. Add ('           <catWH_ru:WhGoodOutRegisterNumber>');
-//    Xml. Add (format('       <cat_ru:CustomsCode>%s</cat_ru:CustomsCode>',[Copy(DM.Qry.FieldByName('NDOC').AsString,1,8)]));
-//     Xml. Add (format('       <cat_ru:RegistrationDate>%s</cat_ru:RegistrationDate>',[DateToIso(StrToDate(GtdDateToDate(Copy(DM.Qry.FieldByName('NDOC').AsString,10,6))))]));
-//    Xml. Add (format('       <cat_ru:GTDNumber>%s</cat_ru:GTDNumber>',[Copy(DM.Qry.FieldByName('NDOC').AsString,17,7)]));
-//    Xml. Add ('           </catWH_ru:WhGoodOutRegisterNumber>');
     Xml. Add ('        </do2r:CustomsDocs>');
     DM.Qry.Next;
     end;
