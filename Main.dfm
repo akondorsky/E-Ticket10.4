@@ -752,6 +752,15 @@ object Main_F: TMain_F
               Footers = <>
               Title.Alignment = taCenter
               Title.Caption = #1058#1086#1083#1100#1082#1086' '#1087#1088#1080#1094#1077#1087
+            end
+            item
+              CellButtons = <>
+              DynProps = <>
+              EditButtons = <>
+              FieldName = 'DT_IN'
+              Footers = <>
+              Title.Alignment = taCenter
+              Title.Caption = #1044#1072#1090#1072' '#1074#1098#1077#1079#1076#1072
             end>
           object RowDetailData: TRowDetailPanelControlEh
           end

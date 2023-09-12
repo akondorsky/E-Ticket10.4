@@ -298,7 +298,7 @@ begin
    Xml. Add (format('      <cat_ru:OrganizationName>%s</cat_ru:OrganizationName>',[XMLCorrect(DM.Qry.FieldByName('C_NAME').AsString)]));
    Xml. Add (format('      <catWH_ru:CountryCode>%s</catWH_ru:CountryCode>',[DM.Qry.FieldByName('C_COUNTRY').AsString]));
    Xml. Add ('             <catWH_ru:Address>');
-   Xml. Add (format('        <catWH_ru:AddressLine>%s</catWH_ru:AddressLine>',[XMLCorrect(DM.Qry.FieldByName('C_ADDR').AsString])));
+   Xml. Add (format('        <catWH_ru:AddressLine>%s</catWH_ru:AddressLine>',[XMLCorrect(DM.Qry.FieldByName('C_ADDR').AsString)]));
    Xml. Add ('             </catWH_ru:Address>');
    Xml. Add ('             <catWH_ru:CarrierPerson>');
    Xml. Add (format('        <cat_ru:PersonSurname>%s</cat_ru:PersonSurname>',[PersonLastName(DM.Qry.FieldByName('C_FAM').AsString)]));
