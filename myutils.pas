@@ -204,25 +204,38 @@ begin
 end;
 function  XMLCorrect(Source:String):String;
 var
- d,Dest:String;
+ Dest:String;
+ d: String;
  i:Integer;
 begin
- for i:=1 to Length(Source) do
+// for i:=1 to Length(Source) do
+//  begin
+//    case Source[i] of
+//     '<' : d:= '&lt;';
+//     '>' : d:= '&gt;';
+//     '&' : d:= '&amp;';
+//     #39 : d:= '&apos;';
+//     #34 : d:= '&quot;';
+//     else
+//      d:=Source[i];
+//    end;
+//   Dest:=Dest+d;
+//  end;
+ for var Ch: Char in Source do
   begin
-    case Source[i] of
+    case Ch of
      '<' : d:= '&lt;';
      '>' : d:= '&gt;';
      '&' : d:= '&amp;';
      #39 : d:= '&apos;';
      #34 : d:= '&quot;';
      else
-      d:=Source[i];
+      d:=Ch;
     end;
    Dest:=Dest+d;
   end;
 Result:=Dest;
 end;
-
 
 function CalledMethName(Obj: TObject): string;
 var
