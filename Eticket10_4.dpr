@@ -1,7 +1,5 @@
 program Eticket10_4;
 
-
-
 uses
   Vcl.Forms,
   Windows,
@@ -164,7 +162,7 @@ uses
 
 {$R *.res}
  var
-   Start:LongInt;
+   Start:Cardinal;
 
 begin
   Application.Initialize;

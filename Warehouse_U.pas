@@ -483,10 +483,10 @@ end;
 
 procedure TWarehouse_F.A_InspectionOutUpdate(Sender: TObject);
 begin
- if Grid_WH.DataSource.DataSet.FieldByName('TP_MOVE_CBX_CODE').AsInteger = TP_LOCKED then
-     (Sender as TAction).Enabled:=True
-   else
-     (Sender as TAction).Enabled:=False;
+// if Grid_WH.DataSource.DataSet.FieldByName('TP_MOVE_CBX_CODE').AsInteger = TP_LOCKED then
+//     (Sender as TAction).Enabled:=True
+//   else
+//     (Sender as TAction).Enabled:=False;
 end;
 
 procedure TWarehouse_F.A_Inspection_StopExecute(Sender: TObject);
@@ -534,10 +534,10 @@ end;
 
 procedure TWarehouse_F.A_Inspection_StopUpdate(Sender: TObject);
 begin
- if Grid_WH.DataSource.DataSet.FieldByName('TP_MOVE_CBX_CODE').AsInteger = TP_LOCKED then
-     (Sender as TAction).Enabled:=True
-   else
-     (Sender as TAction).Enabled:=False;
+// if Grid_WH.DataSource.DataSet.FieldByName('TP_MOVE_CBX_CODE').AsInteger = TP_LOCKED then
+//     (Sender as TAction).Enabled:=True
+//   else
+//     (Sender as TAction).Enabled:=False;
 end;
 
 procedure TWarehouse_F.A_InspLog_AllExecute(Sender: TObject);
