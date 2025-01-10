@@ -14541,8 +14541,9 @@ object Reports_F: TReports_F
     CloseDataSource = False
     FieldAliases.Strings = (
       '-ID=ID'
-      '-ID_ZAYV=ID_ZAYV'
+      'ID_ZAYV=ID_ZAYV'
       'SALDO=SALDO'
+      'START_SALDO=START_SALDO'
       'ZAYV=ZAYV'
       'BUH_NOTE=BUH_NOTE')
     DataSet = DM.Qry_RepNegSaldo

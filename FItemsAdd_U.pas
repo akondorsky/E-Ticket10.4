@@ -120,6 +120,7 @@ if (ROLE = 'SYSADMIN') then
      E_Discount.Enabled:=True;
   end;}
 GetValuesToEdit;
+if Length(Trim(E_Usluga.Text)) > 0 then E_Usluga.Clear;
 E_Usluga.SetFocus;
 end;
 
@@ -314,8 +315,6 @@ procedure TFItemsAdd_F.E_UslugaRightButtonClick(Sender: TObject);
 begin
  if PriceList_F.ShowModal = mrOk  then
    begin
-     if  FakturaTypeNumering = Trim(DM.MT_PriceList.FieldByName('TYPE_NUMERING').AsString) then
-        begin
            E_Usluga.Text:=DM.MT_PriceList.FieldByName('USLUGA').AsString;
            Stoim:=DM.MT_PriceList.FieldByName('STOIM').AsCurrency;
            E_Stoim.Text:=FormatFloat('0.00', Stoim);
@@ -324,12 +323,6 @@ begin
            SelectNext(Sender as TWinControl, True, True);
            E_Kol.Text:='1';
            CalcAll;
-       end
-      else
-       begin
-         Application.MessageBox('Услуга не может быть выбрана','Внимание',MB_ICONWARNING+mb_Ok);
-         Exit;
-       end;
    end;
 end;
 

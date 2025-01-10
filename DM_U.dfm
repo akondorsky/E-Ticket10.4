@@ -4,7 +4,7 @@ object DM: TDM
   Height = 843
   Width = 1120
   object DB: TIBDatabase
-    DatabaseName = #1089':\FB_DB\SIRIUS_25.FDB'
+    DatabaseName = 'C:\FB_DB\SIRIUS_25.FDB'
     Params.Strings = (
       'user_name=sysdba'
       'password=mkey'

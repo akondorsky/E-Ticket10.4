@@ -336,6 +336,7 @@ object AddTicket_F: TAddTicket_F
         'DAF'
         'Fiat'
         'Ford'
+        'Foton'
         'GAZ'
         'GMC'
         'Hyundai'

@@ -206,6 +206,14 @@ object Buh_F: TBuh_F
           Footers = <>
           Title.Alignment = taCenter
           Title.Caption = #1055#1088#1080#1084#1077#1095#1072#1085#1080#1077
+        end
+        item
+          CellButtons = <>
+          DynProps = <>
+          EditButtons = <>
+          FieldName = 'START_SALDO'
+          Footers = <>
+          Title.Caption = #1053#1072#1095'. '#1089#1072#1083#1100#1076#1086
         end>
       object RowDetailData: TRowDetailPanelControlEh
         object DBGridEh2: TDBGridEh
