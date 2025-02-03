@@ -25,7 +25,6 @@ object DelUsl_F: TDelUsl_F
     DataSource = DM.Ds_UslDel
     DynProps = <>
     Flat = True
-    IndicatorOptions = [gioShowRowIndicatorEh]
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
     PopupMenu = PopupMenu1
     ReadOnly = True
@@ -34,6 +33,7 @@ object DelUsl_F: TDelUsl_F
     TitleParams.RowLines = 2
     Columns = <
       item
+        CellButtons = <>
         DynProps = <>
         EditButtons = <>
         FieldName = 'USLUGA'
@@ -43,6 +43,7 @@ object DelUsl_F: TDelUsl_F
         Width = 398
       end
       item
+        CellButtons = <>
         DynProps = <>
         EditButtons = <>
         FieldName = 'KOL_USLUG'
@@ -51,6 +52,7 @@ object DelUsl_F: TDelUsl_F
         Title.Caption = #1050#1086#1083'-'#1074#1086
       end
       item
+        CellButtons = <>
         DynProps = <>
         EditButtons = <>
         FieldName = 'DT'
@@ -60,6 +62,7 @@ object DelUsl_F: TDelUsl_F
         Width = 125
       end
       item
+        CellButtons = <>
         DynProps = <>
         EditButtons = <>
         FieldName = 'USERNAME'
@@ -69,6 +72,7 @@ object DelUsl_F: TDelUsl_F
         Width = 131
       end
       item
+        CellButtons = <>
         DynProps = <>
         EditButtons = <>
         FieldName = 'DT_ACTION'
@@ -78,6 +82,7 @@ object DelUsl_F: TDelUsl_F
         Width = 118
       end
       item
+        CellButtons = <>
         DynProps = <>
         EditButtons = <>
         FieldName = 'USER_ENTER'

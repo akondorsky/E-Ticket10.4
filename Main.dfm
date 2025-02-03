@@ -105,52 +105,46 @@ object Main_F: TMain_F
   object Panel2: TPanel
     Left = 0
     Top = 73
-    Width = 169
+    Width = 150
     Height = 539
     Align = alLeft
-    Alignment = taRightJustify
     TabOrder = 2
     DesignSize = (
-      169
+      150
       539)
     object Label1: TLabel
-      Left = 5
+      Left = 4
       Top = 11
       Width = 117
       Height = 16
       Caption = #1055#1086#1080#1089#1082' '#1087#1086' '#1085#1086#1084#1077#1088#1091' '#1050#1058
     end
     object Label4: TLabel
-      Left = 5
+      Left = 4
       Top = 64
       Width = 138
       Height = 16
       Caption = #1055#1086#1080#1089#1082' '#1087#1086' '#8470' '#1055#1086#1076#1090#1074#1077#1088#1078'.'
     end
     object Label5: TLabel
-      Left = 8
+      Left = 7
       Top = 115
       Width = 120
       Height = 16
       Caption = #1055#1086#1080#1089#1082' '#1087#1086' '#8470' '#1058#1044'/'#1042#1058#1058
     end
     object Lbl_tp: TLabel
-      Left = 8
-      Top = 160
-      Width = 149
-      Height = 16
+      Left = 6
+      Top = 172
+      Width = 132
+      Height = 31
       AutoSize = False
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clMaroon
-      Font.Height = -12
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentFont = False
+      WordWrap = True
     end
     object E_Find: TButtonedEdit
-      Left = 5
+      Left = 4
       Top = 33
-      Width = 152
+      Width = 132
       Height = 24
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -171,7 +165,7 @@ object Main_F: TMain_F
       OnRightButtonClick = E_FindRightButtonClick
     end
     object BtnHelp: TBitBtn
-      Left = 5
+      Left = 1
       Top = 507
       Width = 107
       Height = 25
@@ -183,9 +177,9 @@ object Main_F: TMain_F
       OnClick = BtnHelpClick
     end
     object E_Pop: TButtonedEdit
-      Left = 5
+      Left = 4
       Top = 84
-      Width = 152
+      Width = 132
       Height = 24
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -206,9 +200,9 @@ object Main_F: TMain_F
       OnRightButtonClick = E_PopRightButtonClick
     end
     object E_Td: TButtonedEdit
-      Left = 5
+      Left = 4
       Top = 135
-      Width = 152
+      Width = 132
       Height = 21
       Hint = #1055#1086#1080#1089#1082'- Enter'
       Font.Charset = DEFAULT_CHARSET
@@ -225,18 +219,21 @@ object Main_F: TMain_F
     end
   end
   object Panel3: TPanel
-    Left = 169
-    Top = 73
-    Width = 1117
-    Height = 539
+    AlignWithMargins = True
+    Left = 153
+    Top = 76
+    Width = 1130
+    Height = 533
     Align = alClient
     Caption = 'Panel3'
     TabOrder = 3
+    ExplicitLeft = 752
+    ExplicitWidth = 531
     object CPGr1: TCategoryPanelGroup
       Left = 1
       Top = 1
-      Width = 1115
-      Height = 537
+      Width = 1128
+      Height = 531
       VertScrollBar.Tracking = True
       Align = alClient
       Color = clBtnFace
@@ -246,16 +243,19 @@ object Main_F: TMain_F
       HeaderFont.Name = 'Tahoma'
       HeaderFont.Style = []
       TabOrder = 0
+      ExplicitWidth = 1115
+      ExplicitHeight = 537
       object CP_TP: TCategoryPanel
         Top = 393
         Height = 144
         Caption = #1058#1086#1074#1072#1088#1085#1099#1077' '#1087#1072#1088#1090#1080#1080
         DockSite = True
         TabOrder = 0
+        ExplicitWidth = 1094
         object Grid_TP: TDBGridEh
           Left = 0
           Top = 0
-          Width = 1092
+          Width = 1105
           Height = 118
           Align = alClient
           DataSource = DM.DS_TP
@@ -454,10 +454,11 @@ object Main_F: TMain_F
         Height = 152
         Caption = #1063#1072#1089#1090#1080' '#1082#1086#1085#1090#1088#1086#1083#1100#1085#1099#1093' '#1090#1072#1083#1086#1085#1086#1074
         TabOrder = 1
+        ExplicitWidth = 1094
         object Grid_TicketParts: TDBGridEh
           Left = 0
           Top = 0
-          Width = 1092
+          Width = 1105
           Height = 126
           Align = alClient
           Color = clYellow
@@ -545,10 +546,11 @@ object Main_F: TMain_F
         Height = 112
         Caption = #1058#1088#1072#1085#1089#1087#1086#1088#1090#1085#1099#1077' '#1089#1088#1077#1076#1089#1090#1074#1072
         TabOrder = 2
+        ExplicitWidth = 1094
         object Grid_TS: TDBGridEh
           Left = 0
           Top = 0
-          Width = 1092
+          Width = 1105
           Height = 86
           Align = alClient
           DataSource = DM.DS_TS
@@ -777,10 +779,11 @@ object Main_F: TMain_F
         Font.Style = []
         ParentFont = False
         TabOrder = 3
+        ExplicitWidth = 1094
         object Grid_Ticket: TDBGridEh
           Left = 0
           Top = 0
-          Width = 1092
+          Width = 1105
           Height = 103
           Align = alClient
           DataSource = DM.DS_Ticket
@@ -6536,8 +6539,8 @@ object Main_F: TMain_F
   end
   object Mn1: TMainMenu
     Images = ImL_16
-    Left = 72
-    Top = 256
+    Left = 64
+    Top = 352
     object KPP_MainItem: TMenuItem
       Caption = #1050#1055#1055
       object N9: TMenuItem
@@ -6739,7 +6742,7 @@ object Main_F: TMain_F
       Caption = #1054#1090#1084#1077#1090#1082#1072' '#1087#1086#1076#1082#1083'. '#1082' '#1101#1083'. '#1089#1077#1090#1080
       object N50: TMenuItem
         Caption = #1055#1086#1089#1090#1072#1074#1080#1090#1100
-        OnClick = N50Click
+        OnClick = Da
       end
       object N51: TMenuItem
         Caption = #1057#1085#1103#1090#1100

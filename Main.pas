@@ -201,7 +201,6 @@ type
     N51: TMenuItem;
     Label5: TLabel;
     E_Td: TButtonedEdit;
-    Lbl_tp: TLabel;
     N52: TMenuItem;
     A_Holdings: TAction;
     N53: TMenuItem;
@@ -229,6 +228,7 @@ type
     N61: TMenuItem;
     N62: TMenuItem;
     N37: TMenuItem;
+    Lbl_tp: TLabel;
     procedure FormShow(Sender: TObject);
     procedure A_ShowTicketsExecute(Sender: TObject);
     procedure A_AddTicketExecute(Sender: TObject);
@@ -363,7 +363,7 @@ type
     procedure Grid_TicketDrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumnEh; State: TGridDrawState);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
-    procedure N50Click(Sender: TObject);
+    procedure Da(Sender: TObject);
     procedure N51Click(Sender: TObject);
     procedure E_TdKeyPress(Sender: TObject; var Key: Char);
     procedure A_HoldingsExecute(Sender: TObject);
@@ -3507,22 +3507,15 @@ if not Assigned(Buh_F)then
      else Buh_F.Show;
 end;
 
-procedure TMain_F.N50Click(Sender: TObject);
+procedure TMain_F.Da(Sender: TObject);
 var
  Mes:String;
  id_rec:Integer;
  qry:TIbquery;
 begin
     if DM.Qry_TicketELECTRICITY.AsInteger = 1 then Exit;
-
-    Mes:=format( 'В КТ № %s будет поставлена отметка о подключеннии к электросети. Продолжить?',[DM.Qry_TicketN_TICKET.AsString]) ;
+    Mes:=format( 'В КТ № %s будет поставлена отметка о подключеннии к электросети.Продолжить?',[DM.Qry_TicketN_TICKET.AsString]) ;
     if Application.MessageBox(PChar(Mes),'Внимание',MB_YESNO+MB_ICONASTERISK) <> IDYES then Exit;
-    if DM.Qry_TicketSTEP_CTRL.AsInteger >= STEP_CODE_2 then
-      begin
-        Mes:=format( 'КТ № %s зарегистрированы документы. У всех получателей будет добавлена услуга подключения к электрической сети. ',
-                    [DM.Qry_TicketN_TICKET.AsString]);
-        Application.MessageBox(PChar(Mes),'Внимание',MB_OK+MB_ICONINFORMATION) ;
-      end;
     qry:=TIBQuery.Create(Self);
     qry.Database:=DM.DB;
 try
@@ -3537,11 +3530,14 @@ try
     DM.Sql.Params[1].asInteger:=id_rec;
     DM.Sql.ExecQuery;
     //добавление услуг
-    if DM.Qry_TicketSTEP_CTRL.AsInteger >= STEP_CODE_2 then
+
+    qry.SQL.Add('select id from ticket_parts where id_ticket=:p0');
+    qry.Params[0].AsInteger:= DM.Qry_TicketID.AsInteger;
+    qry.Open;
+    if qry.Fields[0].asInteger > 0 then
       begin
-        qry.SQL.Add('select id from ticket_parts where id_ticket=:p0');
-        qry.Params[0].AsInteger:= DM.Qry_TicketID.AsInteger;
-        qry.Open;
+        Mes:=format( 'У всех получателей будет добавлена услуга подключения к электрической сети.Продолжить?',[DM.Qry_TicketN_TICKET.AsString]) ;
+        if Application.MessageBox(PChar(Mes),'Внимание',MB_YESNO+MB_ICONASTERISK) <> IDYES then Exit;
         DM.Sql.Close;
         DM.Sql.SQL.Clear;
         DM.Sql.SQL.Add('insert into ticket_money (id_ticket,id_part,id_usl,kol_uslug,days,username) ');
@@ -3596,16 +3592,6 @@ try
     DM.Sql.Params[0].AsVariant:=null;
     DM.Sql.Params[1].asInteger:=id_rec;
     DM.Sql.ExecQuery;
-    //
-    if DM.Qry_TicketSTEP_CTRL.AsInteger >= STEP_CODE_2 then
-      begin
-        DM.Sql.Close;
-        DM.Sql.SQL.Clear;
-        DM.Sql.SQL.Add('delete from ticket_money where id_ticket=:p0 and checked = :p1 ');
-        DM.Sql.Params[0].asInteger:=DM.Qry_TicketID.AsInteger;
-        DM.Sql.Params[1].AsString:='F';
-        DM.Sql.ExecQuery;
-      end;
     DM.Sql.Transaction.Commit;
     DM.IBQueryRefresh(DM.Qry_Ticket,DM.DB);
  except
