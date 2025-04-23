@@ -4,6 +4,7 @@ object DM: TDM
   Height = 843
   Width = 1120
   object DB: TIBDatabase
+    Connected = True
     DatabaseName = 'C:\FB_DB\SIRIUS_25.FDB'
     Params.Strings = (
       'user_name=sysdba'
@@ -3104,7 +3105,8 @@ object DM: TDM
         'left join cl_accounts_vw b on cast(a.nomer as varchar(10))=b.n_d' +
         'oc'
       'left join reg_ti c on a.plat_name=c.id'
-      'where cast(a.date_is as date) between :p0 and :p1'
+      'where (b.kod_vid=2 and b.kod_doc=4) and'
+      'cast(a.date_is as date) between :p0 and :p1'
       ' order by a.nomer')
     Left = 872
     Top = 296

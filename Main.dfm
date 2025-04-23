@@ -227,8 +227,6 @@ object Main_F: TMain_F
     Align = alClient
     Caption = 'Panel3'
     TabOrder = 3
-    ExplicitLeft = 752
-    ExplicitWidth = 531
     object CPGr1: TCategoryPanelGroup
       Left = 1
       Top = 1
@@ -243,15 +241,12 @@ object Main_F: TMain_F
       HeaderFont.Name = 'Tahoma'
       HeaderFont.Style = []
       TabOrder = 0
-      ExplicitWidth = 1115
-      ExplicitHeight = 537
       object CP_TP: TCategoryPanel
         Top = 393
         Height = 144
         Caption = #1058#1086#1074#1072#1088#1085#1099#1077' '#1087#1072#1088#1090#1080#1080
         DockSite = True
         TabOrder = 0
-        ExplicitWidth = 1094
         object Grid_TP: TDBGridEh
           Left = 0
           Top = 0
@@ -454,7 +449,6 @@ object Main_F: TMain_F
         Height = 152
         Caption = #1063#1072#1089#1090#1080' '#1082#1086#1085#1090#1088#1086#1083#1100#1085#1099#1093' '#1090#1072#1083#1086#1085#1086#1074
         TabOrder = 1
-        ExplicitWidth = 1094
         object Grid_TicketParts: TDBGridEh
           Left = 0
           Top = 0
@@ -546,7 +540,6 @@ object Main_F: TMain_F
         Height = 112
         Caption = #1058#1088#1072#1085#1089#1087#1086#1088#1090#1085#1099#1077' '#1089#1088#1077#1076#1089#1090#1074#1072
         TabOrder = 2
-        ExplicitWidth = 1094
         object Grid_TS: TDBGridEh
           Left = 0
           Top = 0
@@ -779,7 +772,6 @@ object Main_F: TMain_F
         Font.Style = []
         ParentFont = False
         TabOrder = 3
-        ExplicitWidth = 1094
         object Grid_Ticket: TDBGridEh
           Left = 0
           Top = 0
