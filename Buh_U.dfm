@@ -331,7 +331,7 @@ object Buh_F: TBuh_F
       Top = 1
       Width = 1242
       Height = 389
-      ActivePage = Tab_Invoice
+      ActivePage = Tab_Reports
       Align = alClient
       TabOrder = 0
       object Tab_DirectToCash: TTabSheet

@@ -166,7 +166,7 @@ begin
  E_ParkZTK.Clear;
  E_NTrailer.Clear;
  M_Crashes.Lines.Clear;
- E_marka.Text:='';
+ E_Marka.Clear;
  E_Country.Clear;
 end;
 
@@ -247,6 +247,14 @@ begin
   ClearControls;
   Ch_Tr.Checked:=False;
   E_NTrailer.Enabled:=Ch_Tr.Checked;
+  if not DM.Qry_TruckModels.Active then DM.Qry_TruckModels.Open;
+  while not DM.Qry_TruckModels.Eof do
+    begin
+      E_Marka.Items.Add(DM.Qry_TruckModels.FieldByName('MODEL').AsString);
+      DM.Qry_TruckModels.Next;
+    end;
+  E_Marka.ItemIndex:=-1;
+  if DM.Qry_TruckModels.Active then DM.Qry_TruckModels.Close;
   E_NTs.SetFocus;
 end;
 

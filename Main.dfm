@@ -6789,11 +6789,16 @@ object Main_F: TMain_F
     end
     object N55: TMenuItem
       Caption = #1042#1085#1077#1089#1090#1080' '#1074#1077#1089
+      Enabled = False
       OnClick = N55Click
     end
     object N59: TMenuItem
       Action = A_PrintVesCheque
       Caption = #1056#1072#1089#1087#1077#1095#1072#1090#1072#1090#1100' '#1074#1077#1089#1086#1074#1091#1102' '#1082#1074#1080#1090#1072#1085#1094#1080#1102
+    end
+    object N42: TMenuItem
+      Caption = #1048#1079#1084#1077#1085#1080#1090#1100' '#1074#1088#1077#1084#1103' '#1079#1072#1074#1077#1089#1072
+      OnClick = N42Click
     end
   end
   object Parts_PopMn: TPopupMenu

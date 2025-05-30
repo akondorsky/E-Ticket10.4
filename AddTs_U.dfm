@@ -287,7 +287,6 @@ object AddTs_F: TAddTs_F
     Height = 25
     Caption = 'OK'
     Default = True
-    DoubleBuffered = True
     Glyph.Data = {
       DE010000424DDE01000000000000760000002800000024000000120000000100
       0400000000006801000000000000000000001000000000000000000000000000
@@ -306,7 +305,6 @@ object AddTs_F: TAddTs_F
       333A333333333333333338330000333333333333333333333333333333333333
       0000}
     NumGlyphs = 2
-    ParentDoubleBuffered = False
     TabOrder = 2
     OnClick = Bt_SaveClick
   end
@@ -316,10 +314,8 @@ object AddTs_F: TAddTs_F
     Width = 75
     Height = 25
     Caption = #1054#1090#1084#1077#1085#1072
-    DoubleBuffered = True
     Kind = bkCancel
     NumGlyphs = 2
-    ParentDoubleBuffered = False
     TabOrder = 3
   end
   object E_KT: TEdit

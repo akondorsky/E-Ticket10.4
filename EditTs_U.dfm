@@ -216,6 +216,7 @@ object EditTs_F: TEditTs_F
         'Peugeuot'
         'Renault'
         'Scania'
+        'Sitrak'
         'Tatra'
         'Ural'
         'Volvo'

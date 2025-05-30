@@ -444,7 +444,6 @@ procedure TAddTicket_F.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   //MT1.EmptyTable;
   //Mt1.Close;
-  if DM.Sql.Transaction.InTransaction then DM.Sql.Transaction.Rollback;
 end;
 
 procedure TAddTicket_F.FormCreate(Sender: TObject);
@@ -465,6 +464,7 @@ begin
   if not DM.Qry_TSTarget.Active then DM.Qry_TSTarget.Open;
   if not DM.Qry_TsType.Active then DM.Qry_TsType.Open;
   if not DM.Qry_ParkZTK.Active then DM.Qry_ParkZTK.Open;
+  if not DM.Qry_TruckModels.Active then DM.Qry_TruckModels.Open;
   DM.Refresh_Settings;
   E_NTicket.Clear;
   //E_NTicket.Text:=IntToStr(DM.Qry_Settings.FieldByName('NEXT_TICKET').AsInteger);
@@ -477,7 +477,7 @@ begin
   E_Phone.Clear;
   E_Carrier.Clear;
   M_Crashes.Lines.Clear;
-  E_Marka.Text:='';
+  E_Marka.Clear;
   E_TsType.Text:='';
   DM.Qry_TSTarget.First;
   E_Target.Text:=DM.Qry_TSTarget.FieldByName('NAME').AsString;
@@ -492,6 +492,14 @@ begin
       DM.Qry_CustProc.Next;
     end;
   E_CustProc.ItemIndex:=0;
+
+    while not DM.Qry_TruckModels.Eof do
+    begin
+      E_Marka.Items.Add(DM.Qry_TruckModels.FieldByName('MODEL').AsString);
+      DM.Qry_TruckModels.Next;
+    end;
+  E_Marka.ItemIndex:=-1;
+
 // MT1.Open;
 
 end;

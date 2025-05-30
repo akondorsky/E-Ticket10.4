@@ -3577,4 +3577,15 @@ object DM: TDM
     Left = 64
     Top = 600
   end
+  object Qry_TruckModels: TIBQuery
+    Database = DB
+    Transaction = IBTR
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select model from trucks_models order by model')
+    Left = 120
+    Top = 600
+  end
 end

@@ -158,7 +158,8 @@ uses
   FprnM1C_TLB in 'Atol\FprnM1C_TLB.pas',
   Vcl.Themes,
   Vcl.Styles,
-  InspLog_U in 'InspLog_U.pas' {InspLog_F};
+  InspLog_U in 'InspLog_U.pas' {InspLog_F},
+  EditVes_U in 'EditVes_U.pas' {EditVes_F};
 
 {$R *.res}
  var
@@ -308,6 +309,7 @@ begin
   Application.CreateForm(TCarrierEdit_F, CarrierEdit_F);
   Application.CreateForm(TCountryEdit_F, CountryEdit_F);
   Application.CreateForm(TInspLog_F, InspLog_F);
+  Application.CreateForm(TEditVes_F, EditVes_F);
   SplashForm.Label1.Caption:='Запуск приложения...';
   SplashForm.Update;
   while (GetTickCount - Start) < 2500 do

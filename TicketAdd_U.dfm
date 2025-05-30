@@ -354,6 +354,7 @@ object AddTicket_F: TAddTicket_F
         'Peugeuot'
         'Renault'
         'Scania'
+        'Sitrak'
         'Tatra'
         'Ural'
         'Volvo'

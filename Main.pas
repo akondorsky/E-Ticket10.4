@@ -229,6 +229,7 @@ type
     N62: TMenuItem;
     N37: TMenuItem;
     Lbl_tp: TLabel;
+    N42: TMenuItem;
     procedure FormShow(Sender: TObject);
     procedure A_ShowTicketsExecute(Sender: TObject);
     procedure A_AddTicketExecute(Sender: TObject);
@@ -379,6 +380,7 @@ type
     procedure A_PrintVesTrailerExecute(Sender: TObject);
     procedure A_DngCheckExecute(Sender: TObject);
     procedure A_DngUncheckExecute(Sender: TObject);
+    procedure N42Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -521,7 +523,8 @@ uses Splash_U, Login_U, DM_U, Tickets_U, TicketAdd_U, EditTs_U, TrailerAdd_U,
   FakturaLog_U, TsIn_U, TsOut_U,  PZTKLog_U, mercury, WhClosedCondition_U,
   WhOpenCondition_U, About_U, Legend_U, TicketLog_U, Setting_U, Outdoc_U,
   ZTKDocOut_U, ReportSelect_U, Pass_U, Ztkoutdocs_U, Shipper_U,
-  FindRegTi_U, ExpInv_U, Hold_U,atol25,SelectParts_U, TsVes_U, CountryCode_U;
+  FindRegTi_U, ExpInv_U, Hold_U,atol25,SelectParts_U, TsVes_U, CountryCode_U,
+  EditVes_U;
 
 
 function TMain_F.GetFakturaSum(Id: Integer): Double;
@@ -3428,6 +3431,11 @@ end;
 procedure TMain_F.It_44Click(Sender: TObject);
 begin
   WhOpenCondition_F.ShowModal;
+end;
+
+procedure TMain_F.N42Click(Sender: TObject);
+begin
+ EditVes_F.ShowModal;
 end;
 
 procedure TMain_F.N46Click(Sender: TObject);
