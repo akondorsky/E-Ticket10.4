@@ -248,13 +248,13 @@ begin
   Ch_Tr.Checked:=False;
   E_NTrailer.Enabled:=Ch_Tr.Checked;
   if not DM.Qry_TruckModels.Active then DM.Qry_TruckModels.Open;
+  DM.Qry_TruckModels.First;
   while not DM.Qry_TruckModels.Eof do
     begin
       E_Marka.Items.Add(DM.Qry_TruckModels.FieldByName('MODEL').AsString);
       DM.Qry_TruckModels.Next;
     end;
   E_Marka.ItemIndex:=-1;
-  if DM.Qry_TruckModels.Active then DM.Qry_TruckModels.Close;
   E_NTs.SetFocus;
 end;
 

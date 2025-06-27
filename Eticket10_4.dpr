@@ -239,7 +239,6 @@ begin
   Application.CreateForm(TRegTiEdit_F, RegTiEdit_F);
   Application.CreateForm(TDogovorAdd_F, DogovorAdd_F);
   Application.CreateForm(THold_F, Hold_F);
-  Application.CreateForm(TDogovorAdd_F, DogovorAdd_F);
   Application.CreateForm(TRegTiAdd_F, RegTiAdd_F);
   Application.CreateForm(TDogovorEdit_F, DogovorEdit_F);
   Application.CreateForm(TReasonsDog_F, ReasonsDog_F);
@@ -291,7 +290,6 @@ begin
   Application.CreateForm(TPassEdit_F, PassEdit_F);
   Application.CreateForm(TSmsPhoneAdd_F, SmsPhoneAdd_F);
   Application.CreateForm(TEmailAdd_F, EmailAdd_F);
-  Application.CreateForm(TDateSingle_F, DateSingle_F);
   Application.CreateForm(TDateSingle_F, DateSingle_F);
   Application.CreateForm(TUslNote_F, UslNote_F);
   Application.CreateForm(THoldAdd_F, HoldAdd_F);

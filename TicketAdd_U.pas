@@ -492,14 +492,14 @@ begin
       DM.Qry_CustProc.Next;
     end;
   E_CustProc.ItemIndex:=0;
-
-    while not DM.Qry_TruckModels.Eof do
+  DM.Qry_TruckModels.First;
+  while not DM.Qry_TruckModels.Eof do
     begin
       E_Marka.Items.Add(DM.Qry_TruckModels.FieldByName('MODEL').AsString);
       DM.Qry_TruckModels.Next;
     end;
   E_Marka.ItemIndex:=-1;
-
+  DM.Qry_TruckModels.Close;
 // MT1.Open;
 
 end;

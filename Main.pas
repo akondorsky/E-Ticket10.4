@@ -1645,9 +1645,9 @@ end;
 
 procedure TMain_F.A_SysTpLockedUpdate(Sender: TObject);
 begin
- if Role = 'SYSADMIN' then  (Sender as TAction).Enabled:=True
-       else
-         (Sender as TAction).Enabled:=False;
+// if Role = 'SYSADMIN' then  (Sender as TAction).Enabled:=True
+//       else
+//         (Sender as TAction).Enabled:=False;
 end;
 
 procedure TMain_F.A_SysTpRegExecute(Sender: TObject);
@@ -1686,9 +1686,9 @@ end;
 
 procedure TMain_F.A_SysTpRegUpdate(Sender: TObject);
 begin
- if Role = 'SYSADMIN' then  (Sender as TAction).Enabled:=True
-       else
-         (Sender as TAction).Enabled:=False;
+// if Role = 'SYSADMIN' then  (Sender as TAction).Enabled:=True
+//       else
+//         (Sender as TAction).Enabled:=False;
 end;
 
 procedure TMain_F.A_SysTpScaledExecute(Sender: TObject);
@@ -1726,9 +1726,9 @@ end;
 
 procedure TMain_F.A_SysTpScaledUpdate(Sender: TObject);
 begin
- if Role = 'SYSADMIN' then  (Sender as TAction).Enabled:=True
-       else
-         (Sender as TAction).Enabled:=False;
+// if Role = 'SYSADMIN' then  (Sender as TAction).Enabled:=True
+//       else
+//         (Sender as TAction).Enabled:=False;
 end;
 
 procedure TMain_F.A_SysTpToCBXExecute(Sender: TObject);
@@ -1766,9 +1766,9 @@ end;
 
 procedure TMain_F.A_SysTpToCBXUpdate(Sender: TObject);
 begin
- if Role = 'SYSADMIN' then  (Sender as TAction).Enabled:=True
-       else
-         (Sender as TAction).Enabled:=False;
+// if Role = 'SYSADMIN' then  (Sender as TAction).Enabled:=True
+//       else
+//         (Sender as TAction).Enabled:=False;
 end;
 
 procedure TMain_F.A_TicketLogExecute(Sender: TObject);
@@ -2901,7 +2901,7 @@ begin
   //if (Role='SYSADMIN') then N45.Enabled:=True else N45.Enabled:=False;
   if ((Role='SYSADMIN') or (Role='KPP')) then mnSetErrorEnter.Enabled:=True else mnSetErrorEnter.Enabled:=False;
   if (Role='SYSADMIN') then mnDeleteErrorEnter.Enabled:=True else mnDeleteErrorEnter.Enabled:=False;
-  if (Role='SYSADMIN') then AdminItems.Enabled:=True else AdminItems.Enabled:=False;
+//  if (Role='SYSADMIN') then AdminItems.Enabled:=True else AdminItems.Enabled:=False;
 
 //показываем инф. на стаутс баре
 statusbar1.Panels[0].Text := 'Пользователь: '+User+' Должность: '+Dolj +'  ';
@@ -3153,7 +3153,7 @@ end;
 procedure TMain_F.mnDeleteErrorEnterClick(Sender: TObject);
 var
  Mes:String;
- id_rec,id_ticket,new_id_tsout:Integer;
+ id_rec,id_ticket:Integer;
 begin
     if DM.Qry_TS.FieldByName('ID').IsNull then Exit;
     if DM.Qry_TS.FieldByName('OUT_FLAG').AsInteger <> 2 then
@@ -3214,7 +3214,7 @@ end;
 procedure TMain_F.mnSetErrorEnterClick(Sender: TObject);
 var
  Mes:String;
- id_rec,id_ticket,new_id_tsout:Integer;
+ id_rec,id_ticket:Integer;
 begin
     if DM.Qry_TS.FieldByName('ID').IsNull then Exit;
     if DM.Qry_TS.FieldByName('OUT_FLAG').AsInteger = 2 then

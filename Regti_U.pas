@@ -79,6 +79,8 @@ type
     Note_usl: TDBMemo;
     N11: TMenuItem;
     N12: TMenuItem;
+    MnItem_CBX: TMenuItem;
+    MnItem_TC: TMenuItem;
     procedure FormShow(Sender: TObject);
     procedure E_FindButtonClick(Sender: TObject);
     procedure E_FindKeyPress(Sender: TObject; var Key: Char);
@@ -90,7 +92,6 @@ type
     procedure ToolButton4Click(Sender: TObject);
     procedure Print_RegtiExecute(Sender: TObject);
     procedure E_FindRightButtonClick(Sender: TObject);
-    procedure N1Click(Sender: TObject);
     procedure N2Click(Sender: TObject);
     procedure N3Click(Sender: TObject);
     procedure PopMn_ZayvClick(Sender: TObject);
@@ -113,6 +114,8 @@ type
     procedure A_OpenDiscUpdate(Sender: TObject);
     procedure A_PrintHoldingExecute(Sender: TObject);
     procedure N12Click(Sender: TObject);
+    procedure MnItem_CBXClick(Sender: TObject);
+    procedure MnItem_TCClick(Sender: TObject);
   private
     { Private declarations }
     procedure Find_Records(F_Str:String);
@@ -238,6 +241,58 @@ E_Find.SetFocus;
 
 end;
 
+procedure TRegti_F.MnItem_CBXClick(Sender: TObject);
+var
+  qry:TIBQuery;
+begin
+  qry := TIBQuery.Create(Self);
+  qry.Database:=DM.DB;
+  qry.Transaction:=DM.IBTR;
+  try
+    qry.SQL.Add('select count(id) from dogovors where id_zayv=:p0 and num_dog not containing :p1');
+    qry.Params[0].AsInteger:=DBGridEh1.DataSource.DataSet.FieldByName('ID').AsInteger;
+    qry.Params[1].AsString:='TC';
+    qry.Open;
+    if qry.Fields[0].asinteger > 0 then
+      begin
+        Application.MessageBox('Договор c СВХ уже заключен.','Внимание',MB_ICONSTOP+MB_OK);
+        Exit;
+      end
+    else
+      DogovorAdd_F.Tag:=1;   //CBX
+      DogovorAdd_F.ShowModal;
+  finally
+    qry.Free;
+  end;
+
+end;
+
+procedure TRegti_F.MnItem_TCClick(Sender: TObject);
+var
+  qry:TIBQuery;
+begin
+  qry := TIBQuery.Create(Self);
+  qry.Database:=DM.DB;
+  qry.Transaction:=DM.IBTR;
+  try
+    qry.SQL.Add('select count(id) from dogovors where id_zayv=:p0 and num_dog containing :p1');
+    qry.Params[0].AsInteger:=DBGridEh1.DataSource.DataSet.FieldByName('ID').AsInteger;
+    qry.Params[1].AsString:='TC';
+    qry.Open;
+    if qry.Fields[0].asinteger > 0 then
+      begin
+        Application.MessageBox('Договор c ТС уже заключен.','Внимание',MB_ICONSTOP+MB_OK);
+        Exit;
+      end
+    else
+      DogovorAdd_F.Tag:=2; //TC
+      DogovorAdd_F.ShowModal;
+  finally
+    qry.Free;
+  end;
+
+end;
+
 procedure TRegti_F.E_FindButtonClick(Sender: TObject);
 begin
 Find_Records(E_Find.Text);
@@ -318,10 +373,7 @@ begin
   DogovorsList_F.ShowModal;
 end;
 
-procedure TRegti_F.N1Click(Sender: TObject);
-begin
- DogovorAdd_F.ShowModal;
-end;
+
 
 procedure TRegti_F.N2Click(Sender: TObject);
 begin
@@ -611,3 +663,6 @@ begin
 end;
 
 end.
+
+
+

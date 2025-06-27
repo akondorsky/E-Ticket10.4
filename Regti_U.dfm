@@ -905,11 +905,18 @@ object Regti_F: TRegti_F
       000000000000}
   end
   object PopMn_Dog: TPopupMenu
-    Left = 584
-    Top = 56
+    Left = 72
+    Top = 504
     object N1: TMenuItem
       Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1076#1086#1075#1086#1074#1086#1088
-      OnClick = N1Click
+      object MnItem_CBX: TMenuItem
+        Caption = #1057#1042#1061
+        OnClick = MnItem_CBXClick
+      end
+      object MnItem_TC: TMenuItem
+        Caption = #1058#1057
+        OnClick = MnItem_TCClick
+      end
     end
     object N2: TMenuItem
       Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100' '#1076#1086#1075#1086#1074#1086#1088

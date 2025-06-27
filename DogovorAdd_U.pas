@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, ComCtrls,DB,IBX.IBquery;
+  Dialogs, StdCtrls, Buttons, ComCtrls,DB,IBX.IBquery,System.Generics.Collections;
 
 type
   TDogovorAdd_F = class(TForm)
@@ -22,7 +22,7 @@ type
     procedure E_NumdogKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
-    procedure GetLasNumDogogvor;
+    procedure GetLasNumDogogvor(AValue:Integer);
   public
     { Public declarations }
   end;
@@ -56,25 +56,59 @@ procedure TDogovorAdd_F.FormShow(Sender: TObject);
 begin
  E_Datedog.Date:=Date;
  E_Numdog.Clear;
- GetLasNumDogogvor;
+ GetLasNumDogogvor(Self.Tag);
  E_Note.Lines.Clear;
 end;
 
-procedure TDogovorAdd_F.GetLasNumDogogvor;
+procedure TDogovorAdd_F.GetLasNumDogogvor(AValue:Integer);
 var
-  qry:TIBQuery;
-
+  s:string;
+  List:TList<Integer>;
+  i:Integer;
+  qry:TIbQuery;
 begin
-  qry := TIBQuery.Create(Self);
-  try
-    qry.Database := DM.DB;
-    qry.SQL.Add(' select first 1 num_dog from dogovors order by id desc ');
-    qry.Open;
-    if not qry.Fields[0].IsNull then
-      E_Numdog.Text :=   IntTostr(StrToInt(qry.Fields[0].AsString)+1);
-  finally
-    qry.Free;
+qry := TIbQuery.Create(Nil);
+qry.Database:=DM.DB;
+List := TList<Integer>.Create;
+try
+  case AValue of
+  1: //CBX
+    begin
+      qry.sql.Add('select num_dog from dogovors where num_dog not containing :p0');
+      qry.Params[0].AsString:='-';
+      qry.Open();
+      while not qry.eof  do
+        begin
+          s:=qry.Fields[0].AsString;
+          List.Add(strtoint(s));
+          qry.Next;
+        end;
+      List.Sort;
+      E_Numdog.Text:=IntToStr(List[List.Count-1]+1);
+    end;
+  2: //TC
+    begin
+      qry.sql.Add('select num_dog from dogovors where num_dog containing :p0');
+      qry.Params[0].AsString:='-';
+      qry.Open();
+      while not qry.eof  do
+        begin
+          s:=qry.Fields[0].AsString;
+          i:=Pos('-',s);
+          Delete(s,i,1);
+          i:=Pos('TC',s);
+          Delete(s,i,2);
+          List.Add(StrToInt(s));
+          qry.Next;
+        end;
+      List.Sort;
+      E_Numdog.Text:='TC-'+ IntToStr(List[List.Count-1]+1);
+    end;
   end;
+finally
+  List.Free;
+  qry.Free;
+end;
 end;
 
 procedure TDogovorAdd_F.SaveBtnClick(Sender: TObject);
@@ -119,16 +153,70 @@ end;
 end.
 
 {
-{ if Length (Trim(E_Numdog.Text)) = 0 then
-   begin
-    Mes:='№ договора не может быть пустым.Данные не могут быть сохранены !';
-    Application.MessageBox(PChar(Mes),'Внимание',mb_IconWarning+mb_Ok);
-    Exit;
-   end;}
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  s:String;
+  i:Integer;
+  List:TList<Integer>;
+begin
+List := TList<Integer>.Create;
+try
+  qry.Close;
+  qry.sql.Clear;
+  qry.sql.Add('select num_dog from dogovors where num_dog containing :p0');
+  qry.Params[0].AsString:='-';
+  qry.Open();
+  while not qry.eof  do
+    begin
+      s:=qry.Fields[0].AsString;
+      i:=Pos('-',s);
+      Delete(s,i,1);
+      i:=Pos('TC',s);
+      Delete(s,i,2);
+      List.Add(StrToInt(s));
+      qry.Next;
+    end;
+  List.Sort;
+  for i:=0 to List.Count-1 do
+    begin
+      ListBox1.Items.Add(IntToStr(List[i]));
+    end;
+finally
+  List.Free;
+end;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+var
+  s:string;
+  List:TList<Integer>;
+  i:Integer;
+begin
+List := TList<Integer>.Create;
+try
+  qry.Close;
+  qry.sql.Clear;
+  qry.sql.Add('select num_dog from dogovors where num_dog not containing :p0');
+  qry.Params[0].AsString:='-';
+  qry.Open();
+  while not qry.eof  do
+    begin
+      s:=qry.Fields[0].AsString;
+      List.Add(strtoint(s));
+      qry.Next;
+    end;
+  List.Sort;
+  for i:=0 to List.Count-1 do
+    begin
+      ListBox2.Items.Add(IntToStr(List[i]));
+    end;
+finally
+  List.Free;
+end;
+end;
 
 
-{  if Ch1.Checked  then
-     DM.Sql.Params[12].AsString:='T'
-   else
-     DM.Sql.Params[12].AsString:='F';}
+
+
+
 }
