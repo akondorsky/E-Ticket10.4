@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ED_Container xmlns="urn:customs.ru:Information:ExchangeDocuments:ED_Container:5.24.0" xmlns:cat_ru="urn:customs.ru:CommonAggregateTypes:5.24.0" DocumentModeID="1006058E">
+    <cat_ru:DocumentID>7C2E6476-DD91-492A-B1CE-83BC9F848BFC</cat_ru:DocumentID>
+    <ContainerDoc>
+        <DocBody>
+            <do1r:DO1Report xmlns:RUScat_ru="urn:customs.ru:RUSCommonAggregateTypes:5.24.0" xmlns:catWH_ru="urn:customs.ru:Information:WarehouseDocuments:WarehouseCommonAggregateTypesCust:5.24.0" xmlns:do1r="urn:customs.ru:Information:WarehouseDocuments:DO1Report:5.24.0" DocumentModeID="1008001E">
+                <cat_ru:DocumentID>7798C37E-E067-482C-B274-AE0CAD76162F</cat_ru:DocumentID>
+                <catWH_ru:MainTransportModeCode>31</catWH_ru:MainTransportModeCode>
+                <catWH_ru:ReportNumber>000917</catWH_ru:ReportNumber>
+                <catWH_ru:ReportDate>2025-09-03</catWH_ru:ReportDate>
+                <catWH_ru:ReportTime>17:54:17</catWH_ru:ReportTime>
+                <catWH_ru:WarehouseOwner>
+                    <cat_ru:OrganizationName>ООО &quot;СИРИУС&quot;</cat_ru:OrganizationName>
+                    <cat_ru:RFOrganizationFeatures>
+                        <cat_ru:OGRN>1063915002964</cat_ru:OGRN>
+                        <cat_ru:INN>3915447015</cat_ru:INN>
+                        <cat_ru:KPP>391501001</cat_ru:KPP>
+                    </cat_ru:RFOrganizationFeatures>
+                    <catWH_ru:Address>
+                        <cat_ru:PostalCode>238420</cat_ru:PostalCode>
+                        <cat_ru:CountryCode>RU</cat_ru:CountryCode>
+                        <cat_ru:CounryName>РОССИЯ</cat_ru:CounryName>
+                        <cat_ru:Region> КАЛИНИНГРАДСКАЯ ОБЛ.</cat_ru:Region>
+                        <cat_ru:City>Г.БАГРАТИОНОВСК</cat_ru:City>
+                        <cat_ru:StreetHouse>УЛ. КОММУНАЛЬНАЯ, 4</cat_ru:StreetHouse>
+                        <catWH_ru:AddressLine>238420 КАЛИНИНГРАДСКАЯ ОБЛ., Г.БАГРАТИОНОВСК, УЛ. КОММУНАЛЬНАЯ, 4</catWH_ru:AddressLine>
+                    </catWH_ru:Address>
+                    <catWH_ru:WarehouseLicense>
+                        <catWH_ru:CertificateKind>lic_Certificate</catWH_ru:CertificateKind>
+                        <catWH_ru:CertificateNumber>10229/200711/10044/4</catWH_ru:CertificateNumber>
+                        <catWH_ru:CertificateDate>2025-07-01</catWH_ru:CertificateDate>
+                    </catWH_ru:WarehouseLicense>
+                    <catWH_ru:WarehousePerson>
+                        <cat_ru:PersonSurname>КОНДОРСКАЯ</cat_ru:PersonSurname>
+                        <cat_ru:PersonName>И.</cat_ru:PersonName>
+                        <cat_ru:PersonMiddleName>В.</cat_ru:PersonMiddleName>
+                        <cat_ru:PersonPost>оператор СВХ</cat_ru:PersonPost>
+                    </catWH_ru:WarehousePerson>
+                </catWH_ru:WarehouseOwner>
+                <do1r:Carrier>
+                    <cat_ru:OrganizationName>WILMAL SP.Z O.O.</cat_ru:OrganizationName>
+                    <catWH_ru:CountryCode>PL</catWH_ru:CountryCode>
+                    <catWH_ru:Address>
+                        <catWH_ru:AddressLine>PL 81-877 SOPOT SMOLNA 1D</catWH_ru:AddressLine>
+                    </catWH_ru:Address>
+                    <catWH_ru:CarrierPerson>
+                        <cat_ru:PersonSurname>АЗАРОВСКИЙ</cat_ru:PersonSurname>
+                        <cat_ru:PersonName>Ю.В.</cat_ru:PersonName>
+                    </catWH_ru:CarrierPerson>
+                </do1r:Carrier>
+                <do1r:Transports>
+                    <catWH_ru:TransportModeCode>31</catWH_ru:TransportModeCode>
+                    <catWH_ru:TransportIdentifier>GSP5W28 / GSP9F71</catWH_ru:TransportIdentifier>
+                </do1r:Transports>
+                <do1r:GoodsShipment>
+                    <do1r:TotalPackageNumber>188</do1r:TotalPackageNumber>
+                    <do1r:MPOSign>0</do1r:MPOSign>
+                    <do1r:TransportDocs>
+                        <cat_ru:PrDocumentName>Транспортная накладная, предусмотренная Конвенцией о договоре международной дорожной перевозки грузов 1956 года</cat_ru:PrDocumentName>
+                        <cat_ru:PrDocumentNumber>БН</cat_ru:PrDocumentNumber>
+                        <cat_ru:PrDocumentDate>2025-09-01</cat_ru:PrDocumentDate>
+                        <catWH_ru:PresentedDocumentModeCode>02015</catWH_ru:PresentedDocumentModeCode>
+                        <catWH_ru:WhCommDoc>
+                            <catWH_ru:Consignor>
+                                <catWH_ru:CountryCode>PL</catWH_ru:CountryCode>
+                                <catWH_ru:OrganizationName>TLS IMPORT-EXPORT SP.Z.O.O.VIA STM GROUP</catWH_ru:OrganizationName>
+                                <catWH_ru:Address>
+                                    <catWH_ru:AddressLine>95-030.STAROWA GORA.UL.SZEROKA.36</catWH_ru:AddressLine>
+                                </catWH_ru:Address>
+                            </catWH_ru:Consignor>
+                            <catWH_ru:Consignee>
+                                <cat_ru:OrganizationName>ООО &quot;АЛЬФА&quot;</cat_ru:OrganizationName>
+                                <catWH_ru:Address>
+                                    <catWH_ru:AddressLine>236029 КАЛИНИНГРАДСКАЯ ОБЛАСТЬ КАЛИНИНГРАД ТЕР. ТСН ИСКРА ГРУШЕВАЯ Д.10</catWH_ru:AddressLine>
+                                </catWH_ru:Address>
+                            </catWH_ru:Consignee>
+                        </catWH_ru:WhCommDoc>
+                        <catWH_ru:Goods>
+                            <catWH_ru:GoodsNumber>1</catWH_ru:GoodsNumber>
+                            <catWH_ru:GoodsTNVEDCode>9401</catWH_ru:GoodsTNVEDCode>
+                            <catWH_ru:InvoiceCost>6800</catWH_ru:InvoiceCost>
+                            <catWH_ru:CurrencyCode>EUR</catWH_ru:CurrencyCode>
+                            <catWH_ru:GoodsDescriptionFull>
+                                <catWH_ru:GoodsDescription>МЕБЕЛЬ ДЛЯ СИДЕНИЯ Б/У</catWH_ru:GoodsDescription>
+                            </catWH_ru:GoodsDescriptionFull>
+                            <catWH_ru:CargoPlace>
+                                <catWH_ru:PlaceNumber>74</catWH_ru:PlaceNumber>
+                            </catWH_ru:CargoPlace>
+                            <catWH_ru:BruttoVolQuant>
+                                <catWH_ru:GoodsQuantity>1171.11</catWH_ru:GoodsQuantity>
+                                <catWH_ru:MeasureUnitQualifierName>КГ</catWH_ru:MeasureUnitQualifierName>
+                                <catWH_ru:MeasureUnitQualifierCode>166</catWH_ru:MeasureUnitQualifierCode>
+                            </catWH_ru:BruttoVolQuant>
+                            <catWH_ru:GoodsWHNumber>000917/1</catWH_ru:GoodsWHNumber>
+                            <catWH_ru:KeepingPlace>
+                                <catWH_ru:Area>НЕГАБАРИТ;</catWH_ru:Area>
+                                <catWH_ru:WithoutUnloadIndicator>0</catWH_ru:WithoutUnloadIndicator>
+                            </catWH_ru:KeepingPlace>
+                            <catWH_ru:AcceptDateTime>2025-09-03T17:38:00</catWH_ru:AcceptDateTime>
+                        </catWH_ru:Goods>
+                        <catWH_ru:Goods>
+                            <catWH_ru:GoodsNumber>2</catWH_ru:GoodsNumber>
+                            <catWH_ru:GoodsTNVEDCode>9401</catWH_ru:GoodsTNVEDCode>
+                            <catWH_ru:InvoiceCost>960</catWH_ru:InvoiceCost>
+                            <catWH_ru:CurrencyCode>EUR</catWH_ru:CurrencyCode>
+                            <catWH_ru:GoodsDescriptionFull>
+                                <catWH_ru:GoodsDescription>МЕБЕЛЬ ДЛЯ СИДЕНИЯ СТУЛ Б/У</catWH_ru:GoodsDescription>
+                            </catWH_ru:GoodsDescriptionFull>
+                            <catWH_ru:CargoPlace>
+                                <catWH_ru:PlaceNumber>12</catWH_ru:PlaceNumber>
+                            </catWH_ru:CargoPlace>
+                            <catWH_ru:BruttoVolQuant>
+                                <catWH_ru:GoodsQuantity>98.88</catWH_ru:GoodsQuantity>
+                                <catWH_ru:MeasureUnitQualifierName>КГ</catWH_ru:MeasureUnitQualifierName>
+                                <catWH_ru:MeasureUnitQualifierCode>166</catWH_ru:MeasureUnitQualifierCode>
+                            </catWH_ru:BruttoVolQuant>
+                            <catWH_ru:GoodsWHNumber>000917/2</catWH_ru:GoodsWHNumber>
+                            <catWH_ru:KeepingPlace>
+                                <catWH_ru:Area>НЕГАБАРИТ;</catWH_ru:Area>
+                                <catWH_ru:WithoutUnloadIndicator>0</catWH_ru:WithoutUnloadIndicator>
+                            </catWH_ru:KeepingPlace>
+                            <catWH_ru:AcceptDateTime>2025-09-03T17:38:00</catWH_ru:AcceptDateTime>
+                        </catWH_ru:Goods>
+                        <catWH_ru:Goods>
+                            <catWH_ru:GoodsNumber>3</catWH_ru:GoodsNumber>
+                            <catWH_ru:GoodsTNVEDCode>4421</catWH_ru:GoodsTNVEDCode>
+                            <catWH_ru:InvoiceCost>250</catWH_ru:InvoiceCost>
+                            <catWH_ru:CurrencyCode>EUR</catWH_ru:CurrencyCode>
+                            <catWH_ru:GoodsDescriptionFull>
+                                <catWH_ru:GoodsDescription>ПОРТАЛ КАМИННЫЙ Б/У</catWH_ru:GoodsDescription>
+                            </catWH_ru:GoodsDescriptionFull>
+                            <catWH_ru:CargoPlace>
+                                <catWH_ru:PlaceNumber>2</catWH_ru:PlaceNumber>
+                            </catWH_ru:CargoPlace>
+                            <catWH_ru:BruttoVolQuant>
+                                <catWH_ru:GoodsQuantity>144.2</catWH_ru:GoodsQuantity>
+                                <catWH_ru:MeasureUnitQualifierName>КГ</catWH_ru:MeasureUnitQualifierName>
+                                <catWH_ru:MeasureUnitQualifierCode>166</catWH_ru:MeasureUnitQualifierCode>
+                            </catWH_ru:BruttoVolQuant>
+                            <catWH_ru:GoodsWHNumber>000917/3</catWH_ru:GoodsWHNumber>
+                            <catWH_ru:KeepingPlace>
+                                <catWH_ru:Area>НЕГАБАРИТ;</catWH_ru:Area>
+                                <catWH_ru:WithoutUnloadIndicator>0</catWH_ru:WithoutUnloadIndicator>
+                            </catWH_ru:KeepingPlace>
+                            <catWH_ru:AcceptDateTime>2025-09-03T17:38:00</catWH_ru:AcceptDateTime>
+                        </catWH_ru:Goods>
+                        <catWH_ru:Goods>
+                            <catWH_ru:GoodsNumber>4</catWH_ru:GoodsNumber>
+                            <catWH_ru:GoodsTNVEDCode>9403</catWH_ru:GoodsTNVEDCode>
+                            <catWH_ru:InvoiceCost>200</catWH_ru:InvoiceCost>
+                            <catWH_ru:CurrencyCode>EUR</catWH_ru:CurrencyCode>
+                            <catWH_ru:GoodsDescriptionFull>
+                                <catWH_ru:GoodsDescription>ПРИХОЖАЯ С ЗЕРКАЛОМ ИЗ ДУБА</catWH_ru:GoodsDescription>
+                            </catWH_ru:GoodsDescriptionFull>
+                            <catWH_ru:CargoPlace>
+                                <catWH_ru:PlaceNumber>1</catWH_ru:PlaceNumber>
+                            </catWH_ru:CargoPlace>
+                            <catWH_ru:BruttoVolQuant>
+                                <catWH_ru:GoodsQuantity>144.2</catWH_ru:GoodsQuantity>
+                                <catWH_ru:MeasureUnitQualifierName>КГ</catWH_ru:MeasureUnitQualifierName>
+                                <catWH_ru:MeasureUnitQualifierCode>166</catWH_ru:MeasureUnitQualifierCode>
+                            </catWH_ru:BruttoVolQuant>
+                            <catWH_ru:GoodsWHNumber>000917/4</catWH_ru:GoodsWHNumber>
+                            <catWH_ru:KeepingPlace>
+                                <catWH_ru:Area>НЕГАБАРИТ;</catWH_ru:Area>
+                                <catWH_ru:WithoutUnloadIndicator>0</catWH_ru:WithoutUnloadIndicator>
+                            </catWH_ru:KeepingPlace>
+                            <catWH_ru:AcceptDateTime>2025-09-03T17:38:00</catWH_ru:AcceptDateTime>
+                        </catWH_ru:Goods>
+                        <catWH_ru:Goods>
+                            <catWH_ru:GoodsNumber>5</catWH_ru:GoodsNumber>
+                            <catWH_ru:GoodsTNVEDCode>7009</catWH_ru:GoodsTNVEDCode>
+                            <catWH_ru:InvoiceCost>97.47</catWH_ru:InvoiceCost>
+                            <catWH_ru:CurrencyCode>EUR</catWH_ru:CurrencyCode>
+                            <catWH_ru:GoodsDescriptionFull>
+                                <catWH_ru:GoodsDescription>ЗЕРКАЛО ИЗ ДУБА Б/У</catWH_ru:GoodsDescription>
+                            </catWH_ru:GoodsDescriptionFull>
+                            <catWH_ru:CargoPlace>
+                                <catWH_ru:PlaceNumber>1</catWH_ru:PlaceNumber>
+                            </catWH_ru:CargoPlace>
+                            <catWH_ru:BruttoVolQuant>
+                                <catWH_ru:GoodsQuantity>12.36</catWH_ru:GoodsQuantity>
+                                <catWH_ru:MeasureUnitQualifierName>КГ</catWH_ru:MeasureUnitQualifierName>
+                                <catWH_ru:MeasureUnitQualifierCode>166</catWH_ru:MeasureUnitQualifierCode>
+                            </catWH_ru:BruttoVolQuant>
+                            <catWH_ru:GoodsWHNumber>000917/5</catWH_ru:GoodsWHNumber>
+                            <catWH_ru:KeepingPlace>
+                                <catWH_ru:Area>НЕГАБАРИТ;</catWH_ru:Area>
+                                <catWH_ru:WithoutUnloadIndicator>0</catWH_ru:WithoutUnloadIndicator>
+                            </catWH_ru:KeepingPlace>
+                            <catWH_ru:AcceptDateTime>2025-09-03T17:38:00</catWH_ru:AcceptDateTime>
+                        </catWH_ru:Goods>
+                        <catWH_ru:Goods>
+                            <catWH_ru:GoodsNumber>6</catWH_ru:GoodsNumber>
+                            <catWH_ru:GoodsTNVEDCode>4420</catWH_ru:GoodsTNVEDCode>
+                            <catWH_ru:InvoiceCost>100</catWH_ru:InvoiceCost>
+                            <catWH_ru:CurrencyCode>EUR</catWH_ru:CurrencyCode>
+                            <catWH_ru:GoodsDescriptionFull>
+                                <catWH_ru:GoodsDescription>ВЕШАЛКА НАСТЕННАЯ С КРЮЧКАМИ Б/У</catWH_ru:GoodsDescription>
+                            </catWH_ru:GoodsDescriptionFull>
+                            <catWH_ru:CargoPlace>
+                                <catWH_ru:PlaceNumber>1</catWH_ru:PlaceNumber>
+                            </catWH_ru:CargoPlace>
+                            <catWH_ru:BruttoVolQuant>
+                                <catWH_ru:GoodsQuantity>6.18</catWH_ru:GoodsQuantity>
+                                <catWH_ru:MeasureUnitQualifierName>КГ</catWH_ru:MeasureUnitQualifierName>
+                                <catWH_ru:MeasureUnitQualifierCode>166</catWH_ru:MeasureUnitQualifierCode>
+                            </catWH_ru:BruttoVolQuant>
+                            <catWH_ru:GoodsWHNumber>000917/6</catWH_ru:GoodsWHNumber>
+                            <catWH_ru:KeepingPlace>
+                                <catWH_ru:Area>НЕГАБАРИТ;</catWH_ru:Area>
+                                <catWH_ru:WithoutUnloadIndicator>0</catWH_ru:WithoutUnloadIndicator>
+                            </catWH_ru:KeepingPlace>
+                            <catWH_ru:AcceptDateTime>2025-09-03T17:38:00</catWH_ru:AcceptDateTime>
+                        </catWH_ru:Goods>
+                        <catWH_ru:Goods>
+                            <catWH_ru:GoodsNumber>7</catWH_ru:GoodsNumber>
+                            <catWH_ru:GoodsTNVEDCode>9403</catWH_ru:GoodsTNVEDCode>
+                            <catWH_ru:InvoiceCost>9984.28</catWH_ru:InvoiceCost>
+                            <catWH_ru:CurrencyCode>EUR</catWH_ru:CurrencyCode>
+                            <catWH_ru:GoodsDescriptionFull>
+                                <catWH_ru:GoodsDescription>МЕБЕЛЬ ИЗ ДЕРЕВА Б/У</catWH_ru:GoodsDescription>
+                            </catWH_ru:GoodsDescriptionFull>
+                            <catWH_ru:CargoPlace>
+                                <catWH_ru:PlaceNumber>97</catWH_ru:PlaceNumber>
+                            </catWH_ru:CargoPlace>
+                            <catWH_ru:BruttoVolQuant>
+                                <catWH_ru:GoodsQuantity>6275.79</catWH_ru:GoodsQuantity>
+                                <catWH_ru:MeasureUnitQualifierName>КГ</catWH_ru:MeasureUnitQualifierName>
+                                <catWH_ru:MeasureUnitQualifierCode>166</catWH_ru:MeasureUnitQualifierCode>
+                            </catWH_ru:BruttoVolQuant>
+                            <catWH_ru:GoodsWHNumber>000917/7</catWH_ru:GoodsWHNumber>
+                            <catWH_ru:KeepingPlace>
+                                <catWH_ru:Area>НЕГАБАРИТ;</catWH_ru:Area>
+                                <catWH_ru:WithoutUnloadIndicator>0</catWH_ru:WithoutUnloadIndicator>
+                            </catWH_ru:KeepingPlace>
+                            <catWH_ru:AcceptDateTime>2025-09-03T17:38:00</catWH_ru:AcceptDateTime>
+                        </catWH_ru:Goods>
+                        <catWH_ru:CustomDocLink>1</catWH_ru:CustomDocLink>
+                    </do1r:TransportDocs>
+                    <do1r:CustomsDocs>
+                        <cat_ru:PrDocumentName>ТД</cat_ru:PrDocumentName>
+                        <cat_ru:PrDocumentNumber>10229140/020925/5001510</cat_ru:PrDocumentNumber>
+                        <cat_ru:PrDocumentDate>2025-09-02</cat_ru:PrDocumentDate>
+                        <catWH_ru:PresentedDocumentModeCode>09013</catWH_ru:PresentedDocumentModeCode>
+                        <catWH_ru:VttCustomsCode>10229140</catWH_ru:VttCustomsCode>
+                    </do1r:CustomsDocs>
+                    <do1r:CommerceDocs>
+                        <cat_ru:PrDocumentName>Счет-фактура (инвойс) к договору</cat_ru:PrDocumentName>
+                        <cat_ru:PrDocumentNumber>FA 80/25</cat_ru:PrDocumentNumber>
+                        <cat_ru:PrDocumentDate>2025-09-01</cat_ru:PrDocumentDate>
+                        <catWH_ru:PresentedDocumentModeCode>04021</catWH_ru:PresentedDocumentModeCode>
+                    </do1r:CommerceDocs>
+                    <do1r:CommerceDocs>
+                        <cat_ru:PrDocumentName>Счет-фактура (инвойс) к договору</cat_ru:PrDocumentName>
+                        <cat_ru:PrDocumentNumber>FAQ 81/25</cat_ru:PrDocumentNumber>
+                        <cat_ru:PrDocumentDate>2025-09-01</cat_ru:PrDocumentDate>
+                        <catWH_ru:PresentedDocumentModeCode>04021</catWH_ru:PresentedDocumentModeCode>
+                    </do1r:CommerceDocs>
+                    <do1r:DO1AccompanyingDocument>1</do1r:DO1AccompanyingDocument>
+                </do1r:GoodsShipment>
+            </do1r:DO1Report>
+        </DocBody>
+    </ContainerDoc>
+</ED_Container>

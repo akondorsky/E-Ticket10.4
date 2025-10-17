@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<ED_Container xmlns="urn:customs.ru:Information:ExchangeDocuments:ED_Container:5.13.1" DocumentModeID="1006058E">
+	<ContainerDoc>
+		<DocBody>
+			<do2r:DO2Report 
+        xmlns:catWH_ru="urn:customs.ru:Information:WarehouseDocuments:WarehouseCommonAggregateTypesCust:5.18.0"  xmlns:do2r="urn:customs.ru:Information:WarehouseDocuments:DO2Report:5.19.0"
+        xmlns:cat_ru="urn:customs.ru:CommonAggregateTypes:5.10.0" DocumentModeID="1008009E">
+ <cat_ru:DocumentID>62665</cat_ru:DocumentID>
+ <catWH_ru:MainTransportModeCode>31</catWH_ru:MainTransportModeCode>
+ <catWH_ru:ReportNumber>1085</catWH_ru:ReportNumber>
+ <catWH_ru:ReportDate>2025-10-13</catWH_ru:ReportDate>
+ <catWH_ru:ReportTime>15:09:57</catWH_ru:ReportTime>
+		    <catWH_ru:CustomRegistration/>
+			  <catWH_ru:WarehouseOwner>
+		<cat_ru:OrganizationName>ООО &quot;Сириус&quot;</cat_ru:OrganizationName>
+          <cat_ru:RFOrganizationFeatures>
+       <cat_ru:OGRN>1063915002964</cat_ru:OGRN>
+       <cat_ru:INN>3915447015</cat_ru:INN>
+       <cat_ru:KPP>391501001</cat_ru:KPP>
+          </cat_ru:RFOrganizationFeatures>
+	 		    <catWH_ru:Address>
+		   <catWH_ru:AddressLine>238420 Калининградская область г.Багратионовск ул.Коммунальная д.4</catWH_ru:AddressLine>
+			    </catWH_ru:Address>
+          <catWH_ru:WarehouseLicense>
+             <catWH_ru:CertificateKind>lic_Certificate</catWH_ru:CertificateKind>
+      <catWH_ru:CertificateNumber>10229/200711/10044/4</catWH_ru:CertificateNumber>
+      <catWH_ru:CertificateDate>2025-07-01</catWH_ru:CertificateDate>
+          </catWH_ru:WarehouseLicense>
+          <catWH_ru:WarehousePerson>
+      <cat_ru:PersonSurname>КОЗАК</cat_ru:PersonSurname>
+      <cat_ru:PersonName>В.Ф.</cat_ru:PersonName>
+      <cat_ru:PersonPost>старший оператор СВХ</cat_ru:PersonPost>
+          </catWH_ru:WarehousePerson>
+				</catWH_ru:WarehouseOwner>
+        <do2r:Carrier>
+            <cat_ru:OrganizationName>WILMAL SP.Z O.O.</cat_ru:OrganizationName>
+            <catWH_ru:CountryCode>PL</catWH_ru:CountryCode>
+           <catWH_ru:Address>
+                <catWH_ru:AddressLine>PL 81-877 SOPOT SMOLNA 1D</catWH_ru:AddressLine>
+            </catWH_ru:Address>
+            <catWH_ru:CarrierPerson>
+               <cat_ru:PersonSurname>АЗАРОВСКИЙ</cat_ru:PersonSurname>
+               <cat_ru:PersonName>Ю.В.</cat_ru:PersonName>
+            </catWH_ru:CarrierPerson>
+         </do2r:Carrier>
+         <do2r:DOTransports>
+            <catWH_ru:TransportModeCode>31</catWH_ru:TransportModeCode>
+            <catWH_ru:TransportIdentifier>GSP5W28 / GSP9F71</catWH_ru:TransportIdentifier>
+        </do2r:DOTransports>
+        <do2r:GoodsShipment>
+              <do2r:MPOSign>false</do2r:MPOSign>
+              <do2r:ReasonKind>1</do2r:ReasonKind>
+        <do2r:CustomsDocs>
+    <cat_ru:PrDocumentName>ДТ</cat_ru:PrDocumentName>
+    <cat_ru:PrDocumentNumber>10229030/031025/5019679</cat_ru:PrDocumentNumber>
+    <cat_ru:PrDocumentDate>2025-10-03</cat_ru:PrDocumentDate>
+    <catWH_ru:PresentedDocumentModeCode>09035</catWH_ru:PresentedDocumentModeCode>
+        </do2r:CustomsDocs>
+ <do2r:GoodsCustomDocsLinks>
+   <do2r:GoodNumber>1</do2r:GoodNumber>
+   <do2r:CustomDocNumber>2</do2r:CustomDocNumber>
+ </do2r:GoodsCustomDocsLinks>
+         <do2r:Goods>
+            <do2r:Input>
+           <catWH_ru:GoodsNumber>1</catWH_ru:GoodsNumber>
+           <catWH_ru:GoodsTNVEDCode>9403</catWH_ru:GoodsTNVEDCode>
+           <catWH_ru:InvoiceCost>9984,28</catWH_ru:InvoiceCost>
+           <catWH_ru:CurrencyCode>EUR</catWH_ru:CurrencyCode>
+                  <catWH_ru:GoodsDescriptionFull>
+              <catWH_ru:GoodsDescription xml:space="preserve"> МЕБЕЛЬ ИЗ ДЕРЕВА Б/У</catWH_ru:GoodsDescription>
+                  </catWH_ru:GoodsDescriptionFull>
+                  <catWH_ru:CargoPlace>
+              <catWH_ru:PlaceNumber>97</catWH_ru:PlaceNumber>
+              <catWH_ru:PlaceDescription></catWH_ru:PlaceDescription> 
+                  </catWH_ru:CargoPlace>
+                  <catWH_ru:BruttoVolQuant>
+              <catWH_ru:GoodsQuantity>6275.79</catWH_ru:GoodsQuantity>
+              <catWH_ru:MeasureUnitQualifierName>КГ</catWH_ru:MeasureUnitQualifierName>
+              <catWH_ru:MeasureUnitQualifierCode>166</catWH_ru:MeasureUnitQualifierCode>
+                  </catWH_ru:BruttoVolQuant>
+           <do2r:WHNumber>000917/7</do2r:WHNumber>
+                  <do2r:DO1GoodLink>
+              <do2r:DO1Date>2025-09-03</do2r:DO1Date>
+              <do2r:DO1Number>000917</do2r:DO1Number>
+              <do2r:DO1GoodNumber>7</do2r:DO1GoodNumber>
+                  </do2r:DO1GoodLink>
+                  <do2r:KeepingLimit>
+              <do2r:AcceptDate>2025-09-03</do2r:AcceptDate>
+              <do2r:AcceptTime>17:38:00</do2r:AcceptTime>
+              <do2r:DeadLineDate>2026-01-03</do2r:DeadLineDate>
+                  </do2r:KeepingLimit>
+            </do2r:Input>
+            <do2r:Output>
+           <do2r:Cost>260</do2r:Cost>
+           <do2r:CurrencyCode>EUR</do2r:CurrencyCode>
+           <do2r:OutputDate>2025-10-13</do2r:OutputDate>
+           <do2r:OutputTime>15:09:09</do2r:OutputTime>
+                  <do2r:Consignee>
+               <cat_ru:OrganizationName>ООО &quot;АЛЬФА&quot;</cat_ru:OrganizationName>
+                   <cat_ru:RFOrganizationFeatures>
+               <cat_ru:OGRN>1223900013545</cat_ru:OGRN>
+               <cat_ru:INN>3900005286</cat_ru:INN>
+               <cat_ru:KPP>390001001</cat_ru:KPP>
+                   </cat_ru:RFOrganizationFeatures>
+                      <catWH_ru:Address>
+                   <catWH_ru:AddressLine>236029 КАЛИНИНГРАДСКАЯ ОБЛАСТЬ КАЛИНИНГРАД ТЕР. ТСН ИСКРА ГРУШЕВАЯ Д.10</catWH_ru:AddressLine>
+                      </catWH_ru:Address>
+                  </do2r:Consignee>
+                  <do2r:BruttoVolQuant>
+              <catWH_ru:GoodsQuantity>128.75</catWH_ru:GoodsQuantity>
+              <catWH_ru:MeasureUnitQualifierName>КГ</catWH_ru:MeasureUnitQualifierName>
+              <catWH_ru:MeasureUnitQualifierCode>166</catWH_ru:MeasureUnitQualifierCode>
+                  </do2r:BruttoVolQuant>
+                  <do2r:CargoPlace>
+              <catWH_ru:PlaceNumber>2</catWH_ru:PlaceNumber>
+              <catWH_ru:PlaceDescription></catWH_ru:PlaceDescription>
+                  </do2r:CargoPlace>
+            </do2r:Output>
+            <do2r:Result>
+           <do2r:Cost>9724,28</do2r:Cost>
+           <do2r:CurrencyCode>EUR</do2r:CurrencyCode>
+                  <do2r:BruttoVolQuant>
+              <catWH_ru:GoodsQuantity>6147.04</catWH_ru:GoodsQuantity>
+              <catWH_ru:MeasureUnitQualifierName>КГ</catWH_ru:MeasureUnitQualifierName>
+              <catWH_ru:MeasureUnitQualifierCode>166</catWH_ru:MeasureUnitQualifierCode>
+                  </do2r:BruttoVolQuant>
+                  <do2r:CargoPlace>
+              <catWH_ru:PlaceNumber>95</catWH_ru:PlaceNumber>
+              <catWH_ru:PlaceDescription></catWH_ru:PlaceDescription>
+                  </do2r:CargoPlace>
+            </do2r:Result>
+        </do2r:Goods>
+        </do2r:GoodsShipment>
+			</do2r:DO2Report>
+		</DocBody>
+	</ContainerDoc>
+</ED_Container>
