@@ -5,7 +5,7 @@ object EditDo_F: TEditDo_F
   BorderStyle = bsSingle
   Caption = #1044#1054'1-2.'#1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1085#1080#1077
   ClientHeight = 676
-  ClientWidth = 920
+  ClientWidth = 919
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -30,7 +30,7 @@ object EditDo_F: TEditDo_F
     Top = 8
     Width = 920
     Height = 633
-    ActivePage = Tab_1
+    ActivePage = Tab_Do2
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
     Font.Height = -11
@@ -2055,7 +2055,7 @@ object EditDo_F: TEditDo_F
         Top = 104
         Width = 912
         Height = 501
-        ActivePage = TabSheet1
+        ActivePage = Tab_Do2_tovar
         Align = alBottom
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
@@ -2251,6 +2251,7 @@ object EditDo_F: TEditDo_F
               FooterRowCount = 1
               FooterParams.Color = clWhite
               Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgMultiSelect]
+              PopupMenu = PopMn_TovOut
               ReadOnly = True
               SumList.Active = True
               TabOrder = 0
@@ -2262,17 +2263,10 @@ object EditDo_F: TEditDo_F
                   CellButtons = <>
                   DynProps = <>
                   EditButtons = <>
-                  FieldName = 'G42_OST'
-                  Footers = <
-                    item
-                      Color = clGray
-                    end>
-                  ImageList = ImageList1
-                  KeyList.Strings = (
-                    '0'
-                    '1')
-                  Title.Caption = ' '
-                  Width = 25
+                  FieldName = 'DT_OUTPUT'
+                  Footers = <>
+                  Title.Caption = #1044#1072#1090#1072' '#1074#1088#1077#1084#1103' '#1074#1099#1076#1072#1095#1080
+                  Width = 109
                 end
                 item
                   CellButtons = <>
@@ -2292,6 +2286,7 @@ object EditDo_F: TEditDo_F
                   Footers = <>
                   Title.Caption = #8470' '#1087'/'#1087' '#1044#1054'2'
                   Width = 37
+                  WordWrap = False
                 end
                 item
                   Alignment = taCenter
@@ -2643,6 +2638,16 @@ object EditDo_F: TEditDo_F
               ParentFont = False
               TabOrder = 3
               OnClick = Btn_Do2TovDel
+            end
+            object Btn_SetDTOutput: TButton
+              Left = 16
+              Top = 287
+              Width = 105
+              Height = 40
+              Caption = #1042#1088#1077#1084#1103' '#1074#1099#1076#1072#1095#1080' '#1080#1079' '#1040#1082#1090#1072' '#1074#1099#1076#1072#1095#1080
+              TabOrder = 4
+              WordWrap = True
+              OnClick = Btn_SetDTOutputClick
             end
           end
         end
@@ -2997,7 +3002,15 @@ object EditDo_F: TEditDo_F
               Footers = <>
               Title.Alignment = taCenter
               Title.Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
-              Width = 138
+              Width = 155
+            end
+            item
+              CellButtons = <>
+              DynProps = <>
+              EditButtons = <>
+              FieldName = 'DT_OUTPUT'
+              Footers = <>
+              Title.Caption = #1042#1088#1077#1084#1103' '#1074#1099#1076#1072#1095#1080' '#1074' '#1040#1082#1090#1077
             end
             item
               CellButtons = <>
@@ -3559,6 +3572,14 @@ object EditDo_F: TEditDo_F
     object A_LinkGtdTov: TAction
       Caption = #1055#1088#1080#1082#1088#1077#1087#1080#1090#1100
       OnExecute = A_LinkGtdTovExecute
+    end
+  end
+  object PopMn_TovOut: TPopupMenu
+    Left = 88
+    Top = 267
+    object Mn_Item_Set_DT_Output: TMenuItem
+      Caption = #1059#1089#1090#1072#1085#1086#1074#1080#1090#1100' '#1076#1072#1090#1091' '#1080' '#1074#1088#1077#1084#1103' '#1080#1079' '#1040#1082#1090#1072' '#1074#1099#1076#1072#1095#1080
+      OnClick = Mn_Item_Set_DT_OutputClick
     end
   end
 end

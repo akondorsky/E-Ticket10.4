@@ -7,7 +7,7 @@ uses
   Dialogs, DBGridEhGrouping, GridsEh, DBGridEh, ExtCtrls, ToolWin, ComCtrls,
   StdCtrls, Buttons,myutils, Menus, ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh,
   DBAxisGridsEh, PropFilerEh, PropStorageEh, DBCtrls, Mask, DBCtrlsEh,DateUtils,
-  ActnList, PlatformDefaultStyleActnCtrls, ActnMan,DB;
+  ActnList, PlatformDefaultStyleActnCtrls, ActnMan,DB, System.Actions, EhLibVCL;
 
 type
   TTsOut_F = class(TForm)

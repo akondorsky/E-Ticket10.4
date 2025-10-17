@@ -5,7 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DBGridEhGrouping, GridsEh, DBGridEh, StdCtrls, Mask,
-  Buttons, ExtCtrls,Db, ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, DBAxisGridsEh;
+  Buttons, ExtCtrls,Db, ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, DBAxisGridsEh,
+  EhLibVCL,IBX.IBQuery;
 
 type
   TDo2tovAdd_F = class(TForm)
@@ -43,7 +44,7 @@ uses dm_u, editdo_u,myutils;
 procedure TDo2tovAdd_F.CopyTov_Out(Id_Do2:Integer);
 var
  g32_n:Integer;
-
+ dt_output:TDateTime;
 begin
 try
  try
@@ -55,10 +56,15 @@ try
   Dm.Qry.Open;
   g32_n:=DM.Qry.Fields[0].AsInteger+1;
   Dm.Qry.Close;
+  DM.Qry.Sql.Clear;
+  DM.Qry.Sql.Add('select dt from wh_act_out where id_do2=:p0');
+  DM.Qry.Params[0].AsInteger:=Id_Do2;
+  Dm.Qry.Open;
+  dt_output:=DM.Qry.Fields[0].AsDateTime;
   DM.SQL.Close;
   DM.SQL.SQL.Clear;
   DM.SQL.SQL.Add('insert into do_out (id_do2,g31_1,g32,g32_n,g33,g221,g31_2,');
-  DM.SQL.SQL.Add('g31_2_p,g42,g35,id_tov_do1)  values(:p0,:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10) ');
+  DM.SQL.SQL.Add('g31_2_p,g42,g35,id_tov_do1,dt_output)  values(:p0,:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11) ');
   if not DM.SQL.Transaction.InTransaction then DM.SQL.Transaction.StartTransaction;
   DM.SQL.Params[0].AsInteger:=Id_Do2;
   DM.SQL.Params[1].asString:=DbgridEh1.DataSource.DataSet.FieldByName('G31_1').asString;
@@ -81,6 +87,7 @@ try
           DM.SQL.Params[9].asCurrency:=0;
        end;
   DM.SQL.Params[10].AsInteger:=DbgridEh1.DataSource.DataSet.FieldByName('ID').asInteger;
+  DM.SQL.Params[11].AsDateTime:=dt_output;
   DM.SQL.ExecQuery;
   DM.SQL.Transaction.Commit;
  except

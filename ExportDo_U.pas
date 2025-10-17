@@ -23,9 +23,7 @@ type
     { Private declarations }
     DirPath:String;     // путь выгрузки
     procedure Save2Do1_XML(N_Do1,F_Path,F_Name:String;Id_do1,Svh:Integer; D_Do1: TDateTime;ExDo1_Flag:Boolean);
-    procedure Save2Do2_XML(N_Do2, F_Path, F_Name: String;Id_Do2,Id_Do1,Id_actout:Integer;D_Do2:TDateTime);
-
-
+    procedure Save2Do2_XML(N_Do2, F_Path, F_Name: String;Id_Do2,Id_Do1,Id_actout:Integer;D_Do2,Dt_Output:TDateTime);
   public
     { Public declarations }
 
@@ -43,7 +41,7 @@ procedure TExportDo_F.BitBtn1Click(Sender: TObject);
 var
  N_Do1,N_Do2:String;
  extfilename:String;
- D_Do1,D_Do2:TdateTime;
+ D_Do1,D_Do2,Dt_Output:TdateTime;
  Tempbookmark:TBookMark;
  x:word;
  Rec,Do2_Statn,Do2_id,Id_Svh,Do1_id,Id_actout:Integer;
@@ -119,9 +117,10 @@ begin
                                     Id_actout:=DM.Qry_Do2Sheet.FieldByName('ID_ACT_OUT').AsInteger;
                                     N_Do2:=DM.Qry_Do2Sheet.FieldByName('DO2_STATN').asString;
                                     D_Do2:=DM.Qry_Do2Sheet.FieldByName('G072').asDateTime;
+                                    Dt_Output:=DM.Qry_Do2Sheet.FieldByName('DT_OUTPUT').asDateTime;
                                     Id_Svh:=DM.Qry_Do2Sheet.FieldByName('ID_SVH').asInteger;
                                     extfilename:='do2-'+N_Do2+'-'+DelNotLetter(DateToStr(D_Do2))+'.xml';
-                                    Save2Do2_XML(N_Do2,DirPath,extfilename, Rec,Do1_Id,Id_actout,D_Do2);
+                                    Save2Do2_XML(N_Do2,DirPath,extfilename, Rec,Do1_Id,Id_actout,D_Do2,Dt_Output);
                                     Pb1.StepBy(1);
                                     Application.ProcessMessages();
                                   end;
@@ -447,8 +446,10 @@ begin
    try
      XML.SaveToFile(F_Path+F_Name);
     except
-     Application.MessageBox('Ошибка записи файла','Внимание',MB_OK+MB_ICONSTOP);
-   end;
+     on E: Exception do
+      //ShowMessage(E.Message);
+      Application.MessageBox(PWideChar('Ошибка записи файла. '+ E.Message),'Внимание',MB_OK+MB_ICONSTOP);
+    end;
   finally
     Qry_svh.Free;
     Qry_Td.Free;
@@ -458,7 +459,7 @@ begin
   end;
 end; // proc
 
-procedure TExportDo_F.Save2Do2_XML(N_Do2, F_Path, F_Name: String;Id_Do2,Id_Do1,Id_actout:Integer;D_Do2:TDateTime);
+procedure TExportDo_F.Save2Do2_XML(N_Do2, F_Path, F_Name: String;Id_Do2,Id_Do1,Id_actout:Integer;D_Do2,Dt_Output:TDateTime);
 const
  Empty_date:String='';
 var
@@ -467,7 +468,7 @@ var
   s,vtrans,num_ts:string;
   Year, Month, Day: Word;
   Guid:TGUID;
-  DocId,ReportDate,ReportTime,CarCntryName:String;
+  DocId,ReportDate,ReportTime,CarCntryName,OutputDate,OutputTime:String;
   TotalPlaces:Double;
   ConsName,ConsAddress,ConsInn,ConsKpp,ConsOgrn,ConsCountry:String ;
   Qry_svh:TIbquery;
@@ -488,6 +489,9 @@ begin
 // Delete(DocId,Length(DocId),1); // delete '}'
  ReportDate:=DateToIso(D_Do2);
  ReportTime:=TimeStringtoIso(TimeToStr(D_Do2));
+ OutputDate:=DateToIso(Dt_Output);
+ OutputTime:=TimeStringtoIso(TimeToStr(Dt_Output));
+
  //открываем источник До2
  DM.Qry.Close;
  DM.Qry.SQL.Clear;
@@ -667,8 +671,8 @@ begin
     Xml. Add ('            <do2r:Output>');
     Xml. Add (format('           <do2r:Cost>%s</do2r:Cost>',[Dm.Qry.FieldByName('G42').AsString]));
     Xml. Add (format('           <do2r:CurrencyCode>%s</do2r:CurrencyCode>',[Dm.Qry.FieldByName('G221').AsString]));
-    Xml. Add (format('           <do2r:OutputDate>%s</do2r:OutputDate>',[ReportDate]));
-    Xml. Add (format('           <do2r:OutputTime>%s</do2r:OutputTime>',[ReportTime]));
+    Xml. Add (format('           <do2r:OutputDate>%s</do2r:OutputDate>',[OutputDate]));
+    Xml. Add (format('           <do2r:OutputTime>%s</do2r:OutputTime>',[OutputTime]));
     Xml. Add ('                  <do2r:Consignee>');
     Xml. Add (format('               <cat_ru:OrganizationName>%s</cat_ru:OrganizationName>',[ConsName]));
         if ConsCountry = 'RU' then
@@ -718,9 +722,11 @@ begin
    Xml. Add ('	</ContainerDoc>');
    Xml. Add ('</ED_Container>');
    try
-     XML. SaveToFile(F_Path+F_Name);
+     XML.SaveToFile(F_Path+F_Name);
     except
-     Application.MessageBox('Ошибка записи файла','Внимание',MB_OK+MB_ICONSTOP);
+         on E: Exception do
+      ShowMessage(E.Message);
+      //Application.MessageBox(PWideChar('Ошибка записи файла. '+ E.Message),'Внимание',MB_OK+MB_ICONSTOP);
    end;
   finally
     XML.Free;

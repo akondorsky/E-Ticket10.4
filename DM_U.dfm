@@ -1736,7 +1736,9 @@ object DM: TDM
     ParamCheck = True
     SQL.Strings = (
       'select a.*, cast(a.g072 as date),'
-      'b.g073,cast(b.g072 as date),b.r_name,c.id as id_act_out'
+      
+        'b.g073,cast(b.g072 as date),b.r_name,c.id as id_act_out,c.dt as ' +
+        'dt_output'
       ' from do_outhd a'
       'left join do_head b on a.id_do1=b.id'
       'left join wh_act_out c on a.id_act_out = c.id'

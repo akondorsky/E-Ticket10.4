@@ -149,6 +149,9 @@ type
     Label1: TLabel;
     E_RCountryName: TEdit;
     E_RCountryCode: TButtonedEdit;
+    Btn_SetDTOutput: TButton;
+    PopMn_TovOut: TPopupMenu;
+    Mn_Item_Set_DT_Output: TMenuItem;
     procedure CancBtnClick(Sender: TObject);
     procedure SaveBtnClick(Sender: TObject);
     procedure E_G14FamKeyPress(Sender: TObject; var Key: Char);
@@ -258,6 +261,8 @@ type
     procedure E_RCountryCodeKeyPress(Sender: TObject; var Key: Char);
     procedure E_RCountryCodeRightButtonClick(Sender: TObject);
     procedure E_RCountryCodeExit(Sender: TObject);
+    procedure Btn_SetDTOutputClick(Sender: TObject);
+    procedure Mn_Item_Set_DT_OutputClick(Sender: TObject);
   private
     { Private declarations }
     procedure GetValues;
@@ -1136,6 +1141,39 @@ begin
  DoTransEdit_F.showModal;
 end;
 
+procedure TEditDo_F.Btn_SetDTOutputClick(Sender: TObject);
+var
+  id_do2:Integer;
+  dt:TDateTime;
+begin
+  id_do2:=Grid_Do2Hd.DataSource.DataSet.FieldByName('ID').AsInteger;
+  dt:=Grid_Do2Hd.DataSource.DataSet.FieldByName('DT_OUTPUT').AsDateTime;
+  DM.Sql.Close;
+  DM.Sql.Sql.Clear;
+  DM.Sql.Sql.Add('update do_out set dt_output = :p0 where id_do2=:p1 ');
+try
+   (Sender as TButton).Enabled:=False;
+   try
+   if not DM.sql.Transaction.InTransaction then DM.sql.Transaction.StartTransaction; //start tran
+    DM.sql.Params[0].AsDateTime:=dt;
+    DM.sql.Params[1].AsInteger:=id_do2;
+    DM.sql.ExecQuery;
+    DM.sql.Transaction.Commit;
+    DM.Qry_DoOutTovar.Close;
+    DM.Qry_DoOutTovar.Open;
+   except
+        on E: EdatabaseError do
+          begin
+           DM.Sql.Transaction.Rollback;
+           ShowMessage(E.Message);
+          end;
+   end;
+finally
+ (Sender as TButton).Enabled:=True;
+ if DM.Sql.Transaction.InTransaction then DM.Sql.Transaction.Rollback;
+end;
+end;
+
 procedure TEditDo_F.Btn_TransDelClick(Sender: TObject);
 var
  Id_Rec:Integer;
@@ -1798,6 +1836,45 @@ if  Grid_Do2Tov.SelectedRows.CurrentRowSelected then
   Grid_Do2Tov.DefaultDrawColumnCell(Rect, Datacol,Column, State);
 
 end;
+
+procedure TEditDo_F.Mn_Item_Set_DT_OutputClick(Sender: TObject);
+var
+  id_do2:Integer;
+  dt:TDateTime;
+begin
+  if Grid_Do2Tov.DataSource.DataSet.FieldByName('G33').isNull then Exit;
+//  if Grid_Do2Tov.DataSource.DataSet.FieldByName('G33').AsVariant = null then Exit;
+  id_do2:=Grid_Do2Hd.DataSource.DataSet.FieldByName('ID').AsInteger;
+  dt:=Grid_Do2Hd.DataSource.DataSet.FieldByName('DT_OUTPUT').AsDateTime;
+  DM.Sql.Close;
+  DM.Sql.Sql.Clear;
+  DM.Sql.Sql.Add('update do_out set dt_output = :p0 where id_do2=:p1 ');
+try
+   (Sender as TMenuItem).Enabled:=False;
+   try
+   if not DM.sql.Transaction.InTransaction then DM.sql.Transaction.StartTransaction; //start tran
+    DM.sql.Params[0].AsDateTime:=dt;
+    DM.sql.Params[1].AsInteger:=id_do2;
+    DM.sql.ExecQuery;
+    DM.sql.Transaction.Commit;
+    DM.Qry_DoOutTovar.Close;
+    DM.Qry_DoOutTovar.Open;
+   except
+        on E: EdatabaseError do
+          begin
+           DM.Sql.Transaction.Rollback;
+           ShowMessage(E.Message);
+          end;
+   end;
+finally
+ (Sender as TMenuItem).Enabled:=True;
+ if DM.Sql.Transaction.InTransaction then DM.Sql.Transaction.Rollback;
+end;
+end;
+
+
+
+
 
 procedure TEditDo_F.Btn_Do2DocEditClick(Sender: TObject);
 var

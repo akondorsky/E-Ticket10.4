@@ -36,7 +36,6 @@ object Do2tovAdd_F: TDo2tovAdd_F
       Flat = True
       FooterRowCount = 1
       FooterParams.Color = clWhite
-      IndicatorOptions = [gioShowRowIndicatorEh]
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgMultiSelect]
       SumList.Active = True
       TabOrder = 0
@@ -46,6 +45,7 @@ object Do2tovAdd_F: TDo2tovAdd_F
       Columns = <
         item
           Alignment = taCenter
+          CellButtons = <>
           DynProps = <>
           EditButtons = <>
           FieldName = 'G32'
@@ -57,6 +57,7 @@ object Do2tovAdd_F: TDo2tovAdd_F
           Width = 25
         end
         item
+          CellButtons = <>
           DynProps = <>
           EditButtons = <>
           FieldName = 'G33'
@@ -65,9 +66,9 @@ object Do2tovAdd_F: TDo2tovAdd_F
               Color = clBtnShadow
             end>
           Title.Caption = #1050#1086#1076' '#1058#1053#1042#1069#1044
-          Width = 50
         end
         item
+          CellButtons = <>
           DynProps = <>
           EditButtons = <>
           FieldName = 'G31_1'
@@ -80,6 +81,7 @@ object Do2tovAdd_F: TDo2tovAdd_F
         end
         item
           Alignment = taCenter
+          CellButtons = <>
           DynProps = <>
           EditButtons = <>
           FieldName = 'G221'
@@ -99,6 +101,7 @@ object Do2tovAdd_F: TDo2tovAdd_F
         end
         item
           Alignment = taRightJustify
+          CellButtons = <>
           DynProps = <>
           EditButtons = <>
           FieldName = 'G42'
@@ -120,6 +123,7 @@ object Do2tovAdd_F: TDo2tovAdd_F
         end
         item
           Alignment = taRightJustify
+          CellButtons = <>
           DynProps = <>
           EditButtons = <>
           FieldName = 'G42_OST'
@@ -143,6 +147,7 @@ object Do2tovAdd_F: TDo2tovAdd_F
         end
         item
           Alignment = taCenter
+          CellButtons = <>
           DynProps = <>
           EditButtons = <>
           FieldName = 'G31_2_HUMAN'
@@ -163,6 +168,7 @@ object Do2tovAdd_F: TDo2tovAdd_F
         end
         item
           Alignment = taCenter
+          CellButtons = <>
           DynProps = <>
           EditButtons = <>
           FieldName = 'G31_2_OST_HUMAN'
@@ -183,6 +189,7 @@ object Do2tovAdd_F: TDo2tovAdd_F
         end
         item
           Alignment = taRightJustify
+          CellButtons = <>
           DynProps = <>
           EditButtons = <>
           FieldName = 'G35'
@@ -203,6 +210,7 @@ object Do2tovAdd_F: TDo2tovAdd_F
         end
         item
           Alignment = taRightJustify
+          CellButtons = <>
           DynProps = <>
           EditButtons = <>
           FieldName = 'G35_OST'
@@ -231,7 +239,6 @@ object Do2tovAdd_F: TDo2tovAdd_F
     Width = 96
     Height = 25
     Caption = #1054#1082
-    DoubleBuffered = True
     Glyph.Data = {
       36030000424D3603000000000000360000002800000010000000100000000100
       1800000000000003000000000000000000000000000000000000202020404040
@@ -260,7 +267,6 @@ object Do2tovAdd_F: TDo2tovAdd_F
       6090B090C0C0C04040403F3F3F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F
       7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F7F202020}
     ModalResult = 1
-    ParentDoubleBuffered = False
     TabOrder = 1
     OnClick = SaveBtnClick
   end
@@ -270,7 +276,6 @@ object Do2tovAdd_F: TDo2tovAdd_F
     Width = 88
     Height = 25
     Caption = #1054#1090#1084#1077#1085#1080#1090#1100
-    DoubleBuffered = True
     Glyph.Data = {
       36030000424D3603000000000000360000002800000010000000100000000100
       1800000000000003000000000000000000000000000000000000FFFFFFFFFFFF
@@ -299,7 +304,6 @@ object Do2tovAdd_F: TDo2tovAdd_F
       20FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00004000007F0000BF00
       00BF0000BF00007F000040FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
     ModalResult = 2
-    ParentDoubleBuffered = False
     TabOrder = 2
     OnClick = CancBtnClick
   end

@@ -23,7 +23,7 @@ object Do1_F: TDo1_F
     Top = 0
     Width = 1176
     Height = 528
-    ActivePage = Tab_Do1
+    ActivePage = Tab_Do2
     Align = alClient
     TabOrder = 0
     object Tab_Do1: TTabSheet
