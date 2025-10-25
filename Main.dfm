@@ -2,7 +2,6 @@ object Main_F: TMain_F
   Left = 0
   Top = 55
   BorderIcons = [biSystemMenu, biMinimize, biMaximize, biHelp]
-  Caption = #1054#1054#1054' "'#1057#1080#1088#1080#1091#1089'". '#1040#1056#1052' '#1057#1042#1061' ('#1069#1050#1058')'
   ClientHeight = 635
   ClientWidth = 1286
   Color = clBtnFace
@@ -6611,6 +6610,10 @@ object Main_F: TMain_F
       object N10: TMenuItem
         Caption = #1046#1091#1088#1085#1072#1083' '#1089#1095#1077#1090#1086#1074'-'#1092#1072#1082#1090#1091#1088
         OnClick = N10Click
+      end
+      object Item_AtolV10: TMenuItem
+        Caption = #1050#1072#1089#1089#1072' V10'
+        OnClick = Item_AtolV10Click
       end
       object N54: TMenuItem
         Caption = #1050#1072#1089#1089#1072

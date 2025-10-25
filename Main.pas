@@ -230,6 +230,7 @@ type
     N37: TMenuItem;
     Lbl_tp: TLabel;
     N42: TMenuItem;
+    Item_AtolV10: TMenuItem;
     procedure FormShow(Sender: TObject);
     procedure A_ShowTicketsExecute(Sender: TObject);
     procedure A_AddTicketExecute(Sender: TObject);
@@ -381,6 +382,7 @@ type
     procedure A_DngCheckExecute(Sender: TObject);
     procedure A_DngUncheckExecute(Sender: TObject);
     procedure N42Click(Sender: TObject);
+    procedure Item_AtolV10Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -524,7 +526,7 @@ uses Splash_U, Login_U, DM_U, Tickets_U, TicketAdd_U, EditTs_U, TrailerAdd_U,
   WhOpenCondition_U, About_U, Legend_U, TicketLog_U, Setting_U, Outdoc_U,
   ZTKDocOut_U, ReportSelect_U, Pass_U, Ztkoutdocs_U, Shipper_U,
   FindRegTi_U, ExpInv_U, Hold_U,atol25,SelectParts_U, TsVes_U, CountryCode_U,
-  EditVes_U;
+  EditVes_U,atolv10_u;
 
 
 function TMain_F.GetFakturaSum(Id: Integer): Double;
@@ -3123,6 +3125,18 @@ if  DM.Qry_TS.FieldByName('OUT_FLAG').AsInteger = 2  then
   Grid_TS.Canvas.FillRect(Rect);
  end;
 Grid_TS.DefaultDrawColumnCell(Rect, DataCol, Column, State);
+end;
+
+procedure TMain_F.Item_AtolV10Click(Sender: TObject);
+begin
+//if not Assigned(FAtol_v10)then
+// begin
+   Application.CreateForm(TFAtol_v10, FAtol_v10);
+   FAtol_v10.Show;
+// end ;
+// else
+//   if FAtol_v10.WindowState = wsMinimized	then  ShowWindow(FAtol_v10.Handle, SW_RESTORE)
+//     else FAtol_v10.Show;
 end;
 
 procedure TMain_F.It_41Click(Sender: TObject);

@@ -1094,12 +1094,7 @@ begin
     Application.MessageBox('Не удалось создать объект общего драйвера ККМ!', PChar(Application.Title), MB_ICONERROR + MB_OK);
     Application.Terminate;
   end;
- //Тестовый режим без подключения к кассе
- //Atoll_On;
-
-
-
- //if role = 'SYSADMIN' then  ReturnBtn.Enabled:=True;
+//
 end;
 
 procedure TFormatol25f.FormDestroy(Sender: TObject);

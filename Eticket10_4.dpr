@@ -159,7 +159,9 @@ uses
   Vcl.Themes,
   Vcl.Styles,
   InspLog_U in 'InspLog_U.pas' {InspLog_F},
-  EditVes_U in 'EditVes_U.pas' {EditVes_F};
+  EditVes_U in 'EditVes_U.pas' {EditVes_F},
+  Atolv10_U in 'Atol\Atolv10_U.pas' {FAtol_v10},
+  Fptr10Lib_TLB in 'Atol\Fptr10Lib_TLB.pas';
 
 {$R *.res}
  var
@@ -318,3 +320,4 @@ begin
   SplashForm.Free;
   Application.Run;
 end.
+

@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{13FFA29D-C6AB-4CFB-BB16-2F63AAE67D6D}</ProjectGuid>
+        <ProjectGuid>{748DC4E5-2A52-49D7-8D36-4EAB500E9AA4}</ProjectGuid>
         <ProjectVersion>19.2</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <Base>True</Base>
@@ -8,7 +8,7 @@
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
-        <MainSource>Eticket10_4.dpr</MainSource>
+        <MainSource>Project1.dpr</MainSource>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -57,10 +57,10 @@
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
-        <SanitizedProjectName>Eticket10_4</SanitizedProjectName>
+        <SanitizedProjectName>Project1</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
-        <DCC_UsePackage>DBXSqliteDriver;RESTComponents;fmxase;DBXDb2Driver;DBXInterBaseDriver;vclactnband;fsDB27;vclFireDAC;bindcompvclsmp;emsclientfiredac;tethering;svnui;DataSnapFireDAC;FireDACADSDriver;frx27;DBXMSSQLDriver;DatasnapConnectorsFreePascal;FireDACMSSQLDriver;vcltouch;vcldb;bindcompfmx;svn;frxIBX27;DBXOracleDriver;inetdb;fs27;emsedge;fmx;FireDACIBDriver;fmxdae;vcledge;vclib;FireDACDBXDriver;dbexpress;IndyCore;vclx;dsnap;emsclient;DataSnapCommon;FireDACCommon;RESTBackendComponents;DataSnapConnectors;VCLRESTComponents;soapserver;EhLibADODataDrivers270;vclie;bindengine;DBXMySQLDriver;CloudService;FireDACOracleDriver;FireDACMySQLDriver;DBXFirebirdDriver;FireDACCommonODBC;FireDACCommonDriver;DataSnapClient;inet;IndyIPCommon;bindcompdbx;frxDB27;vcl;IndyIPServer;DBXSybaseASEDriver;EhLib270;IndySystem;FireDACDb2Driver;bindcompvclwinx;dsnapcon;EhLibIBXDataDrivers270;FireDACMSAccDriver;fmxFireDAC;FireDACInfxDriver;vclimg;frxIntIOIndy27;FireDAC;fsIBX27;emshosting;frxIntIO27;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;FireDACASADriver;DBXOdbcDriver;FireDACTDataDriver;soaprtl;DbxCommonDriver;ibxpress;DataSnapServer;xmlrtl;soapmidas;DataSnapNativeClient;fmxobj;vclwinx;FireDACDSDriver;rtl;emsserverresource;DbxClientDriver;ibxbindings;DBXSybaseASADriver;CustomIPTransport;vcldsnap;bindcomp;appanalytics;frxADO27;DBXInformixDriver;IndyIPClient;fsADO27;bindcompvcl;frxe27;dbxcds;VclSmp;frxDBX27;adortl;FireDACODBCDriver;DataSnapIndy10ServerTransport;frxcs27;EhLibDBXDataDrivers270;dsnapxml;DataSnapProviderClient;dbrtl;IndyProtocols;inetdbxpress;FireDACMongoDBDriver;tdbf;DataSnapServerMidas;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_UsePackage>DBXSqliteDriver;RESTComponents;fmxase;DBXDb2Driver;DBXInterBaseDriver;vclactnband;fsDB27;vclFireDAC;bindcompvclsmp;emsclientfiredac;tethering;svnui;DataSnapFireDAC;FireDACADSDriver;tmsxlsdXE13;frx27;DBXMSSQLDriver;DatasnapConnectorsFreePascal;FireDACMSSQLDriver;vcltouch;Atol25;vcldb;bindcompfmx;svn;frxIBX27;DBXOracleDriver;inetdb;fs27;emsedge;fmx;FireDACIBDriver;fmxdae;vcledge;vclib;FireDACDBXDriver;dbexpress;IndyCore;vclx;dsnap;emsclient;DataSnapCommon;FireDACCommon;RESTBackendComponents;DataSnapConnectors;VCLRESTComponents;soapserver;EhLibADODataDrivers270;vclie;bindengine;DBXMySQLDriver;CloudService;FireDACOracleDriver;FireDACMySQLDriver;DBXFirebirdDriver;FireDACCommonODBC;FireDACCommonDriver;DataSnapClient;inet;IndyIPCommon;bindcompdbx;frxDB27;tmsexdXE13;vcl;IndyIPServer;DBXSybaseASEDriver;EhLib270;IndySystem;FireDACDb2Driver;bindcompvclwinx;dsnapcon;EhLibIBXDataDrivers270;FireDACMSAccDriver;fmxFireDAC;FireDACInfxDriver;vclimg;frxIntIOIndy27;FireDAC;fsIBX27;emshosting;frxIntIO27;tmsdXE13;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;FireDACASADriver;DBXOdbcDriver;FireDACTDataDriver;soaprtl;DbxCommonDriver;ibxpress;DataSnapServer;xmlrtl;soapmidas;DataSnapNativeClient;fmxobj;vclwinx;FireDACDSDriver;rtl;emsserverresource;DbxClientDriver;ibxbindings;DBXSybaseASADriver;CustomIPTransport;vcldsnap;bindcomp;appanalytics;frxADO27;DBXInformixDriver;IndyIPClient;fsADO27;bindcompvcl;frxe27;dbxcds;VclSmp;frxDBX27;adortl;FireDACODBCDriver;DataSnapIndy10ServerTransport;frxcs27;EhLibDBXDataDrivers270;dsnapxml;DataSnapProviderClient;dbrtl;IndyProtocols;inetdbxpress;FireDACMongoDBDriver;tdbf;tmswizdXE13;DataSnapServerMidas;$(DCC_UsePackage)</DCC_UsePackage>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
@@ -69,7 +69,7 @@
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
-        <DCC_UsePackage>DBXSqliteDriver;RESTComponents;fmxase;DBXDb2Driver;DBXInterBaseDriver;vclactnband;vclFireDAC;bindcompvclsmp;emsclientfiredac;tethering;DataSnapFireDAC;FireDACADSDriver;DBXMSSQLDriver;DatasnapConnectorsFreePascal;FireDACMSSQLDriver;vcltouch;vcldb;bindcompfmx;DBXOracleDriver;inetdb;emsedge;fmx;FireDACIBDriver;fmxdae;vcledge;vclib;FireDACDBXDriver;dbexpress;IndyCore;vclx;dsnap;emsclient;DataSnapCommon;FireDACCommon;RESTBackendComponents;DataSnapConnectors;VCLRESTComponents;soapserver;EhLibADODataDrivers270;vclie;bindengine;DBXMySQLDriver;CloudService;FireDACOracleDriver;FireDACMySQLDriver;DBXFirebirdDriver;FireDACCommonODBC;FireDACCommonDriver;DataSnapClient;inet;IndyIPCommon;bindcompdbx;vcl;IndyIPServer;DBXSybaseASEDriver;EhLib270;IndySystem;FireDACDb2Driver;bindcompvclwinx;dsnapcon;EhLibIBXDataDrivers270;FireDACMSAccDriver;fmxFireDAC;FireDACInfxDriver;vclimg;FireDAC;emshosting;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;FireDACASADriver;DBXOdbcDriver;FireDACTDataDriver;soaprtl;DbxCommonDriver;ibxpress;DataSnapServer;xmlrtl;soapmidas;DataSnapNativeClient;fmxobj;vclwinx;FireDACDSDriver;rtl;emsserverresource;DbxClientDriver;ibxbindings;DBXSybaseASADriver;CustomIPTransport;vcldsnap;bindcomp;appanalytics;DBXInformixDriver;IndyIPClient;bindcompvcl;dbxcds;VclSmp;adortl;FireDACODBCDriver;DataSnapIndy10ServerTransport;EhLibDBXDataDrivers270;dsnapxml;DataSnapProviderClient;dbrtl;IndyProtocols;inetdbxpress;FireDACMongoDBDriver;tdbf;DataSnapServerMidas;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_UsePackage>DBXSqliteDriver;RESTComponents;fmxase;DBXDb2Driver;DBXInterBaseDriver;vclactnband;vclFireDAC;bindcompvclsmp;emsclientfiredac;tethering;DataSnapFireDAC;FireDACADSDriver;tmsxlsdXE13;DBXMSSQLDriver;DatasnapConnectorsFreePascal;FireDACMSSQLDriver;vcltouch;vcldb;bindcompfmx;DBXOracleDriver;inetdb;emsedge;fmx;FireDACIBDriver;fmxdae;vcledge;vclib;FireDACDBXDriver;dbexpress;IndyCore;vclx;dsnap;emsclient;DataSnapCommon;FireDACCommon;RESTBackendComponents;DataSnapConnectors;VCLRESTComponents;soapserver;EhLibADODataDrivers270;vclie;bindengine;DBXMySQLDriver;CloudService;FireDACOracleDriver;FireDACMySQLDriver;DBXFirebirdDriver;FireDACCommonODBC;FireDACCommonDriver;DataSnapClient;inet;IndyIPCommon;bindcompdbx;tmsexdXE13;vcl;IndyIPServer;DBXSybaseASEDriver;EhLib270;IndySystem;FireDACDb2Driver;bindcompvclwinx;dsnapcon;EhLibIBXDataDrivers270;FireDACMSAccDriver;fmxFireDAC;FireDACInfxDriver;vclimg;FireDAC;emshosting;tmsdXE13;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;FireDACASADriver;DBXOdbcDriver;FireDACTDataDriver;soaprtl;DbxCommonDriver;ibxpress;DataSnapServer;xmlrtl;soapmidas;DataSnapNativeClient;fmxobj;vclwinx;FireDACDSDriver;rtl;emsserverresource;DbxClientDriver;ibxbindings;DBXSybaseASADriver;CustomIPTransport;vcldsnap;bindcomp;appanalytics;DBXInformixDriver;IndyIPClient;bindcompvcl;dbxcds;VclSmp;adortl;FireDACODBCDriver;DataSnapIndy10ServerTransport;EhLibDBXDataDrivers270;dsnapxml;DataSnapProviderClient;dbrtl;IndyProtocols;inetdbxpress;FireDACMongoDBDriver;tdbf;DataSnapServerMidas;$(DCC_UsePackage)</DCC_UsePackage>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -83,8 +83,6 @@
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
-        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -95,473 +93,14 @@
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
-        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="Main.pas">
-            <Form>Main_F</Form>
+        <DCCReference Include="Atol_10.pas">
+            <Form>Form1</Form>
         </DCCReference>
-        <DCCReference Include="DM_U.pas">
-            <Form>DM</Form>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="myutils.pas"/>
-        <DCCReference Include="Splash_U.pas">
-            <Form>SplashForm</Form>
-        </DCCReference>
-        <DCCReference Include="Login_U.pas">
-            <Form>Login_F</Form>
-        </DCCReference>
-        <DCCReference Include="Tickets_U.pas">
-            <Form>Tickets_F</Form>
-        </DCCReference>
-        <DCCReference Include="TicketAdd_U.pas">
-            <Form>AddTicket_F</Form>
-        </DCCReference>
-        <DCCReference Include="EditTs_U.pas">
-            <Form>EditTs_F</Form>
-        </DCCReference>
-        <DCCReference Include="TsType_U.pas">
-            <Form>TsType_F</Form>
-        </DCCReference>
-        <DCCReference Include="Targets_U.pas">
-            <Form>Targets_F</Form>
-        </DCCReference>
-        <DCCReference Include="TrailerAdd_U.pas">
-            <Form>TrailerAdd_F</Form>
-        </DCCReference>
-        <DCCReference Include="TicketEdit_U.pas">
-            <Form>TicketEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="CustProc_U.pas">
-            <Form>CustProc_F</Form>
-        </DCCReference>
-        <DCCReference Include="RegtiDisp_U.pas">
-            <Form>RegtiDisp_F</Form>
-        </DCCReference>
-        <DCCReference Include="PartAdd_U.pas">
-            <Form>PartAdd_F</Form>
-        </DCCReference>
-        <DCCReference Include="Val_U.pas">
-            <Form>Val_F</Form>
-        </DCCReference>
-        <DCCReference Include="ParkZtk_U.pas">
-            <Form>FormParkZTK</Form>
-        </DCCReference>
-        <DCCReference Include="Broker_U.pas">
-            <Form>Broker_F</Form>
-        </DCCReference>
-        <DCCReference Include="TpAdd_U.pas">
-            <Form>TPAdd_F</Form>
-        </DCCReference>
-        <DCCReference Include="Goods_U.pas">
-            <Form>Goods_F</Form>
-        </DCCReference>
-        <DCCReference Include="TpEdit_U.pas">
-            <Form>TpEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="Step0_U.pas">
-            <Form>Step0_F</Form>
-        </DCCReference>
-        <DCCReference Include="PartFullEdit_U.pas">
-            <Form>PartFullEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="Reports_U.pas">
-            <Form>Reports_F</Form>
-        </DCCReference>
-        <DCCReference Include="ReportSelect_U.pas">
-            <Form>ReportSelect_F</Form>
-        </DCCReference>
-        <DCCReference Include="Buh_U.pas">
-            <Form>Buh_F</Form>
-        </DCCReference>
-        <DCCReference Include="AddTs_U.pas">
-            <Form>AddTs_F</Form>
-        </DCCReference>
-        <DCCReference Include="Shipper_U.pas">
-            <Form>Shipper_F</Form>
-        </DCCReference>
-        <DCCReference Include="ScalingTP_U.pas">
-            <Form>ScalingTP_F</Form>
-        </DCCReference>
-        <DCCReference Include="AddActScaleTP_U.pas">
-            <Form>AddActScaleTP_F</Form>
-        </DCCReference>
-        <DCCReference Include="EditActScaleTP_U.pas">
-            <Form>EditActScaleTP_F</Form>
-        </DCCReference>
-        <DCCReference Include="ClosedCbx_U.pas">
-            <Form>FormClosedCbx</Form>
-        </DCCReference>
-        <DCCReference Include="ParkCbx_U.pas">
-            <Form>FormParkCbx</Form>
-        </DCCReference>
-        <DCCReference Include="Warehouse_U.pas">
-            <Form>Warehouse_F</Form>
-        </DCCReference>
-        <DCCReference Include="ActWhIn_U.pas">
-            <Form>ActWhIn_F</Form>
-        </DCCReference>
-        <DCCReference Include="PrevActWhIn_U.pas">
-            <Form>PrevActWhIn_F</Form>
-        </DCCReference>
-        <DCCReference Include="Do1_U.pas">
-            <Form>Do1_F</Form>
-        </DCCReference>
-        <DCCReference Include="Setting_U.pas">
-            <Form>FormSet</Form>
-        </DCCReference>
-        <DCCReference Include="Oksmt_U.pas">
-            <Form>Oksmt_F</Form>
-        </DCCReference>
-        <DCCReference Include="EditDo_U.pas">
-            <Form>EditDo_F</Form>
-        </DCCReference>
-        <DCCReference Include="Carrier_U.pas">
-            <Form>Carrier_F</Form>
-        </DCCReference>
-        <DCCReference Include="CarrierAdd_U.pas">
-            <Form>CarrierAdd_F</Form>
-        </DCCReference>
-        <DCCReference Include="DoTransAdd_U.pas">
-            <Form>DoTransAdd_F</Form>
-        </DCCReference>
-        <DCCReference Include="VidTrans_U.pas">
-            <Form>VidTrans_F</Form>
-        </DCCReference>
-        <DCCReference Include="DoTransEdit_U.pas">
-            <Form>DoTransEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="Docg44_U.pas">
-            <Form>Docg44_F</Form>
-        </DCCReference>
-        <DCCReference Include="Tdoc_U.pas">
-            <Form>TDoc_F</Form>
-        </DCCReference>
-        <DCCReference Include="DocustAdd_U.pas">
-            <Form>DocustAdd_F</Form>
-        </DCCReference>
-        <DCCReference Include="DocustEdit_U.pas">
-            <Form>DocustEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="DotrandAdd_U.pas">
-            <Form>DotrandAdd_F</Form>
-        </DCCReference>
-        <DCCReference Include="DotrandEdit_U.pas">
-            <Form>DotrandEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="DoTovarAdd_U.pas">
-            <Form>DoTovarAdd_F</Form>
-        </DCCReference>
-        <DCCReference Include="Tnved4_U.pas">
-            <Form>Tnved4_F</Form>
-        </DCCReference>
-        <DCCReference Include="DoTovarEdit_U.pas">
-            <Form>DoTovarEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="Do2Edit1_U.pas">
-            <Form>Do2Edit1_F</Form>
-        </DCCReference>
-        <DCCReference Include="Do2tovAdd_U.pas">
-            <Form>Do2tovAdd_F</Form>
-        </DCCReference>
-        <DCCReference Include="Do2tovEdit_U.pas">
-            <Form>Do2TovEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="Do2Outdoc_U.pas">
-            <Form>Do2Outdoc_F</Form>
-        </DCCReference>
-        <DCCReference Include="Do2OutdocEdit_U.pas">
-            <Form>Do2OutdocEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="SelGtd_U.pas">
-            <Form>SelGtd_F</Form>
-        </DCCReference>
-        <DCCReference Include="ExportDo_U.pas">
-            <Form>ExportDo_F</Form>
-        </DCCReference>
-        <DCCReference Include="Prices_U.pas">
-            <Form>Prices_F</Form>
-        </DCCReference>
-        <DCCReference Include="PriceList_U.pas">
-            <Form>PriceList_F</Form>
-        </DCCReference>
-        <DCCReference Include="PriceListAdd_U.pas">
-            <Form>PriceListAdd_F</Form>
-        </DCCReference>
-        <DCCReference Include="PriceListEdit_U.pas">
-            <Form>PriceListEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="Edizm_U.pas">
-            <Form>Edizm_F</Form>
-        </DCCReference>
-        <DCCReference Include="Usl_U.pas">
-            <Form>Usl_F</Form>
-        </DCCReference>
-        <DCCReference Include="UslAdd_U.pas">
-            <Form>UslAdd_F</Form>
-        </DCCReference>
-        <DCCReference Include="UslEdit_U.pas">
-            <Form>UslEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="Regti_U.pas">
-            <Form>Regti_F</Form>
-        </DCCReference>
-        <DCCReference Include="RegTiEdit_U.pas">
-            <Form>RegTiEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="Hold_U.pas">
-            <Form>Hold_F</Form>
-        </DCCReference>
-        <DCCReference Include="DogovorAdd_U.pas">
-            <Form>DogovorAdd_F</Form>
-        </DCCReference>
-        <DCCReference Include="RegTiAdd_U.pas">
-            <Form>RegTiAdd_F</Form>
-        </DCCReference>
-        <DCCReference Include="DogovorEdit_U.pas">
-            <Form>DogovorEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="ReasonsDog_U.pas">
-            <Form>ReasonsDog_F</Form>
-        </DCCReference>
-        <DCCReference Include="VidPlDoc_U.pas">
-            <Form>VidPlDoc_F</Form>
-        </DCCReference>
-        <DCCReference Include="PlDocAdd_U.pas">
-            <Form>PlDocAdd_F</Form>
-        </DCCReference>
-        <DCCReference Include="VidOp_U.pas">
-            <Form>VidOp_F</Form>
-        </DCCReference>
-        <DCCReference Include="PlDocEdit_U.pas">
-            <Form>PlDocEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="ClosedCbxPlaces_U.pas">
-            <Form>ClosedCbxPlaces_F</Form>
-        </DCCReference>
-        <DCCReference Include="ActWhOut_U.pas">
-            <Form>ActWhOut_F</Form>
-        </DCCReference>
-        <DCCReference Include="PartEdit_U.pas">
-            <Form>PartEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="ReasonDiscount_U.pas">
-            <Form>ReasonDiscount_F</Form>
-        </DCCReference>
-        <DCCReference Include="FItemsEdit_U.pas">
-            <Form>FItemsEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="FItemsAdd_U.pas">
-            <Form>FItemsAdd_F</Form>
-        </DCCReference>
-        <DCCReference Include="DiscChange_U.pas">
-            <Form>DiscChange_F</Form>
-        </DCCReference>
-        <DCCReference Include="sumprops.pas"/>
-        <DCCReference Include="FakturaLog_U.pas">
-            <Form>FakturaLog_F</Form>
-        </DCCReference>
-        <DCCReference Include="TsIn_U.pas">
-            <Form>TsIn_F</Form>
-        </DCCReference>
-        <DCCReference Include="TsOut_U.pas">
-            <Form>TsOut_F</Form>
-        </DCCReference>
-        <DCCReference Include="PZTKLog_U.pas">
-            <Form>PZTKLog_F</Form>
-        </DCCReference>
-        <DCCReference Include="AddTtn_U.pas">
-            <Form>AddTtn_F</Form>
-        </DCCReference>
-        <DCCReference Include="EditTtn_U.pas">
-            <Form>EditTtn_F</Form>
-        </DCCReference>
-        <DCCReference Include="AddPop_U.pas">
-            <Form>AddPop_F</Form>
-        </DCCReference>
-        <DCCReference Include="Outdoc_U.pas">
-            <Form>Outdoc_F</Form>
-        </DCCReference>
-        <DCCReference Include="OutdocEdit_U.pas">
-            <Form>OutdocEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="Mercury\MercFPrtX_TLB.pas"/>
-        <DCCReference Include="PricesEdit_U.pas">
-            <Form>PricesEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="ActScaleTs_U.pas">
-            <Form>ActScaleTs_F1</Form>
-        </DCCReference>
-        <DCCReference Include="ActScaleTsEdit_U.pas">
-            <Form>ActScaleTsEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="OpenCbxPlaces_U.pas">
-            <Form>OpenCbxPlaces_F</Form>
-        </DCCReference>
-        <DCCReference Include="WhClosedCondition_U.pas">
-            <Form>WhClosedCondition_F</Form>
-        </DCCReference>
-        <DCCReference Include="WhOpenCondition_U.pas">
-            <Form>WhOpenCondition_F</Form>
-        </DCCReference>
-        <DCCReference Include="About_U.pas">
-            <Form>About_F</Form>
-        </DCCReference>
-        <DCCReference Include="Legend_U.pas">
-            <Form>Legend_F</Form>
-        </DCCReference>
-        <DCCReference Include="TicketLog_U.pas">
-            <Form>TicketLog_F</Form>
-        </DCCReference>
-        <DCCReference Include="AddActCom_U.pas">
-            <Form>AddActCom_F</Form>
-        </DCCReference>
-        <DCCReference Include="EditActCom_U.pas">
-            <Form>EditActCom_F</Form>
-        </DCCReference>
-        <DCCReference Include="MismTovEdit_U.pas">
-            <Form>MismTovEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="MismTovSel_U.pas">
-            <Form>MismTovSel_F</Form>
-        </DCCReference>
-        <DCCReference Include="ZTKDocOut_U.pas">
-            <Form>ZtkOutDoc_F</Form>
-        </DCCReference>
-        <DCCReference Include="ShipperAdd_U.pas">
-            <Form>ShipperAdd_F</Form>
-        </DCCReference>
-        <DCCReference Include="ShipperEdit_U.pas">
-            <Form>ShipperEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="Pass_U.pas">
-            <Form>Pass_F</Form>
-        </DCCReference>
-        <DCCReference Include="Ztkoutdocs_U.pas">
-            <Form>ZTKOutDocs_F</Form>
-        </DCCReference>
-        <DCCReference Include="DelUsl_U.pas">
-            <Form>DelUsl_F</Form>
-        </DCCReference>
-        <DCCReference Include="FindRegTi_U.pas">
-            <Form>FindRegTi_F</Form>
-        </DCCReference>
-        <DCCReference Include="ExpInv_U.pas">
-            <Form>ExpInv_F</Form>
-        </DCCReference>
-        <DCCReference Include="XML\MSXML2_TLB.pas"/>
-        <DCCReference Include="Unit_select_date.pas">
-            <Form>FormSelDate</Form>
-        </DCCReference>
-        <DCCReference Include="Unit_Rep_Usl_sel.pas">
-            <Form>FormRepUslSort</Form>
-        </DCCReference>
-        <DCCReference Include="InputNumber_U.pas">
-            <Form>InputNumber_F</Form>
-        </DCCReference>
-        <DCCReference Include="PrimBuhAdd_U.pas">
-            <Form>PrimBuhAdd_F</Form>
-        </DCCReference>
-        <DCCReference Include="RepSortGoods_U.pas">
-            <Form>RepSortGoods_F</Form>
-        </DCCReference>
-        <DCCReference Include="RepZakSort_U.pas">
-            <Form>RepZakSort_F</Form>
-        </DCCReference>
-        <DCCReference Include="DoHeaderEdit_U.pas">
-            <Form>DoHeaderEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="TnvedUpdate_U.pas">
-            <Form>TnvedUpdate_F</Form>
-        </DCCReference>
-        <DCCReference Include="ucodestr.pas"/>
-        <DCCReference Include="PassEdit_U.pas">
-            <Form>PassEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="SmsPhoneAdd_U.pas">
-            <Form>SmsPhoneAdd_F</Form>
-        </DCCReference>
-        <DCCReference Include="EmailAdd_U.pas">
-            <Form>EmailAdd_F</Form>
-        </DCCReference>
-        <DCCReference Include="DateSingle_U.pas">
-            <Form>DateSingle_F</Form>
-        </DCCReference>
-        <DCCReference Include="UslNote_U.pas">
-            <Form>UslNote_F</Form>
-        </DCCReference>
-        <DCCReference Include="SlideWindow.pas">
-            <Form>SlideWind_F</Form>
-        </DCCReference>
-        <DCCReference Include="FakturaType_U.pas">
-            <Form>FakturaType_F</Form>
-        </DCCReference>
-        <DCCReference Include="HoldAdd_U.pas">
-            <Form>HoldAdd_F</Form>
-        </DCCReference>
-        <DCCReference Include="HoldEdit_U.pas">
-            <Form>HoldEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="CountryCode_U.pas">
-            <Form>CountryCode_F</Form>
-        </DCCReference>
-        <DCCReference Include="ActComWhAdd_U.pas">
-            <Form>ActComWhAdd_F</Form>
-        </DCCReference>
-        <DCCReference Include="VypuskDolg_U.pas">
-            <Form>VypuskDolg_F</Form>
-        </DCCReference>
-        <DCCReference Include="RegtiPlat_U.pas">
-            <Form>RegtiPlat_F</Form>
-        </DCCReference>
-        <DCCReference Include="Atol\atol25.pas">
-            <Form>Formatol25f</Form>
-        </DCCReference>
-        <DCCReference Include="BillItemEdit_U.pas">
-            <Form>BillItemEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="SelectParts_U.pas">
-            <Form>SelectParts_F</Form>
-        </DCCReference>
-        <DCCReference Include="DogovorsList_U.pas">
-            <Form>DogovorsList_F</Form>
-        </DCCReference>
-        <DCCReference Include="FitemsEdited_U.pas">
-            <Form>FitemsEdited_F</Form>
-        </DCCReference>
-        <DCCReference Include="TsVes_U.pas">
-            <Form>TSVes_F</Form>
-        </DCCReference>
-        <DCCReference Include="CountryAdd_U.pas">
-            <Form>CountryAdd_F</Form>
-        </DCCReference>
-        <DCCReference Include="CarrierEdit_U.pas">
-            <Form>CarrierEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="CountryEdit_U.pas">
-            <Form>CountryEdit_F</Form>
-        </DCCReference>
-        <DCCReference Include="Atol\atol.pas">
-            <Form>Formatol</Form>
-        </DCCReference>
-        <DCCReference Include="Atol\FprnM1C_TLB.pas"/>
-        <DCCReference Include="InspLog_U.pas">
-            <Form>InspLog_F</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="EditVes_U.pas">
-            <Form>EditVes_F</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="Atol\Atolv10_U.pas">
-            <Form>FAtol_v10</Form>
-        </DCCReference>
-        <DCCReference Include="Atol\Fptr10Lib_TLB.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -580,17 +119,13 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">Eticket10_4.dpr</Source>
+                    <Source Name="MainSource">Project1.dpr</Source>
                 </Source>
-                <Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k270.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp270.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
-                </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="Win32\Debug\Eticket10_4.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Win32\Debug\Project1.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>Eticket10_4.exe</RemoteName>
+                        <RemoteName>Project1.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
