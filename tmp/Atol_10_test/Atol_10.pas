@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls,Vcl.OleAuto,System.Win.ComObj;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls,Vcl.OleAuto,System.Win.ComObj,System.DateUtils;
 
 type
   TForm1 = class(TForm)
@@ -15,6 +15,8 @@ type
     Button5: TButton;
     Button6: TButton;
     Button7: TButton;
+    Label1: TLabel;
+    Button8: TButton;
     procedure Button1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -24,6 +26,7 @@ type
     procedure Button5Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button7Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -182,6 +185,14 @@ begin
     end;
 end;
 
+procedure TForm1.Button8Click(Sender: TObject);
+var
+  myDate: TDateTime;
+begin
+myDate:=IncDay(Now,1);
+Label1.Caption:=DateTimeToStr(myDate);
+end;
+
 procedure TForm1.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
  if not VarIsEmpty(fptr) then fptr:=Unassigned;
@@ -208,7 +219,7 @@ end;
 
 procedure TForm1.FormShow(Sender: TObject);
 begin
-//
+ Label1.Caption:=DateTimeToStr(Now);
 end;
 
 end.

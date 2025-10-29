@@ -1092,7 +1092,7 @@ begin
     atol25f.ApplicationHandle := Application.Handle; // необходимо для корректного отображения окон драйвера в контексте приложения
   except
     Application.MessageBox('Не удалось создать объект общего драйвера ККМ!', PChar(Application.Title), MB_ICONERROR + MB_OK);
-    Application.Terminate;
+    //Application.Terminate;
   end;
 //
 end;

@@ -61,7 +61,6 @@ type
 
 var
   FItemsAdd_F: TFItemsAdd_F;
-  Stavka_Vat:Integer;
   DscPrice,Kol,Stoim,Itogo:Double;
 
 
@@ -77,8 +76,8 @@ Stoim:=StrToFloat( E_Stoim.Text);
 DscPrice:=StrToFloat(E_Discount.Text);
 Itogo:=(Stoim*Kol) - (Stoim*Kol*DscPrice/100);
 E_Itogo.Text:=FormatFloat('0.00',Itogo);
-E_Summa.Text:=FormatFloat('0.00', Itogo/(1+Stavka_Vat/100)) ;
-E_vat.Text:=FormatFloat('0.00', Itogo-( Itogo/(1+Stavka_Vat/100)));
+E_vat.Text:=FormatFloat('0.00', Itogo*VAT/105);
+E_Summa.Text:=FormatFloat('0.00', Itogo-(Itogo*VAT/105)) ;
 end;
 
 
@@ -96,9 +95,6 @@ begin
   E_Summa.Text:=DM.Qry_FItems.FieldByName('SUMMA').AsString;
   E_Itogo.Text:=DM.Qry_FItems.FieldByName('TOTAL_SUM').AsString;
   E_Edizm.Text:=DM.Qry_FItems.FieldByName('EDIZM').AsString;}
-
-
-
 end;
 
 
@@ -132,8 +128,8 @@ try
   try
    DM.Sql.Close;
    DM.Sql.SQL.Clear;
-   DM.Sql.sql.Add(' insert into faktura_items (id_f_head,usluga,stoim,kol,edizm,id_usl,total_sum,vat,discount,npp_str,summa,sum_vat,username,userdolj) ');
-   DM.Sql.sql.Add(' values (:p0,:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13) ');
+   DM.Sql.sql.Add(' insert into faktura_items (id_f_head,usluga,stoim,kol,edizm,id_usl,total_sum,vat,discount,npp_str,summa,sum_vat,username,userdolj,ts_flag) ');
+   DM.Sql.sql.Add(' values (:p0,:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13,:p14) ');
    if not DM.Sql.Transaction.InTransaction then DM.Sql.Transaction.StartTransaction; //start tran
    DM.Sql.Params[0].AsInteger:=IdFHead;
    DM.Sql.Params[1].AsString:=E_Usluga.Text;
@@ -142,13 +138,14 @@ try
    DM.Sql.Params[4].AsString:=E_Edizm.Text;
    DM.Sql.Params[5].AsInteger:=DM.MT_PriceList.FieldByName('ID').AsInteger;
    DM.Sql.Params[6].AsDouble:=StrToFloat(E_Itogo.Text);
-   DM.Sql.Params[7].AsInteger:=Stavka_Vat;
+   DM.Sql.Params[7].AsInteger:=VAT;
    DM.Sql.Params[8].AsInteger:=StrToInt(E_Discount.Text);
    DM.Sql.Params[9].AsString:=DM.MT_PriceList.FieldByName('NPP_STR').AsString;
    DM.Sql.Params[10].AsDouble:=StrToFloat(E_Summa.Text);
    DM.Sql.Params[11].AsDouble:=StrToFloat(E_Vat.Text);
    DM.Sql.Params[12].AsString:=User;
    DM.Sql.Params[13].AsString:=Dolj;
+   DM.Sql.Params[14].AsInteger:=0;
    DM.Sql.ExecQuery;
    DM.Sql.Transaction.Commit;
    ModalResult:=mrOk;
@@ -319,7 +316,6 @@ begin
            Stoim:=DM.MT_PriceList.FieldByName('STOIM').AsCurrency;
            E_Stoim.Text:=FormatFloat('0.00', Stoim);
            E_Edizm.Text:=DM.MT_PriceList.FieldByName('EDIZM').AsString;
-           Stavka_vat:=DM.MT_PriceList.FieldByName('STAVKA_VAT').AsInteger;
            SelectNext(Sender as TWinControl, True, True);
            E_Kol.Text:='1';
            CalcAll;

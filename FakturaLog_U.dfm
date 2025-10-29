@@ -98,7 +98,7 @@ object FakturaLog_F: TFakturaLog_F
       ImageIndex = 9
       Style = tbsSeparator
     end
-    object ToolButton14: TToolButton
+    object ToolBtn_NewFiskalBill: TToolButton
       Left = 170
       Top = 0
       Action = A_NewFiscallbill

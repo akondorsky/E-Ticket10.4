@@ -54,7 +54,7 @@ type
     ToolButton12: TToolButton;
     A_FHeadDel: TAction;
     ToolButton13: TToolButton;
-    ToolButton14: TToolButton;
+    ToolBtn_NewFiskalBill: TToolButton;
     A_NewFiscallbill: TAction;
     Grid_Parts: TDBGridEh;
     TB_ShowItemsEdited: TToolButton;
@@ -125,7 +125,7 @@ procedure TFakturaLog_F.A_AddFheadExecute(Sender: TObject);
 var
  Id_rec,NextNumber:Integer;
  s,mes:String;
- f:TFakturaType_F;
+ //f:TFakturaType_F;
 begin
  if RegTiPlat_F.ShowModal <>  mrOk  then Exit;
  if RegtiPlat_F.Qry_RegtiPlat.FieldByName('VALID').AsString = 'F' then
@@ -148,16 +148,17 @@ begin
   id_rec:=DM.Qry.Fields[0].AsInteger;
 try
  try
-
-   f:=TFakturaType_F.Create(Application);
-   if  f.ShowModal <> mrOk then
-    begin
-      mes:='Операция прервана.';
-      Application.MessageBox(PChar(mes),'Внимание',MB_ICONSTOP+MB_OK);
-      Exit ;
-    end;
-   DM.Refresh_Settings;
-   if F_type = 0  then
+//
+//   f:=TFakturaType_F.Create(Application);
+//   if  f.ShowModal <> mrOk then
+//    begin
+//      mes:='Операция прервана.';
+//      Application.MessageBox(PChar(mes),'Внимание',MB_ICONSTOP+MB_OK);
+//      Exit ;
+//    end;
+    DM.Refresh_Settings;
+    F_type:=0;
+    if F_type = 0  then
       NextNumber:= DM.Qry_Settings.FieldByName('NEXT_FAKTURA').AsInteger
      else
       NextNumber:= DM.Qry_Settings.FieldByName('NEXT_ACTWORKS').AsInteger;
@@ -205,7 +206,7 @@ try
       end;
  end;
 finally
- f.Free;
+ //f.Free;
  if  DM.Sql.Transaction.InTransaction then DM.Sql.Transaction.Rollback;
 end;
 end;
@@ -561,29 +562,31 @@ procedure TFakturaLog_F.A_NewFiscallbillExecute(Sender: TObject);
 //
 //  //Main_F.N15Click(Main_F.N15);
 var
- idrec:Integer;
  qrytmp:TIbQuery;
 begin
-  if DM.Qry_FItemsLog.FieldByName('VAT').Value > 0 then
-     TaxIndex:=1
-    else
-     TaxIndex:=0;
+// проверяем есть ли НДС
+//  if DM.Qry_FItemsLog.FieldByName('VAT').Value > 0 then
+//     TaxIndex:=1
+//    else
+//     TaxIndex:=0;
 
   PlatNum:=DM.Qry_FHeadLog.FieldByName('PLAT_NAME').asInteger;
   PlatName:=DM.Qry_FHeadLog.FieldByName('PLAT').asString;
-  if (not Assigned(Formatol25f)) then
-    begin
-      Application.MessageBox('Касса не открыта.','Внимание',MB_ICONWARNING+MB_OK);
-      Exit;
-    end;
+// для версии драйвера атол 8
+//  if (not Assigned(Formatol25f)) then
+//    begin
+//      Application.MessageBox('Касса не открыта.','Внимание',MB_ICONWARNING+MB_OK);
+//      Exit;
+//    end;
   if  Application.MessageBox(Pchar('Будет создан чек на оплату на ' + PlatName + '. Продолжить?'),'Внимание',MB_ICONQUESTION+MB_YESNO) <> ID_YES then
     begin
       Exit;
     end;
 
-  idrec:=DM.Qry_FHeadLog.FieldByName('ID').AsInteger;
+  Id_Faktura:=DM.Qry_FHeadLog.FieldByName('ID').AsInteger;
     ////////создадим ид,номер нового чека - bills и ид таблицы счетов cl_accounts
 try
+    ToolBtn_NewFiskalBill.Enabled:=False;
     qrytmp:=TIBQuery.Create(Self);
     qrytmp.Database:=Dm.DB;
     QryTmp.SQL.Add(' select gen_id(GEN_ID_CL_ACCOUNTS,1) from rdb$database ');
@@ -594,7 +597,7 @@ try
     QryTmp.SQL.Clear;
     QryTmp.SQL.Add(' select a.usluga,b.krname,a.total_sum,a.kol, iif( a.kol <> 0, a.total_sum/a.kol,1) as stoim  ,a.discount');
     qrytmp.SQL.Add(' from faktura_items a left join price_lists b on a.id_usl = b.id where a.id_f_head = :p0 ');
-    QryTmp.Params[0].AsInteger:=idrec;
+    QryTmp.Params[0].AsInteger:=Id_Faktura;
     qrytmp.Open;
     if qryTmp.IsEmpty then
       begin
@@ -623,19 +626,21 @@ try
           end;
          DM.Sql.Transaction.Commit;
      finally
+        ToolBtn_NewFiskalBill.Enabled:=True;
         if DM.Sql.Transaction.InTransaction then DM.Sql.Transaction.Rollback;
      end;
 
    /////// получим сумму и ндс из сф
-
-  FormAtol25f.E_Sum.Value:=Main_F.GetFakturaSum(idrec);
-  FormAtol25f.E_Vat.Value:=Main_F.GetFakturaVat(idrec);
-  if TaxIndex = 0 then
-     FormAtol25f.Ch_Vat.Checked:=False
-    else
-     FormAtol25f.Ch_Vat.Checked:=True;
+//драйвер атол 8
+//  FormAtol25f.E_Sum.Value:=Main_F.GetFakturaSum(idrec);
+//  FormAtol25f.E_Vat.Value:=Main_F.GetFakturaVat(idrec);
+//  if TaxIndex = 0 then
+//     FormAtol25f.Ch_Vat.Checked:=False
+//    else
+//     FormAtol25f.Ch_Vat.Checked:=True;
   DM.Refresh_BillItems;
-  Main_F.N54Click(Main_F.N54);
+  Self.Close;
+  Main_F.Item_AtolV10Click(Main_F.Item_AtolV10);
 finally
   qrytmp.Free;
 end;

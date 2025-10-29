@@ -31,7 +31,7 @@ object FAtol_v10: TFAtol_v10
     ExplicitWidth = 720
   end
   object RxLabel2: TLabel
-    Left = 7
+    Left = 376
     Top = 312
     Width = 53
     Height = 16
@@ -56,19 +56,6 @@ object FAtol_v10: TFAtol_v10
     Width = 12
     Height = 13
     Caption = #1087#1086
-  end
-  object RxLabel4: TLabel
-    Left = 210
-    Top = 314
-    Width = 36
-    Height = 16
-    Caption = #1053#1044#1057':'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clBlack
-    Font.Height = -13
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
   end
   object Label1: TLabel
     Left = 8
@@ -96,7 +83,7 @@ object FAtol_v10: TFAtol_v10
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object SpeedButton1: TSpeedButton
+  object RefreshBtn: TSpeedButton
     Left = 576
     Top = 47
     Width = 117
@@ -137,6 +124,7 @@ object FAtol_v10: TFAtol_v10
       C000A4A0A000A4A0A000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00C0C0
       C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0C000C0C0
       C000A4A0A000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00}
+    OnClick = RefreshBtnClick
   end
   object FindBtn: TSpeedButton
     Left = 121
@@ -171,6 +159,7 @@ object FAtol_v10: TFAtol_v10
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+    OnClick = FindBtnClick
   end
   object Label3: TLabel
     Left = 8
@@ -188,7 +177,7 @@ object FAtol_v10: TFAtol_v10
   object Lbl_Shift: TLabel
     Left = 60
     Top = 25
-    Width = 21
+    Width = 5
     Height = 16
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -198,10 +187,10 @@ object FAtol_v10: TFAtol_v10
     ParentFont = False
   end
   object FiscalSaleButton: TButton
-    Left = 560
-    Top = 316
+    Left = 566
+    Top = 312
     Width = 133
-    Height = 113
+    Height = 86
     Caption = #1055#1088#1086#1076#1072#1078#1072
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clMaroon
@@ -210,10 +199,11 @@ object FAtol_v10: TFAtol_v10
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
+    OnClick = FiscalSaleButtonClick
   end
   object GroupBox2: TGroupBox
-    Left = 8
-    Top = 349
+    Left = 7
+    Top = 340
     Width = 352
     Height = 65
     Caption = #1054#1090#1095#1077#1090#1099' '
@@ -234,10 +224,11 @@ object FAtol_v10: TFAtol_v10
       Height = 25
       Caption = 'Z-'#1054#1090#1095#1077#1090'('#1079#1072#1082#1088#1099#1090#1080#1077' '#1089#1084#1077#1085#1099')'
       TabOrder = 1
+      OnClick = ZReportButtonClick
     end
   end
   object E_Sum: TDBNumberEditEh
-    Left = 71
+    Left = 440
     Top = 312
     Width = 120
     Height = 25
@@ -398,32 +389,7 @@ object FAtol_v10: TFAtol_v10
     Height = 25
     Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1087#1088#1086#1073#1080#1090#1099#1077' '#1095#1077#1082#1080' '#1079#1072' '#1087#1077#1088#1080#1086#1076
     TabOrder = 6
-  end
-  object Ch_vat: TCheckBox
-    Left = 408
-    Top = 315
-    Width = 64
-    Height = 17
-    Caption = #1053#1044#1057
-    TabOrder = 7
-  end
-  object E_Vat: TDBNumberEditEh
-    Left = 264
-    Top = 312
-    Width = 120
-    Height = 25
-    AutoSize = False
-    DisplayFormat = '0.00'
-    DynProps = <>
-    EditButtons = <>
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentFont = False
-    TabOrder = 8
-    Visible = True
+    OnClick = Button1Click
   end
   object DBGridEh2: TDBGridEh
     Left = 8
@@ -440,7 +406,7 @@ object FAtol_v10: TFAtol_v10
     ReadOnly = True
     RowLines = 2
     SumList.Active = True
-    TabOrder = 9
+    TabOrder = 7
     TitleParams.RowLines = 2
     Columns = <
       item
@@ -529,7 +495,7 @@ object FAtol_v10: TFAtol_v10
     OptionsEh = [dghFixed3D, dghHighlightFocus, dghClearSelection, dghDialogFind, dghColumnResize, dghExtendVertLines]
     ReadOnly = True
     RowLines = 2
-    TabOrder = 10
+    TabOrder = 8
     TitleParams.RowLines = 2
     Columns = <
       item
@@ -591,7 +557,7 @@ object FAtol_v10: TFAtol_v10
     Height = 21
     EditMask = '0000000\/0;1;_'
     MaxLength = 9
-    TabOrder = 11
+    TabOrder = 9
     Text = '       . '
   end
   object ChTest: TCheckBox
@@ -600,17 +566,7 @@ object FAtol_v10: TFAtol_v10
     Width = 121
     Height = 17
     Caption = #1058#1077#1089#1090#1086#1074#1099#1081' '#1088#1077#1078#1080#1084
-    TabOrder = 12
-  end
-  object Button2: TButton
-    Left = 398
-    Top = 373
-    Width = 98
-    Height = 25
-    Caption = #1054#1090#1082#1088'. '#1089#1084#1077#1085#1091
-    Enabled = False
-    TabOrder = 13
-    OnClick = Button2Click
+    TabOrder = 10
   end
   object PrintDBGridEh1: TPrintDBGridEh
     DBGridEh = DBGridEh1
@@ -634,8 +590,8 @@ object FAtol_v10: TFAtol_v10
   end
   object BcBarPopupMenu1: TPopupMenu
     OwnerDraw = True
-    Left = 248
-    Top = 177
+    Left = 224
+    Top = 193
     object N1: TMenuItem
       Caption = #1055#1077#1095#1072#1090#1072#1090#1100
       ImageIndex = 0
@@ -676,7 +632,7 @@ object FAtol_v10: TFAtol_v10
     Top = 195
   end
   object RegPropStorageManEh1: TRegPropStorageManEh
-    Left = 488
+    Left = 536
     Top = 195
   end
   object PopMn_BillItem: TPopupMenu
@@ -698,7 +654,8 @@ object FAtol_v10: TFAtol_v10
         Action = A_KkmConnect
       end
       object N3: TMenuItem
-        Action = A_OpenShift
+        Caption = #1055#1088#1086#1074#1077#1088#1080#1090#1100' '#1079#1072#1082#1088#1099#1090#1080#1077' '#1095#1077#1082#1072
+        OnClick = N3Click
       end
       object N4: TMenuItem
         Caption = '-'

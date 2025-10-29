@@ -490,9 +490,9 @@ const
  MAIL_CODE_IN_CBX:Integer=11;
  MAIL_CODE_OUT_CBX:Integer=12;
  MAIL_CODE_FINISHED:Integer=2;
-
  SQL_KT:String='select first 50 a.*, b.owner,b.id, b.phone from ticket a left join carrier b on a.id_carrier = b.id order by a.n_ticket desc ' ;
  MAIN_GRID_COLOR:TColor=clYellow; //$4080FF;
+ VAT:Integer=5;
 var
   Main_F: TMain_F;
  // переменные глобального контекста
@@ -512,6 +512,7 @@ var
   FakturaTypeNumering:String;
   IdAccount:Integer; // ид записи таблицы cl_accounts
   N_Bill:Integer;  // № фискального чека
+  Id_Faktura:Integer;//ID счета фактуры
   DynArrayInt: array of Integer; // Дин. массив общего назначения
 implementation
 
@@ -3129,14 +3130,8 @@ end;
 
 procedure TMain_F.Item_AtolV10Click(Sender: TObject);
 begin
-//if not Assigned(FAtol_v10)then
-// begin
    Application.CreateForm(TFAtol_v10, FAtol_v10);
    FAtol_v10.Show;
-// end ;
-// else
-//   if FAtol_v10.WindowState = wsMinimized	then  ShowWindow(FAtol_v10.Handle, SW_RESTORE)
-//     else FAtol_v10.Show;
 end;
 
 procedure TMain_F.It_41Click(Sender: TObject);

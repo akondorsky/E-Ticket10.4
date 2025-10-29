@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 236
-  ClientWidth = 286
+  ClientHeight = 266
+  ClientWidth = 837
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,6 +16,14 @@ object Form1: TForm1
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
+  object Label1: TLabel
+    Left = 344
+    Top = 24
+    Width = 369
+    Height = 13
+    AutoSize = False
+    Caption = 'Label1'
+  end
   object Button1: TButton
     Left = 32
     Top = 32
@@ -77,5 +85,14 @@ object Form1: TForm1
     Caption = #1057#1084#1077#1085#1072
     TabOrder = 6
     OnClick = Button7Click
+  end
+  object Button8: TButton
+    Left = 344
+    Top = 56
+    Width = 75
+    Height = 25
+    Caption = 'Button8'
+    TabOrder = 7
+    OnClick = Button8Click
   end
 end
