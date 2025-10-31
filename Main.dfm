@@ -6612,12 +6612,8 @@ object Main_F: TMain_F
         OnClick = N10Click
       end
       object Item_AtolV10: TMenuItem
-        Caption = #1050#1072#1089#1089#1072' V10'
-        OnClick = Item_AtolV10Click
-      end
-      object N54: TMenuItem
         Caption = #1050#1072#1089#1089#1072
-        OnClick = N54Click
+        OnClick = Item_AtolV10Click
       end
       object N35: TMenuItem
         Caption = #1042#1099#1075#1088#1091#1079#1082#1072' '#1089#1095#1077#1090#1086#1074'-'#1092#1072#1082#1090#1091#1088

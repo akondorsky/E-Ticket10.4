@@ -97,7 +97,6 @@ object PriceList_F: TPriceList_F
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       FooterParams.Color = clWindow
-      IndicatorOptions = [gioShowRowIndicatorEh]
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
       OptionsEh = [dghFixed3D, dghHighlightFocus, dghClearSelection, dghMultiSortMarking, dghDialogFind, dghColumnResize, dghColumnMove, dghExtendVertLines]
       ParentFont = False
@@ -110,6 +109,7 @@ object PriceList_F: TPriceList_F
       OnDrawColumnCell = DBGridEh1DrawColumnCell
       Columns = <
         item
+          CellButtons = <>
           DynProps = <>
           EditButtons = <>
           FieldName = 'NPP_STR'
@@ -119,6 +119,7 @@ object PriceList_F: TPriceList_F
           Width = 80
         end
         item
+          CellButtons = <>
           DynProps = <>
           EditButtons = <>
           FieldName = 'USLUGA'
@@ -128,6 +129,7 @@ object PriceList_F: TPriceList_F
           Width = 462
         end
         item
+          CellButtons = <>
           DynProps = <>
           EditButtons = <>
           FieldName = 'EDIZM'
@@ -137,6 +139,7 @@ object PriceList_F: TPriceList_F
           Width = 58
         end
         item
+          CellButtons = <>
           DynProps = <>
           EditButtons = <>
           FieldName = 'STAVKA_VAT'
@@ -145,6 +148,7 @@ object PriceList_F: TPriceList_F
           Title.Caption = #1057#1090#1072#1074#1082#1072' '#1053#1044#1057' %'
         end
         item
+          CellButtons = <>
           DynProps = <>
           EditButtons = <>
           FieldName = 'STOIM'
@@ -154,6 +158,7 @@ object PriceList_F: TPriceList_F
           Width = 77
         end
         item
+          CellButtons = <>
           DynProps = <>
           EditButtons = <>
           FieldName = 'ORDER_FLAG'
@@ -167,6 +172,7 @@ object PriceList_F: TPriceList_F
           Width = 62
         end
         item
+          CellButtons = <>
           DynProps = <>
           EditButtons = <>
           FieldName = 'ID_TYPE_PRICE'
@@ -222,7 +228,7 @@ object PriceList_F: TPriceList_F
   object ImageList1: TImageList
     Left = 656
     Bitmap = {
-      494C01010B001000380010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010B001000040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -629,7 +635,7 @@ object PriceList_F: TPriceList_F
     Left = 680
     Top = 248
     Bitmap = {
-      494C0101040010002C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010104001000040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

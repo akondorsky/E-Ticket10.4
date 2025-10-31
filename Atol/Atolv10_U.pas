@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, DBGridEhGrouping, ToolCtrlsEh,
   DBGridEhToolCtrls, DynVarsEh, PropFilerEh, PropStorageEh, System.Actions,
   Vcl.ActnList, Vcl.Menus, PrnDbgeh, Vcl.Mask, Vcl.StdCtrls, Vcl.ComCtrls,
-  EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh, DBCtrlsEh, Vcl.Buttons,System.DateUtils,Vcl.OleAuto,IBX.IBQuery;
+  EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh, DBCtrlsEh, Vcl.Buttons,System.DateUtils,Vcl.OleAuto,IBX.IBQuery,DB;
 
 type
   TFAtol_v10 = class(TForm)
@@ -35,9 +35,9 @@ type
     ChTest: TCheckBox;
     PrintDBGridEh1: TPrintDBGridEh;
     BcBarPopupMenu1: TPopupMenu;
-    N1: TMenuItem;
+    Item_Print: TMenuItem;
     N14: TMenuItem;
-    N15: TMenuItem;
+    Item_Return: TMenuItem;
     ActionList1: TActionList;
     A_KkmConnect: TAction;
     A_KKMDisconnect: TAction;
@@ -69,6 +69,10 @@ type
     procedure Button1Click(Sender: TObject);
     procedure FiscalSaleButtonClick(Sender: TObject);
     procedure N3Click(Sender: TObject);
+    procedure A_DelItemExecute(Sender: TObject);
+    procedure N12Click(Sender: TObject);
+    procedure Item_PrintClick(Sender: TObject);
+    procedure Item_ReturnClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -88,7 +92,7 @@ var
 implementation
 
 {$R *.dfm}
-uses dm_u,main,myutils;
+uses dm_u,main,myutils,BillItemEdit_U;
 function PrintCheck(qry:TIBQuery;Sum:Extended):Integer;
 var
  i:Integer;
@@ -123,10 +127,7 @@ begin
         fptr.printText;
       end;
 
-//    atol25f.Name := qry.FieldByName('KRNAME').AsString;
-//    atol25f.Price := qry.FieldByName('STOIM').AsCurrency;
-//    atol25f.Quantity:=qry.FieldByName('KOL').AsFloat;
-//    atol25f.TaxTypeNumber:=4; // без НДС
+
     fptr.setParam(fptr.LIBFPTR_PARAM_COMMODITY_NAME, qry.FieldByName('KRNAME').AsString);
     fptr.setParam(fptr.LIBFPTR_PARAM_PRICE, qry.FieldByName('STOIM').AsCurrency);
     fptr.setParam(fptr.LIBFPTR_PARAM_QUANTITY, qry.FieldByName('KOL').AsFloat);
@@ -153,6 +154,35 @@ if fptr.payment <> 0 then
 Application.MessageBox('Все операции успешно выполнены.', PChar(Application.title), MB_ICONINFORMATION + MB_OK);
 Result:=0;
 
+end;
+
+procedure TFAtol_v10.A_DelItemExecute(Sender: TObject);
+var
+  r:Integer;
+begin
+if DM.Qry_BillItems.IsEmpty then Exit;
+r:=DM.Qry_BillItems.FieldByName('ID').AsInteger;
+        try
+         try
+            if not DM.Sql.Transaction.InTransaction then DM.Sql.Transaction.StartTransaction;
+            DM.Sql.Close;
+            DM.Sql.SQL.Clear;
+            DM.Sql.SQL.Add('delete from bills where id=:p0 ');
+            DM.Sql.Params[0].AsInteger:=r;
+            DM.Sql.ExecQuery;
+            DM.Sql.Transaction.Commit;
+            DM.Refresh_BillItems;
+            E_Sum.Value:= DBGridEh2.Columns[5].Footers[0].SumValue;
+          except
+            on E: EdatabaseError do
+              begin
+                DM.Sql.Transaction.Rollback;
+                ShowMessage(E.Message);
+              end;
+          end;
+        finally
+          if DM.Sql.Transaction.InTransaction then DM.Sql.Transaction.Rollback;
+        end;
 end;
 
 procedure TFAtol_v10.A_KkmConnectExecute(Sender: TObject);
@@ -483,6 +513,53 @@ begin
   E_Sum.Text:= DBGridEh2.Columns[5].Footers[0].SumValue;
 //  FormAtol25f.E_Sum.Value:=Main_F.GetFakturaSum(idrec);
 //  FormAtol25f.E_Vat.Value:=Main_F.GetFakturaVat(idrec);
+end;
+
+procedure TFAtol_v10.N12Click(Sender: TObject);
+begin
+  if DM.Qry_BillItems.IsEmpty then Exit;
+ IdFItems:=DM.Qry_BillItems.FieldByName('ID').AsInteger;
+ FItemDataset:=DM.Qry_BillItems;
+ if BillItemEdit_F.ShowModal = mrOk then
+   begin
+     DM.Qry_BillItems.Close;
+     DM.Qry_BillItems.Open;
+     DM.Qry_BillItems.Locate('ID',IdFItems,[]);
+     E_Sum.Value:= DBGridEh2.Columns[5].Footers[0].SumValue;
+   end;
+end;
+
+procedure TFAtol_v10.Item_ReturnClick(Sender: TObject);
+var
+  qry:TIbQuery;
+  id:Integer;
+begin
+  if DBGridEh1.DataSource.DataSet.FieldByName('id').IsNull then Exit;
+  id:=DBGridEh1.DataSource.DataSet.FieldByName('id').AsInteger;
+  qry := TIBQuery.Create(Self);
+  try
+     qry.Database:=DM.DB;
+     qry.sql.Add('select krname,kol,stoim from bills where id_account=:p0 ');
+     qry.Params[0].AsInteger:=id;
+     qry.Open;
+
+while not qry.Eof do
+begin
+    ShowMessage(qry.FieldByName('KRNAME').AsString);
+    qry.Next;
+end;
+
+    Application.MessageBox('Все операции успешно выполнены.', PChar(Application.title), MB_ICONINFORMATION + MB_OK);
+
+  finally
+    qry.Free;
+  end;
+end;
+
+procedure TFAtol_v10.Item_PrintClick(Sender: TObject);
+begin
+PrintDBGridEh1.PageHeader.LeftText.Add('Кассовый отчет за '+ DateTostr(Date));
+PrintDBGridEh1.Preview;
 end;
 
 procedure TFAtol_v10.N3Click(Sender: TObject);

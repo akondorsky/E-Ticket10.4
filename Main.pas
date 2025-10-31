@@ -10,7 +10,7 @@ uses
    ActnMenus,    ExtCtrls,     ButtonGroup,  CategoryButtons,  Buttons,DB,  Menus,
    PlatformDefaultStyleActnCtrls,MyUtils, IBX.IBQuery, ToolCtrlsEh,
    DBGridEhToolCtrls, DynVarsEh, DBAxisGridsEh, PropFilerEh, PropStorageEh, Mask,
-  System.ImageList, System.Actions, EhLibVCL, IBX.IBCustomDataSet,atol;
+  System.ImageList, System.Actions, EhLibVCL, IBX.IBCustomDataSet;
 
 type
 
@@ -207,7 +207,6 @@ type
     mnErrorEnter: TMenuItem;
     mnSetErrorEnter: TMenuItem;
     mnDeleteErrorEnter: TMenuItem;
-    N54: TMenuItem;
     N15: TMenuItem;
     N55: TMenuItem;
     A_PrintVesCheque: TAction;
@@ -492,7 +491,6 @@ const
  MAIL_CODE_FINISHED:Integer=2;
  SQL_KT:String='select first 50 a.*, b.owner,b.id, b.phone from ticket a left join carrier b on a.id_carrier = b.id order by a.n_ticket desc ' ;
  MAIN_GRID_COLOR:TColor=clYellow; //$4080FF;
- VAT:Integer=5;
 var
   Main_F: TMain_F;
  // переменные глобального контекста
@@ -514,6 +512,7 @@ var
   N_Bill:Integer;  // № фискального чека
   Id_Faktura:Integer;//ID счета фактуры
   DynArrayInt: array of Integer; // Дин. массив общего назначения
+  VatRate:Integer; // НДС
 implementation
 
 {$R *.dfm}
@@ -523,10 +522,10 @@ uses Splash_U, Login_U, DM_U, Tickets_U, TicketAdd_U, EditTs_U, TrailerAdd_U,
   PartFullEdit_U, Reports_U, AddTs_U,ParkZtk_U,
   ScalingTP_U, Warehouse_U, Do1_U, Val_U, Oksmt_U, Carrier_U, VidTrans_U,
   Tdoc_U, Docg44_U, Tnved4_U, Prices_U, PriceList_U, Regti_U, Buh_U,
-  FakturaLog_U, TsIn_U, TsOut_U,  PZTKLog_U, mercury, WhClosedCondition_U,
+  FakturaLog_U, TsIn_U, TsOut_U,  PZTKLog_U,  WhClosedCondition_U,
   WhOpenCondition_U, About_U, Legend_U, TicketLog_U, Setting_U, Outdoc_U,
   ZTKDocOut_U, ReportSelect_U, Pass_U, Ztkoutdocs_U, Shipper_U,
-  FindRegTi_U, ExpInv_U, Hold_U,atol25,SelectParts_U, TsVes_U, CountryCode_U,
+  FindRegTi_U, ExpInv_U, Hold_U,SelectParts_U, TsVes_U, CountryCode_U,
   EditVes_U,atolv10_u;
 
 
@@ -2898,8 +2897,8 @@ begin
     Accounter_MainItem.Enabled := True;
     N4.Enabled := True;
     N10.Enabled := True;
-    N54.Enabled := False;
     N35.Enabled := False;
+    Item_AtolV10.Enabled := False;
   end;
   //if (Role='SYSADMIN') then N45.Enabled:=True else N45.Enabled:=False;
   if ((Role='SYSADMIN') or (Role='KPP')) then mnSetErrorEnter.Enabled:=True else mnSetErrorEnter.Enabled:=False;
@@ -2921,6 +2920,7 @@ WorkDate2.Date:=Date;
 //обрабатываем права пользователя
 //if ROLE <> 'SYSADMIN' then RibGr_KT.Enabled:=False;
 //Grid_Ticket.SetFocus;
+ VatRate:=DM.Qry_Settings.FieldByName('VAT').AsInteger;
 end;
 
 function TMain_F.GetActWeight(Id_scale: Integer): Double;
@@ -3367,14 +3367,7 @@ end;
 
 procedure TMain_F.N15Click(Sender: TObject);
 begin
-if not Assigned(FormAtol)then
- begin
-   Application.CreateForm(TFormAtol, FormAtol);
-   FormAtol.Show;
- end
- else
-   if FormAtol.WindowState = wsMinimized	then  ShowWindow(FormAtol.Handle, SW_RESTORE)
-     else FormAtol.Show;
+//
 
 end;
 
@@ -3626,14 +3619,7 @@ end;
 
 procedure TMain_F.N54Click(Sender: TObject);
 begin
-if not Assigned(FormAtol25f)then
- begin
-   Application.CreateForm(TFormAtol25f, FormAtol25f);
-   FormAtol25f.Show;
- end
- else
-   if FormAtol25f.WindowState = wsMinimized	then  ShowWindow(FormAtol25f.Handle, SW_RESTORE)
-     else FormAtol25f.Show;
+//
 end;
 
 procedure TMain_F.N55Click(Sender: TObject);

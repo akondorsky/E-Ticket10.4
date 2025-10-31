@@ -72,7 +72,7 @@ type
     ToolButton18: TToolButton;
     A_FakturaPrint: TAction;
     A_KassirMark: TAction;
-    ToolButton20: TToolButton;
+    ToolBtn_NewFiskalBill: TToolButton;
     A_NewFiscalBill: TAction;
     Tab_DirectToCash: TTabSheet;
     Grid_KTForPay: TDBGridEh;
@@ -233,7 +233,7 @@ implementation
 uses
  dm_u,main, Regti_U, PlDocAdd_U, PlDocEdit_U, FItemsEdit_U, FItemsAdd_U,
   RegtiDisp_U, DiscChange_U, Reports_U, PartFullEdit_U,Unit_select_date,
-  PrimBuhAdd_U, atol,atol25,DateSingle_U, SlideWindow, VypuskDolg_U,RegtiPlat_U;
+  PrimBuhAdd_U, DateSingle_U, SlideWindow, VypuskDolg_U,RegtiPlat_U;
 
 procedure TBuh_F.AllRecShow;
 var
@@ -649,14 +649,10 @@ begin
      TaxIndex:=0;
   PlatNum:=DM.Qry_FHead.FieldByName('PLAT_NAME').asInteger;
   PlatName:=DM.Qry_FHead.FieldByName('PLAT').asString;
-  if (not Assigned(Formatol25f)) then
-    begin
-      Application.MessageBox('Касса не открыта.','Внимание',MB_ICONWARNING+MB_OK);
-      Exit;
-    end;
   idrec:=DM.Qry_FHead.FieldByName('ID1').AsInteger;
     ////////создадим ид,номер нового чека - bills и ид таблицы счетов cl_accounts
 try
+    ToolBtn_NewFiskalBill.Enabled:=False;
     qrytmp:=TIBQuery.Create(Self);
     qrytmp.Database:=Dm.DB;
     QryTmp.SQL.Add(' select gen_id(GEN_ID_CL_ACCOUNTS,1) from rdb$database ');
@@ -706,17 +702,11 @@ try
         if DM.Sql.Transaction.InTransaction then DM.Sql.Transaction.Rollback;
      end;
 
-   /////// получим сумму и ндс из сф
-
-  FormAtol25f.E_Sum.Value:=Main_F.GetFakturaSum(idrec);
-  FormAtol25f.E_Vat.Value:=Main_F.GetFakturaVat(idrec);
-  if TaxIndex = 0 then
-     FormAtol25f.Ch_Vat.Checked:=False
-    else
-     FormAtol25f.Ch_Vat.Checked:=True;
   DM.Refresh_BillItems;
-  Main_F.N54Click(Main_F.N54);
+  Self.Close;
+  Main_F.Item_AtolV10Click(Main_F.Item_AtolV10);
 finally
+  ToolBtn_NewFiskalBill.Enabled:=True;
   qrytmp.Free;
 end;
 end;
@@ -779,8 +769,9 @@ try
              Kol:=DM.Qry.FieldByName('KOL').AsFloat;
              Vat:=DM.Qry.FieldByName('VAT').AsInteger;
              TotalSum:=(Stoim*Kol)-(Stoim*Kol*new_disc/100);
-             SumWithOutVat:=TotalSum/(1+Vat/100);
+             SumWithOutVat:=TotalSum - (TotalSum*Vat/105);
              SumVat:=TotalSum-SumWithoutVat;
+
              Dm.Sql.Params[0].AsDouble:=TotalSum;
              Dm.Sql.Params[1].AsDouble:=SumWithoutVat;
              Dm.Sql.Params[2].AsInteger:=new_disc;
@@ -1129,23 +1120,7 @@ begin
      mes:='Будет создана с-ф для '+DM.Qry_Regti_Buh.FieldByName('ZAYV').AsString+'. Продолжить?';
      if Application.MessageBox(PChar(mes),
           'Подтверждение',MB_ICONQUESTION+MB_YESNO) <> ID_YES then Exit ;
-//     mes:='Изменить плательщика?';
-//     if Application.MessageBox(PChar(mes),
-//          'Подтверждение',MB_ICONQUESTION+MB_YESNO) = ID_YES then
-//          begin
-//            if RegtiDisp_F.ShowModal = mrOk then
-//               begin
-//                Self.PlatNum:= DM.Qry_RegtiDisp.FieldByName('ID').AsInteger;
-//                if (Self.PlatNum = 0)  then change_plat:=false else change_plat:=true;
-//               end
-//              else
-//               begin
-//                mes:='Плательщик не выбран. Плательщиком будет являться получатель груза.';
-//                Application.MessageBox(PChar(mes),
-//                      'Подтверждение',MB_ICONINFORMATION +MB_OK);
-//               end;
-//          end;
-//    if not change_plat then Self.PlatNum:=DM.Qry_RegTi.FieldByName('ID').AsInteger;
+
     PlatNum:=DM.Qry_Regti_Buh.FieldByName('ID').AsInteger;
 
     Grid_Parts.DataSource.DataSet.DisableControls;
@@ -1251,10 +1226,10 @@ begin
            if DM.Qry_Regti_Buh.FieldByName('DISCOUNT').AsInteger > 0 then
              TotalSum:=TotalSum-(TotalSum * DM.Qry_Regti_Buh.FieldByName('DISCOUNT').AsInteger / 100);
            DM.Sql.Params[6].AsDouble:=TotalSum;
-           DM.Sql.Params[7].AsInteger:=DM.Qry.FieldByName('VAT').AsInteger;
+           DM.Sql.Params[7].AsInteger:=VatRate;
            DM.Sql.Params[8].AsInteger:=DM.Qry_Regti_Buh.FieldByName('DISCOUNT').AsInteger;
            DM.Sql.Params[9].AsString:=DM.Qry.FieldByName('NPP_STR').AsString;
-           WithoutVatSum:=TotalSum/(1+DM.Qry.FieldByName('VAT').AsInteger/100);
+           WithoutVatSum:=TotalSum - (TotalSum*VatRate/105 );
            DM.Sql.Params[10].AsDouble:=WithoutVatSum;
            DM.Sql.Params[11].AsDouble:=TotalSum-WithoutVatSum  ;
            DM.Sql.Params[12].AsInteger:=DM.Qry.FieldByName('ID').AsInteger;
@@ -1262,19 +1237,7 @@ begin
            DM.Sql.Params[14].AsString:=Dolj;
            DM.Sql.Params[15].AsInteger:=DM.Qry.FieldByName('TS_FLAG').AsInteger;
            DM.Sql.ExecQuery;
-           //создаем записи в фискальном чеке
-//           DM.Sql.Close;
-//           DM.Sql.SQL.Clear;
-//           DM.Sql.sql.Add(' insert into bills (id_account,name,stoim,kol,n_part,krname,id_plat) ');
-//           DM.Sql.sql.Add(' values (:p0,:p1,:p2,:p3,:p4,:p5,:p6) ');
-//           DM.Sql.Params[0].AsInteger:=IdAccount;
-//           DM.Sql.Params[1].AsString:=DM.Qry.FieldByName('NAME').AsString;
-//           DM.Sql.Params[2].AsDouble:=DM.Qry.FieldByName('STOIM').AsFloat;
-//           DM.Sql.Params[3].AsDouble:=DM.Qry.FieldByName('KOL').AsFloat;
-//           DM.Sql.Params[4].AsString:=Grid_Parts.DataSource.DataSet.FieldByName('PART_NOMER').AsString;
-//           DM.Sql.Params[5].AsString:=DM.Qry.FieldByName('KRNAME').AsString;
-//           DM.Sql.Params[6].AsInteger:=PlatNum;
-//           DM.Sql.ExecQuery;
+
          // во всех еще не взятых услугах услугах установим флаг checked
            DM.Sql.Close;
            DM.Sql.SQL.Clear;
@@ -1478,7 +1441,7 @@ begin
            Kol:=DM.Qry.FieldByName('KOL').AsFloat;
            Vat:=DM.Qry.FieldByName('VAT').AsInteger;
            TotalSum:=(Stoim*Kol)-(Stoim*Kol*NewDisc/100);
-           SumWithOutVat:=TotalSum/(1+Vat/100);
+           SumWithOutVat:=TotalSum - (TotalSum*Vat/105);
            SumVat:=TotalSum-SumWithoutVat;
            Dm.Sql.Params[0].AsDouble:=TotalSum;
            Dm.Sql.Params[1].AsDouble:=SumWithoutVat;

@@ -390,7 +390,6 @@
         <DCCReference Include="OutdocEdit_U.pas">
             <Form>OutdocEdit_F</Form>
         </DCCReference>
-        <DCCReference Include="Mercury\MercFPrtX_TLB.pas"/>
         <DCCReference Include="PricesEdit_U.pas">
             <Form>PricesEdit_F</Form>
         </DCCReference>
@@ -519,9 +518,6 @@
         <DCCReference Include="RegtiPlat_U.pas">
             <Form>RegtiPlat_F</Form>
         </DCCReference>
-        <DCCReference Include="Atol\atol25.pas">
-            <Form>Formatol25f</Form>
-        </DCCReference>
         <DCCReference Include="BillItemEdit_U.pas">
             <Form>BillItemEdit_F</Form>
         </DCCReference>
@@ -546,10 +542,6 @@
         <DCCReference Include="CountryEdit_U.pas">
             <Form>CountryEdit_F</Form>
         </DCCReference>
-        <DCCReference Include="Atol\atol.pas">
-            <Form>Formatol</Form>
-        </DCCReference>
-        <DCCReference Include="Atol\FprnM1C_TLB.pas"/>
         <DCCReference Include="InspLog_U.pas">
             <Form>InspLog_F</Form>
             <FormType>dfm</FormType>

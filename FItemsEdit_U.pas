@@ -60,7 +60,6 @@ type
 
 var
   FItemsEdit_F: TFItemsEdit_F;
-  Stavka_Vat:Integer;
   DscPrice,Kol,Stoim,Itogo:Double;
 
 
@@ -76,14 +75,13 @@ Stoim:=StrToFloat( E_Stoim.Text);
 DscPrice:=StrToFloat(E_Discount.Text);
 Itogo:=(Stoim*Kol) - (Stoim*Kol*DscPrice/100);
 E_Itogo.Text:=FormatFloat('0.00',Itogo);
-E_Summa.Text:=FormatFloat('0.00', Itogo/(1+Stavka_Vat/100)) ;
-E_vat.Text:=FormatFloat('0.00', Itogo-( Itogo/(1+Stavka_Vat/100)));
+E_vat.Text:=FormatFloat('0.00', Itogo*VatRate/105);
+E_Summa.Text:=FormatFloat('0.00', Itogo-(Itogo*VatRate/105)) ;
 end;
 
 
 procedure TFItemsEdit_F.GetValuesToEdit;
 begin
-  Stavka_Vat:=FItemDataset.FieldByName('VAT').AsInteger;
   Kol:=FItemDataset.FieldByName('KOL').AsFloat;
   E_Kol.Text:=FormatFloat('0.00',Kol);
   E_Usluga.Text:=FItemDataset.FieldByName('USLUGA').AsString;
@@ -95,9 +93,6 @@ begin
   E_Summa.Text:=FItemDataset.FieldByName('SUMMA').AsString;
   E_Itogo.Text:=FItemDataset.FieldByName('TOTAL_SUM').AsString;
   E_Edizm.Text:=FItemDataset.FieldByName('EDIZM').AsString;
-
-
-
 end;
 
 

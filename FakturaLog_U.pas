@@ -116,8 +116,7 @@ const
   implementation
 
 uses DM_U,main, Reports_U, FItemsAdd_U, FItemsEdit_U,  Buh_U,
-  PartFullEdit_U, atol,FakturaType_U,RegtiPlat_U,VypuskDolg_U,atol25,
-  FitemsEdited_U;
+  PartFullEdit_U, FakturaType_U,RegtiPlat_U,VypuskDolg_U,FitemsEdited_U;
 
 {$R *.dfm}
 
@@ -534,50 +533,14 @@ begin
 end;
 
 procedure TFakturaLog_F.A_NewFiscallbillExecute(Sender: TObject);
-//var
-// idrec:Integer;
-// qry:TIbQuery;
-//begin
-//  if DM.Qry_FItemsLog.FieldByName('VAT').Value > 0 then
-//     TaxIndex:=1
-//    else
-//     TaxIndex:=0;
-//
-//  PlatNum:=DM.Qry_FHeadLog.FieldByName('PLAT_NAME').asInteger;
-//  PlatName:=DM.Qry_FHeadLog.FieldByName('PLAT').asString;
-//
-//  if (not Assigned(FormAtol)) then
-//    begin
-//      Application.MessageBox('Касса не открыта.','Внимание',MB_ICONWARNING+MB_OK);
-//      Exit;
-//    end;
-//  /////// получим сумму и ндс из сф
-//  idrec:=DM.Qry_FHeadLog.FieldByName('ID').AsInteger;
-//  FormAtol.E_Sum.Value:=Main_F.GetFakturaSum(idrec);
-//  FormAtol.E_Vat.Value:=Main_F.GetFakturaVat(idrec);
-//  if TaxIndex = 0 then
-//      FormAtol.Ch_Vat.Checked:=False
-//   else
-//      FormAtol.Ch_Vat.Checked:=True;
-//
-//  //Main_F.N15Click(Main_F.N15);
 var
  qrytmp:TIbQuery;
 begin
-// проверяем есть ли НДС
-//  if DM.Qry_FItemsLog.FieldByName('VAT').Value > 0 then
-//     TaxIndex:=1
-//    else
-//     TaxIndex:=0;
+
 
   PlatNum:=DM.Qry_FHeadLog.FieldByName('PLAT_NAME').asInteger;
   PlatName:=DM.Qry_FHeadLog.FieldByName('PLAT').asString;
-// для версии драйвера атол 8
-//  if (not Assigned(Formatol25f)) then
-//    begin
-//      Application.MessageBox('Касса не открыта.','Внимание',MB_ICONWARNING+MB_OK);
-//      Exit;
-//    end;
+
   if  Application.MessageBox(Pchar('Будет создан чек на оплату на ' + PlatName + '. Продолжить?'),'Внимание',MB_ICONQUESTION+MB_YESNO) <> ID_YES then
     begin
       Exit;
@@ -626,22 +589,15 @@ try
           end;
          DM.Sql.Transaction.Commit;
      finally
-        ToolBtn_NewFiskalBill.Enabled:=True;
         if DM.Sql.Transaction.InTransaction then DM.Sql.Transaction.Rollback;
      end;
 
-   /////// получим сумму и ндс из сф
-//драйвер атол 8
-//  FormAtol25f.E_Sum.Value:=Main_F.GetFakturaSum(idrec);
-//  FormAtol25f.E_Vat.Value:=Main_F.GetFakturaVat(idrec);
-//  if TaxIndex = 0 then
-//     FormAtol25f.Ch_Vat.Checked:=False
-//    else
-//     FormAtol25f.Ch_Vat.Checked:=True;
+
   DM.Refresh_BillItems;
   Self.Close;
   Main_F.Item_AtolV10Click(Main_F.Item_AtolV10);
 finally
+  ToolBtn_NewFiskalBill.Enabled:=True;
   qrytmp.Free;
 end;
 end;

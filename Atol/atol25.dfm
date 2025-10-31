@@ -634,8 +634,8 @@ object Formatol25f: TFormatol25f
   end
   object BcBarPopupMenu1: TPopupMenu
     OwnerDraw = True
-    Left = 544
-    Top = 8
+    Left = 416
+    Top = 112
     object N1: TMenuItem
       Caption = #1055#1077#1095#1072#1090#1072#1090#1100
       ImageIndex = 0
@@ -650,8 +650,8 @@ object Formatol25f: TFormatol25f
     end
   end
   object MainMenu1: TMainMenu
-    Left = 344
-    Top = 43
+    Left = 264
+    Top = 99
     object N2: TMenuItem
       Caption = #1050#1072#1089#1089#1080#1088
       object N3: TMenuItem
@@ -691,8 +691,8 @@ object Formatol25f: TFormatol25f
   end
   object ActionList1: TActionList
     OnExecute = ActionList1Execute
-    Left = 392
-    Top = 27
+    Left = 336
+    Top = 107
     object A_KkmEnable: TAction
       Caption = #1055#1086#1076#1082#1083#1102#1095#1077#1085#1080#1077' '#1082' '#1050#1050#1052
       OnExecute = A_KkmEnableExecute

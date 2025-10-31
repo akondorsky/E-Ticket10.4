@@ -34,7 +34,7 @@ var
   Kol,Stoim,Summa:Double;
 
 implementation
-uses dm_u,atol25,pricelist_u,main,regti_u;
+uses dm_u,pricelist_u,main,regti_u;
 
 {$R *.dfm}
 

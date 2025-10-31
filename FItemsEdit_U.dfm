@@ -81,7 +81,6 @@ object FItemsEdit_F: TFItemsEdit_F
     Height = 25
     Caption = 'OK'
     Default = True
-    DoubleBuffered = True
     Glyph.Data = {
       DE010000424DDE01000000000000760000002800000024000000120000000100
       0400000000006801000000000000000000001000000000000000000000000000
@@ -100,7 +99,6 @@ object FItemsEdit_F: TFItemsEdit_F
       333A333333333333333338330000333333333333333333333333333333333333
       0000}
     NumGlyphs = 2
-    ParentDoubleBuffered = False
     TabOrder = 8
     OnClick = SaveBtnClick
   end
@@ -110,10 +108,8 @@ object FItemsEdit_F: TFItemsEdit_F
     Width = 88
     Height = 25
     Caption = #1054#1090#1084#1077#1085#1080#1090#1100
-    DoubleBuffered = True
     Kind = bkCancel
     NumGlyphs = 2
-    ParentDoubleBuffered = False
     TabOrder = 9
     OnClick = CancBtnClick
   end

@@ -331,7 +331,7 @@ object Buh_F: TBuh_F
       Top = 1
       Width = 1242
       Height = 389
-      ActivePage = Tab_Reports
+      ActivePage = Tab_Invoice
       Align = alClient
       TabOrder = 0
       object Tab_DirectToCash: TTabSheet
@@ -464,7 +464,7 @@ object Buh_F: TBuh_F
             Top = 0
             Action = A_DiscChange
           end
-          object ToolButton20: TToolButton
+          object ToolBtn_NewFiskalBill: TToolButton
             Left = 166
             Top = 0
             Action = A_NewFiscalBill

@@ -7,7 +7,7 @@ uses
   Dialogs, Grids, DBGridEh, PropFilerEh, PropStorageEh, Menus,
   StdCtrls, Mask, DBCtrlsEh, DBLookupEh, ExtCtrls, ToolWin, ComCtrls,
   ImgList, DBGridEhGrouping, GridsEh, ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh,
-  DBAxisGridsEh,DB;
+  DBAxisGridsEh,DB, System.ImageList, EhLibVCL;
 
 
 type

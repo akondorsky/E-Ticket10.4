@@ -592,15 +592,17 @@ object FAtol_v10: TFAtol_v10
     OwnerDraw = True
     Left = 224
     Top = 193
-    object N1: TMenuItem
+    object Item_Print: TMenuItem
       Caption = #1055#1077#1095#1072#1090#1072#1090#1100
       ImageIndex = 0
+      OnClick = Item_PrintClick
     end
     object N14: TMenuItem
       Caption = '-'
     end
-    object N15: TMenuItem
+    object Item_Return: TMenuItem
       Caption = #1042#1086#1079#1074#1088#1072#1090' '#1087#1088#1086#1076#1072#1078#1080
+      OnClick = Item_ReturnClick
     end
   end
   object ActionList1: TActionList
@@ -619,6 +621,7 @@ object FAtol_v10: TFAtol_v10
     end
     object A_DelItem: TAction
       Caption = #1059#1076#1072#1083#1080#1090#1100
+      OnExecute = A_DelItemExecute
     end
     object A_KKMCondition: TAction
       Caption = #1055#1088#1086#1074#1077#1088#1080#1090#1100' '#1089#1086#1089#1090#1086#1103#1085#1080#1077' '#1050#1050#1052
@@ -640,6 +643,7 @@ object FAtol_v10: TFAtol_v10
     Top = 193
     object N12: TMenuItem
       Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100
+      OnClick = N12Click
     end
     object N13: TMenuItem
       Action = A_DelItem

@@ -76,25 +76,14 @@ Stoim:=StrToFloat( E_Stoim.Text);
 DscPrice:=StrToFloat(E_Discount.Text);
 Itogo:=(Stoim*Kol) - (Stoim*Kol*DscPrice/100);
 E_Itogo.Text:=FormatFloat('0.00',Itogo);
-E_vat.Text:=FormatFloat('0.00', Itogo*VAT/105);
-E_Summa.Text:=FormatFloat('0.00', Itogo-(Itogo*VAT/105)) ;
+E_vat.Text:=FormatFloat('0.00', Itogo*VatRate/105);
+E_Summa.Text:=FormatFloat('0.00', Itogo-(Itogo*VatRate/105)) ;
 end;
 
 
 procedure TFItemsAdd_F.GetValuesToEdit;
 begin
   E_Discount.Text:=IntToStr(DiscPlat);
-{//  Stavka_Vat:=DM.Qry_FItems.FieldByName('VAT').AsInteger;
-//  Kol:=DM.Qry_FItems.FieldByName('KOL').AsFloat;
-  E_Kol.Text:='0';
-  E_Usluga.Clear;
-//  Stoim:=DM.Qry_FItems.FieldByName('STOIM').AsFloat;
-  E_Stoim.Text:='0';
-  DscPrice:=DM.Qry_FItems.FieldByName('DISCOUNT').AsInteger;
-  E_Vat.Text:=DM.Qry_FItems.FieldByName('SUM_VAT').AsString;
-  E_Summa.Text:=DM.Qry_FItems.FieldByName('SUMMA').AsString;
-  E_Itogo.Text:=DM.Qry_FItems.FieldByName('TOTAL_SUM').AsString;
-  E_Edizm.Text:=DM.Qry_FItems.FieldByName('EDIZM').AsString;}
 end;
 
 
@@ -138,7 +127,7 @@ try
    DM.Sql.Params[4].AsString:=E_Edizm.Text;
    DM.Sql.Params[5].AsInteger:=DM.MT_PriceList.FieldByName('ID').AsInteger;
    DM.Sql.Params[6].AsDouble:=StrToFloat(E_Itogo.Text);
-   DM.Sql.Params[7].AsInteger:=VAT;
+   DM.Sql.Params[7].AsInteger:=VatRate;
    DM.Sql.Params[8].AsInteger:=StrToInt(E_Discount.Text);
    DM.Sql.Params[9].AsString:=DM.MT_PriceList.FieldByName('NPP_STR').AsString;
    DM.Sql.Params[10].AsDouble:=StrToFloat(E_Summa.Text);
