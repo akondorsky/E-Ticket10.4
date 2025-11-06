@@ -2,10 +2,9 @@ object FAtol_v10: TFAtol_v10
   Left = 0
   Top = 0
   BorderIcons = [biSystemMenu]
-  BorderStyle = bsSingle
   Caption = #1050#1072#1089#1089#1072
-  ClientHeight = 823
-  ClientWidth = 707
+  ClientHeight = 744
+  ClientWidth = 697
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,8 +20,8 @@ object FAtol_v10: TFAtol_v10
   TextHeight = 13
   object InfoLabel: TLabel
     Left = 0
-    Top = 806
-    Width = 707
+    Top = 727
+    Width = 697
     Height = 17
     Align = alBottom
     AutoSize = False
@@ -31,8 +30,8 @@ object FAtol_v10: TFAtol_v10
     ExplicitWidth = 720
   end
   object RxLabel2: TLabel
-    Left = 376
-    Top = 312
+    Left = 358
+    Top = 268
     Width = 53
     Height = 16
     Caption = #1057#1091#1084#1084#1072':'
@@ -45,14 +44,14 @@ object FAtol_v10: TFAtol_v10
   end
   object RxLabel1: TLabel
     Left = 240
-    Top = 427
+    Top = 359
     Width = 7
     Height = 13
     Caption = 'C'
   end
   object RxLabel3: TLabel
     Left = 380
-    Top = 425
+    Top = 357
     Width = 12
     Height = 13
     Caption = #1087#1086
@@ -187,8 +186,8 @@ object FAtol_v10: TFAtol_v10
     ParentFont = False
   end
   object FiscalSaleButton: TButton
-    Left = 566
-    Top = 312
+    Left = 548
+    Top = 268
     Width = 133
     Height = 86
     Caption = #1055#1088#1086#1076#1072#1078#1072
@@ -202,9 +201,9 @@ object FAtol_v10: TFAtol_v10
     OnClick = FiscalSaleButtonClick
   end
   object GroupBox2: TGroupBox
-    Left = 7
-    Top = 340
-    Width = 352
+    Left = 8
+    Top = 271
+    Width = 316
     Height = 65
     Caption = #1054#1090#1095#1077#1090#1099' '
     TabOrder = 1
@@ -228,8 +227,8 @@ object FAtol_v10: TFAtol_v10
     end
   end
   object E_Sum: TDBNumberEditEh
-    Left = 440
-    Top = 312
+    Left = 422
+    Top = 268
     Width = 120
     Height = 25
     AutoSize = False
@@ -247,7 +246,7 @@ object FAtol_v10: TFAtol_v10
   end
   object DBGridEh1: TDBGridEh
     Left = -1
-    Top = 448
+    Top = 380
     Width = 694
     Height = 154
     DataSource = DM.Ds_Bills
@@ -366,7 +365,7 @@ object FAtol_v10: TFAtol_v10
   end
   object D1: TDateTimePicker
     Left = 253
-    Top = 423
+    Top = 355
     Width = 120
     Height = 21
     Date = 41592.000000000000000000
@@ -375,7 +374,7 @@ object FAtol_v10: TFAtol_v10
   end
   object D2: TDateTimePicker
     Left = 398
-    Top = 423
+    Top = 355
     Width = 120
     Height = 21
     Date = 41592.000000000000000000
@@ -384,7 +383,7 @@ object FAtol_v10: TFAtol_v10
   end
   object Button1: TButton
     Left = 8
-    Top = 420
+    Top = 352
     Width = 208
     Height = 25
     Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1087#1088#1086#1073#1080#1090#1099#1077' '#1095#1077#1082#1080' '#1079#1072' '#1087#1077#1088#1080#1086#1076
@@ -395,7 +394,7 @@ object FAtol_v10: TFAtol_v10
     Left = 8
     Top = 87
     Width = 685
-    Height = 219
+    Height = 178
     DataSource = DM.DS_BillItems
     DynProps = <>
     Flat = True
@@ -484,8 +483,8 @@ object FAtol_v10: TFAtol_v10
   end
   object DBGridEh4: TDBGridEh
     Left = 0
-    Top = 618
-    Width = 707
+    Top = 539
+    Width = 697
     Height = 188
     Align = alBottom
     DataSource = DM.DS_BillItemsPayed
@@ -525,7 +524,7 @@ object FAtol_v10: TFAtol_v10
         Footers = <>
         Title.Alignment = taCenter
         Title.Caption = #1057#1090#1086#1080#1084
-        Width = 40
+        Width = 65
       end
       item
         CellButtons = <>
@@ -535,7 +534,7 @@ object FAtol_v10: TFAtol_v10
         Footers = <>
         Title.Alignment = taCenter
         Title.Caption = #1050#1086#1083'-'#1074#1086
-        Width = 49
+        Width = 65
       end
       item
         CellButtons = <>
@@ -545,7 +544,7 @@ object FAtol_v10: TFAtol_v10
         Footers = <>
         Title.Alignment = taCenter
         Title.Caption = #1057#1091#1084#1084#1072
-        Width = 56
+        Width = 88
       end>
     object RowDetailData: TRowDetailPanelControlEh
     end
@@ -559,14 +558,6 @@ object FAtol_v10: TFAtol_v10
     MaxLength = 9
     TabOrder = 9
     Text = '       . '
-  end
-  object ChTest: TCheckBox
-    Left = 572
-    Top = 4
-    Width = 121
-    Height = 17
-    Caption = #1058#1077#1089#1090#1086#1074#1099#1081' '#1088#1077#1078#1080#1084
-    TabOrder = 10
   end
   object PrintDBGridEh1: TPrintDBGridEh
     DBGridEh = DBGridEh1
@@ -590,8 +581,8 @@ object FAtol_v10: TFAtol_v10
   end
   object BcBarPopupMenu1: TPopupMenu
     OwnerDraw = True
-    Left = 224
-    Top = 193
+    Left = 40
+    Top = 413
     object Item_Print: TMenuItem
       Caption = #1055#1077#1095#1072#1090#1072#1090#1100
       ImageIndex = 0
@@ -603,6 +594,9 @@ object FAtol_v10: TFAtol_v10
     object Item_Return: TMenuItem
       Caption = #1042#1086#1079#1074#1088#1072#1090' '#1087#1088#1086#1076#1072#1078#1080
       OnClick = Item_ReturnClick
+    end
+    object N1: TMenuItem
+      Action = A_DelBill
     end
   end
   object ActionList1: TActionList
@@ -625,12 +619,27 @@ object FAtol_v10: TFAtol_v10
     end
     object A_KKMCondition: TAction
       Caption = #1055#1088#1086#1074#1077#1088#1080#1090#1100' '#1089#1086#1089#1090#1086#1103#1085#1080#1077' '#1050#1050#1052
+      OnExecute = A_KKMConditionExecute
+    end
+    object A_DelBill: TAction
+      Caption = #1059#1076#1072#1083#1080#1090#1100' '#1095#1077#1082
+      OnExecute = A_DelBillExecute
     end
   end
   object PropStorageEh1: TPropStorageEh
     StorageManager = RegPropStorageManEh1
     StoredProps.Strings = (
-      'DBGridEh2.<P>.Columns.<ForAllItems>.Width')
+      '<P>.Height'
+      '<P>.Left'
+      '<P>.PixelsPerInch'
+      '<P>.Top'
+      '<P>.Width'
+      'DBGridEh1.<P>.Columns.ColumnsIndex'
+      'DBGridEh1.<P>.Columns.<ForAllItems>.Visible'
+      'DBGridEh2.<P>.Columns.ColumnsIndex'
+      'DBGridEh2.<P>.Columns.<ForAllItems>.Width'
+      'DBGridEh4.<P>.Columns.ColumnsIndex'
+      'DBGridEh4.<P>.Columns.<ForAllItems>.Width')
     Left = 416
     Top = 195
   end
@@ -660,12 +669,6 @@ object FAtol_v10: TFAtol_v10
       object N3: TMenuItem
         Caption = #1055#1088#1086#1074#1077#1088#1080#1090#1100' '#1079#1072#1082#1088#1099#1090#1080#1077' '#1095#1077#1082#1072
         OnClick = N3Click
-      end
-      object N4: TMenuItem
-        Caption = '-'
-      end
-      object N6: TMenuItem
-        Action = A_KKMCondition
       end
     end
   end

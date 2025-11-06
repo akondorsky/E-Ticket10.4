@@ -8,7 +8,7 @@ uses
   Mask,  Grids, DBGridEh, IBSQL, PrViewEh,
   PrnDbgeh, Menus,  ImgList, DBGridEhGrouping, GridsEh,
   ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, DBAxisGridsEh,DbCtrlsEh,
-  IbQuery;
+  IbQuery, System.ImageList, EhLibVCL;
 
 
 type

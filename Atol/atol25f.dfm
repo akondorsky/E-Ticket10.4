@@ -147,7 +147,6 @@ object Formatol25f: TFormatol25f
     Flat = True
     FooterRowCount = 1
     FooterParams.Color = clWindow
-    IndicatorOptions = [gioShowRowIndicatorEh]
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
     PopupMenu = BcBarPopupMenu1
     RowLines = 2
@@ -156,6 +155,7 @@ object Formatol25f: TFormatol25f
     TitleParams.RowLines = 1
     Columns = <
       item
+        CellButtons = <>
         DynProps = <>
         EditButtons = <>
         FieldName = 'DT'
@@ -169,6 +169,7 @@ object Formatol25f: TFormatol25f
         Width = 107
       end
       item
+        CellButtons = <>
         DisplayFormat = '0.00'
         DynProps = <>
         EditButtons = <>
@@ -184,6 +185,7 @@ object Formatol25f: TFormatol25f
         Width = 80
       end
       item
+        CellButtons = <>
         DynProps = <>
         EditButtons = <>
         FieldName = 'FIRMA'
@@ -199,8 +201,8 @@ object Formatol25f: TFormatol25f
     Top = 401
     Width = 121
     Height = 21
-    Date = 41592.549933912040000000
-    Time = 41592.549933912040000000
+    Date = 41592.000000000000000000
+    Time = 0.549933912043343300
     TabOrder = 4
   end
   object D2: TDateTimePicker
@@ -208,8 +210,8 @@ object Formatol25f: TFormatol25f
     Top = 401
     Width = 121
     Height = 21
-    Date = 41592.549933946760000000
-    Time = 41592.549933946760000000
+    Date = 41592.000000000000000000
+    Time = 0.549933946756937100
     TabOrder = 5
   end
   object Button1: TButton
@@ -312,7 +314,7 @@ object Formatol25f: TFormatol25f
     Left = 280
     Top = 81
     Bitmap = {
-      494C010102000400500010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000400040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000020202000606060006060
       6000606060008080800080808000808080008080800080808000808080008080

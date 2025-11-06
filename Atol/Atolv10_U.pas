@@ -32,7 +32,6 @@ type
     DBGridEh2: TDBGridEh;
     DBGridEh4: TDBGridEh;
     E_Nomer: TMaskEdit;
-    ChTest: TCheckBox;
     PrintDBGridEh1: TPrintDBGridEh;
     BcBarPopupMenu1: TPopupMenu;
     Item_Print: TMenuItem;
@@ -54,9 +53,9 @@ type
     Mn_KKm: TMenuItem;
     N2: TMenuItem;
     N3: TMenuItem;
-    N4: TMenuItem;
     A_KKMCondition: TAction;
-    N6: TMenuItem;
+    A_DelBill: TAction;
+    N1: TMenuItem;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure XReportButtonClick(Sender: TObject);
@@ -73,6 +72,8 @@ type
     procedure N12Click(Sender: TObject);
     procedure Item_PrintClick(Sender: TObject);
     procedure Item_ReturnClick(Sender: TObject);
+    procedure A_KKMConditionExecute(Sender: TObject);
+    procedure A_DelBillExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -93,7 +94,7 @@ implementation
 
 {$R *.dfm}
 uses dm_u,main,myutils,BillItemEdit_U;
-function PrintCheck(qry:TIBQuery;Sum:Extended):Integer;
+function PrintCheck(qry:TIBQuery;Sum:Extended;Check_Type:Byte):Integer;//0-Sell,1-Return
 var
  i:Integer;
  p:Integer;
@@ -105,7 +106,11 @@ begin
 
   fptr.setParam(1021, 'Администратор');
   fptr.operatorLogin;
-  fptr.setParam(fptr.LIBFPTR_PARAM_RECEIPT_TYPE, fptr.LIBFPTR_RT_SELL);
+  case Check_Type of
+  0:fptr.setParam(fptr.LIBFPTR_PARAM_RECEIPT_TYPE, fptr.LIBFPTR_RT_SELL);
+  1:fptr.setParam(fptr.LIBFPTR_PARAM_RECEIPT_TYPE, fptr.LIBFPTR_RT_SELL_RETURN);
+  end;
+
   fptr.openReceipt;
 
 qry.First;
@@ -131,12 +136,17 @@ begin
     fptr.setParam(fptr.LIBFPTR_PARAM_COMMODITY_NAME, qry.FieldByName('KRNAME').AsString);
     fptr.setParam(fptr.LIBFPTR_PARAM_PRICE, qry.FieldByName('STOIM').AsCurrency);
     fptr.setParam(fptr.LIBFPTR_PARAM_QUANTITY, qry.FieldByName('KOL').AsFloat);
-    fptr.setParam(fptr.LIBFPTR_PARAM_TAX_TYPE, fptr.LIBFPTR_TAX_NO);
+    fptr.setParam(fptr.LIBFPTR_PARAM_TAX_TYPE, fptr.LIBFPTR_TAX_VAT5);
     fptr.registration;
 
     i:=i+1;
     qry.Next;
 end;
+    fptr.setParam(fptr.LIBFPTR_PARAM_TAX_TYPE, fptr.LIBFPTR_TAX_VAT5);
+    fptr.setParam(fptr.LIBFPTR_PARAM_TAX_SUM, Sum*VatRate/105);
+    fptr.receiptTax;
+
+
     fptr.setParam(fptr.LIBFPTR_PARAM_PAYMENT_TYPE, fptr.LIBFPTR_PT_CASH);
     fptr.setParam(fptr.LIBFPTR_PARAM_PAYMENT_SUM, Sum);
 
@@ -153,6 +163,52 @@ if fptr.payment <> 0 then
 
 Application.MessageBox('Все операции успешно выполнены.', PChar(Application.title), MB_ICONINFORMATION + MB_OK);
 Result:=0;
+
+end;
+
+procedure TFAtol_v10.A_DelBillExecute(Sender: TObject);
+var
+  id_account:Integer;
+  s:String;
+begin
+  if DBGridEh1.DataSource.DataSet.FieldByName('ID').IsNull then Exit
+    else id_account:=DBGridEh1.DataSource.DataSet.FieldByName('ID').asInteger;
+  if Application.MessageBox('Текущий чек будет безвозвратно удален.Продолжить?','Внимание!',
+      MB_ICONWARNING+MB_YESNO) <> ID_YES then Exit;
+ s:=' update cl_accounts set del_flag = :p0,date_del = :p1,user_del = :p2 where id = :p3 ' ;
+ DM.Sql.Close;
+ DM.Sql.SQL.Clear;
+ DM.Sql.SQL.Add(s);
+try
+ try
+ if not DM.Sql.Transaction.InTransaction then DM.Sql.Transaction.StartTransaction; //start tran
+     DM.Sql.Params[0].AsInteger:=1;
+     DM.Sql.Params[1].AsDateTime:=Now;
+     DM.Sql.Params[2].AsString:=User ;
+     DM.Sql.Params[3].AsInteger:=id_account;
+     DM.Sql.ExecQuery;
+     s:=' delete from bills where id_account = :p0 ' ;
+     DM.Sql.Close;
+     DM.Sql.SQL.Clear;
+     DM.Sql.SQL.Add(s);
+     DM.Sql.Params[0].AsInteger:=id_account;
+     DM.Sql.ExecQuery;
+     DM.Sql.Transaction.Commit;
+     DBgridEh1.DataSource.DataSet.Close;
+     DBgridEh1.DataSource.DataSet.Open;
+     DBgridEh4.DataSource.DataSet.Close;
+     DBgridEh4.DataSource.DataSet.Open;
+     Application.MessageBox('Чек удален.','Внимание!',MB_ICONINFORMATION+MB_OK);
+  except
+    on E: EdatabaseError do
+      begin
+       ShowMessage(E.Message);
+      end;
+ end;
+finally
+ if  DM.Sql.Transaction.InTransaction then DM.Sql.Transaction.Rollback;
+end;
+
 
 end;
 
@@ -183,6 +239,11 @@ r:=DM.Qry_BillItems.FieldByName('ID').AsInteger;
         finally
           if DM.Sql.Transaction.InTransaction then DM.Sql.Transaction.Rollback;
         end;
+end;
+
+procedure TFAtol_v10.A_KKMConditionExecute(Sender: TObject);
+begin
+//
 end;
 
 procedure TFAtol_v10.A_KkmConnectExecute(Sender: TObject);
@@ -444,7 +505,7 @@ try
     DM.Sql.Params[7].Value:='Y'; //фискальный документ
     DM.Sql.ExecQuery;
 
-    if PrintCheck(DM.Qry_BillItems, StrToFloat(E_Sum.Text)) = 0 then
+    if PrintCheck(DM.Qry_BillItems, StrToFloat(E_Sum.Text),0) = 0 then
     //flag:= true;
     //if flag then
        begin
@@ -533,23 +594,30 @@ procedure TFAtol_v10.Item_ReturnClick(Sender: TObject);
 var
   qry:TIbQuery;
   id:Integer;
+  sum:Currency;
 begin
+if not isOpened  then
+  begin
+    ShowMessage('Касса не открыта');
+    Exit;
+  end;
+
   if DBGridEh1.DataSource.DataSet.FieldByName('id').IsNull then Exit;
   id:=DBGridEh1.DataSource.DataSet.FieldByName('id').AsInteger;
   qry := TIBQuery.Create(Self);
   try
      qry.Database:=DM.DB;
-     qry.sql.Add('select krname,kol,stoim from bills where id_account=:p0 ');
+     qry.sql.Add('select sum(kol*stoim) from bills where id_account=:p0 ');
+     qry.Params[0].AsInteger:=id;
+     qry.Open;
+     sum:=qry.Fields[0].AsCurrency;
+     qry.Sql.Clear;
+     qry.sql.Add('select name,krname,kol,stoim from bills where id_account=:p0 ');
      qry.Params[0].AsInteger:=id;
      qry.Open;
 
-while not qry.Eof do
-begin
-    ShowMessage(qry.FieldByName('KRNAME').AsString);
-    qry.Next;
-end;
-
-    Application.MessageBox('Все операции успешно выполнены.', PChar(Application.title), MB_ICONINFORMATION + MB_OK);
+    if PrintCheck(qry,sum,1) = 0 then
+      Application.MessageBox('Все операции успешно выполнены.', PChar(Application.title), MB_ICONINFORMATION + MB_OK);
 
   finally
     qry.Free;

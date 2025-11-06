@@ -19,6 +19,7 @@ object DM: TDM
     Top = 16
   end
   object IBTR: TIBTransaction
+    Active = True
     DefaultDatabase = DB
     Params.Strings = (
       'read'
@@ -1364,7 +1365,7 @@ object DM: TDM
     DataSource = Ds_DoHead
     ParamCheck = True
     SQL.Strings = (
-      'select a.*,b.LIC_NUM, b.LIC_DATE,c.id'
+      'select a.*,b.LIC_NUM, b.LIC_DATE,c.id, c.dt as dt_output'
       ' from do_outhd a'
       'left join svh b on a.id_svh=b.id'
       'left join WH_ACT_OUT c on a.ID_ACT_OUT = c.id'
