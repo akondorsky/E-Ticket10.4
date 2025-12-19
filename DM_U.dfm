@@ -4,8 +4,7 @@ object DM: TDM
   Height = 843
   Width = 1120
   object DB: TIBDatabase
-    Connected = True
-    DatabaseName = 'C:\FB_DB\SIRIUS_25.FDB'
+    DatabaseName = 'E:\FB_DB\SIRIUS_25.FDB'
     Params.Strings = (
       'user_name=sysdba'
       'password=mkey'
@@ -19,7 +18,6 @@ object DM: TDM
     Top = 16
   end
   object IBTR: TIBTransaction
-    Active = True
     DefaultDatabase = DB
     Params.Strings = (
       'read'
