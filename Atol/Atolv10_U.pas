@@ -256,7 +256,7 @@ begin
      if VarIsEmpty(fptr) then fptr:= CreateOleObject('AddIn.Fptr10');
      fptr.setSingleSetting(fptr.LIBFPTR_SETTING_MODEL, IntToStr(fptr.LIBFPTR_MODEL_ATOL_25F));
      fptr.setSingleSetting(fptr.LIBFPTR_SETTING_PORT, IntToStr(fptr.LIBFPTR_PORT_TCPIP));
-     fptr.setSingleSetting(fptr.LIBFPTR_SETTING_IPADDRESS,'192.168.3.42');
+     fptr.setSingleSetting(fptr.LIBFPTR_SETTING_IPADDRESS,IpKassa);
      fptr.setSingleSetting(fptr.LIBFPTR_SETTING_IPPORT,'5555');
      fptr.applySingleSettings;
 
@@ -369,7 +369,7 @@ try
        fptr:= CreateOleObject('AddIn.Fptr10');
        fptr.setSingleSetting(fptr.LIBFPTR_SETTING_MODEL, IntToStr(fptr.LIBFPTR_MODEL_ATOL_25F));
        fptr.setSingleSetting(fptr.LIBFPTR_SETTING_PORT, IntToStr(fptr.LIBFPTR_PORT_TCPIP));
-       fptr.setSingleSetting(fptr.LIBFPTR_SETTING_IPADDRESS,'192.168.3.42');
+       fptr.setSingleSetting(fptr.LIBFPTR_SETTING_IPADDRESS,IpKassa);
        fptr.setSingleSetting(fptr.LIBFPTR_SETTING_IPPORT,'5555');
        fptr.applySingleSettings;
        if fptr.open <> 0 then

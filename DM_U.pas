@@ -473,7 +473,8 @@ begin
   AssignFile(F,FileName);
   Reset(F);
   ReadLn(F,DB_Name);
-//  ReadLn(F,RemoteFlag);
+  ReadLn(F,IpKassa);
+  //  ReadLn(F,RemoteFlag);
   CloseFile(F);
  if DB.Connected then DB.Close;
 // ShowMessage('Is connected');

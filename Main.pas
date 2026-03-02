@@ -513,6 +513,7 @@ var
   Id_Faktura:Integer;//ID счета фактуры
   DynArrayInt: array of Integer; // Дин. массив общего назначения
   VatRate:Integer; // НДС
+  IpKassa:String; // ip-адрес кассы
 implementation
 
 {$R *.dfm}

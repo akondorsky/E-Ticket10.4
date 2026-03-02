@@ -1,11 +1,11 @@
 object PartFullEdit_F: TPartFullEdit_F
   Left = 0
   Top = 0
-  BorderIcons = [biSystemMenu]
-  BorderStyle = bsSingle
+  Width = 936
+  Height = 549
+  AutoScroll = True
+  BorderIcons = [biSystemMenu, biMaximize]
   Caption = 'PartFullEdit_F'
-  ClientHeight = 500
-  ClientWidth = 930
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,7 +14,7 @@ object PartFullEdit_F: TPartFullEdit_F
   Font.Style = []
   Menu = MainMenu1
   OldCreateOrder = False
-  Position = poDesktopCenter
+  Position = poScreenCenter
   WindowState = wsMaximized
   OnClose = FormClose
   OnMouseWheel = FormMouseWheel
@@ -24,7 +24,7 @@ object PartFullEdit_F: TPartFullEdit_F
   object ToolBar1: TToolBar
     Left = 0
     Top = 0
-    Width = 930
+    Width = 920
     Height = 29
     Caption = 'ToolBar1'
     DrawingStyle = dsGradient
@@ -34,6 +34,7 @@ object PartFullEdit_F: TPartFullEdit_F
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
+    ExplicitWidth = 930
     object Btn_Refresh: TToolButton
       Left = 0
       Top = 0
@@ -54,16 +55,18 @@ object PartFullEdit_F: TPartFullEdit_F
   object Panel1: TPanel
     Left = 0
     Top = 29
-    Width = 930
-    Height = 471
+    Width = 920
+    Height = 461
     Align = alClient
     Caption = 'Panel1'
     TabOrder = 1
+    ExplicitWidth = 930
+    ExplicitHeight = 471
     object frxPreview1: TfrxPreview
       Left = 1
       Top = 1
-      Width = 928
-      Height = 469
+      Width = 918
+      Height = 459
       Align = alClient
       OutlineVisible = False
       OutlineWidth = 120
@@ -72,6 +75,8 @@ object PartFullEdit_F: TPartFullEdit_F
       UseReportHints = True
       OutlineTreeSortType = dtsUnsorted
       HideScrolls = False
+      ExplicitWidth = 928
+      ExplicitHeight = 469
     end
   end
   object MainMenu1: TMainMenu
