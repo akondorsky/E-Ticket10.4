@@ -6,7 +6,8 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ImgList, StdCtrls, DBCtrlsEh,  ExtCtrls, ComCtrls,
   ToolWin, Grids, DBGridEh,  ActnList, PropFilerEh, PropStorageEh,
-  DBGridEhGrouping, GridsEh;
+  DBGridEhGrouping, GridsEh, ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh,
+  EhLibVCL, DBAxisGridsEh;
 
 type
   TVidPlDoc_F = class(TForm)

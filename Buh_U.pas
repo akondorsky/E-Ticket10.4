@@ -284,24 +284,34 @@ end;
 
 procedure TBuh_F.A_DelDocExecute(Sender: TObject);
 var
- Id_rec, rec_zayv:Integer;
+ Id_rec, rec_zayv,type_doc:Integer;
  s:String;
 begin
   Id_rec:=DM.Qry_ClAc.FieldByName('ID').AsInteger;
-
+  type_doc:=DM.Qry_ClAc.FieldByName('KOD_DOC').AsInteger;
  if Application.MessageBox(
       'Данные будут безвозвратно удалены.Продолжить?','Внимание',MB_ICONWARNING+MB_YESNO) <> ID_YES then Exit ;
- s:=' update cl_accounts set del_flag = :p0,date_del = :p1,user_del = :p2 where id = :p3 ' ;
+
  DM.Sql.Close;
  DM.Sql.SQL.Clear;
- DM.Sql.SQL.Add(s);
 try
  try
  if not DM.Sql.Transaction.InTransaction then DM.Sql.Transaction.StartTransaction; //start tran
-     DM.Sql.Params[0].AsInteger:=1;
-     DM.Sql.Params[1].AsDateTime:=Now;
-     DM.Sql.Params[2].AsString:=User ;
-     DM.Sql.Params[3].AsInteger:=Id_rec;
+  if type_doc = 4 then  //С-Ф
+       begin
+         s:=' update cl_accounts set del_flag = :p0,date_del = :p1,user_del = :p2 where id = :p3 ' ;
+         DM.Sql.SQL.Add(s);
+         DM.Sql.Params[0].AsInteger:=1;
+         DM.Sql.Params[1].AsDateTime:=Now;
+         DM.Sql.Params[2].AsString:=User ;
+         DM.Sql.Params[3].AsInteger:=Id_rec;
+       end
+     else
+       begin
+         s:=' delete from cl_accounts where id = :p0 ' ;
+         DM.Sql.SQL.Add(s);
+         DM.Sql.Params[0].AsInteger:=Id_rec;
+       end;
      DM.Sql.ExecQuery;
      DM.Sql.Transaction.Commit;
      rec_zayv:= Grid_firm.DataSource.DataSet.FieldByName('ID').AsInteger;

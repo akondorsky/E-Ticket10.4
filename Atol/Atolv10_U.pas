@@ -175,17 +175,15 @@ begin
     else id_account:=DBGridEh1.DataSource.DataSet.FieldByName('ID').asInteger;
   if Application.MessageBox('Текущий чек будет безвозвратно удален.Продолжить?','Внимание!',
       MB_ICONWARNING+MB_YESNO) <> ID_YES then Exit;
- s:=' update cl_accounts set del_flag = :p0,date_del = :p1,user_del = :p2 where id = :p3 ' ;
+ //s:=' update cl_accounts set del_flag = :p0,date_del = :p1,user_del = :p2 where id = :p3 ' ;
+ s:=' delete from cl_accounts where id = :p0 ' ;
  DM.Sql.Close;
  DM.Sql.SQL.Clear;
  DM.Sql.SQL.Add(s);
 try
  try
  if not DM.Sql.Transaction.InTransaction then DM.Sql.Transaction.StartTransaction; //start tran
-     DM.Sql.Params[0].AsInteger:=1;
-     DM.Sql.Params[1].AsDateTime:=Now;
-     DM.Sql.Params[2].AsString:=User ;
-     DM.Sql.Params[3].AsInteger:=id_account;
+     DM.Sql.Params[0].AsInteger:=id_account;
      DM.Sql.ExecQuery;
      s:=' delete from bills where id_account = :p0 ' ;
      DM.Sql.Close;
@@ -506,8 +504,8 @@ try
     DM.Sql.ExecQuery;
 
     if PrintCheck(DM.Qry_BillItems, StrToFloat(E_Sum.Text),0) = 0 then
-    //flag:= true;
-    //if flag then
+//    flag:= true;
+//    if flag then
        begin
            // Cставим флаг оплаты в bills
           DM.Sql.Close;
