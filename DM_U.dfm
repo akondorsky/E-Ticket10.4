@@ -19,7 +19,6 @@ object DM: TDM
     Top = 16
   end
   object IBTR: TIBTransaction
-    Active = True
     DefaultDatabase = DB
     Params.Strings = (
       'read'
@@ -3605,7 +3604,12 @@ object DM: TDM
       ' left join ts b on a.id_ts = b.id'
       ' left join trailers c on b.id=c.id_truck'
       ' left join ticket d on a.id_ticket=d.id'
-      'where a.cond_park =1')
+      'where a.cond_park =1'
+      'order by cast( a.num_park as integer)'
+      ''
+      ''
+      ''
+      '')
     Left = 168
     Top = 600
   end
