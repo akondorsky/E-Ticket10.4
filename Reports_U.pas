@@ -65,6 +65,7 @@ type
     frxDB_ReasonDolgDetaill: TfrxDBDataset;
     frxDB_ReasonDolgMaster: TfrxDBDataset;
     frxDB_VesCheque: TfrxDBDataset;
+    frxDB_PrintParkZTK: TfrxDBDataset;
     procedure Rep1GetValue(const VarName: string; var Value: Variant);
     procedure Rep2GetValue(const VarName: string; var Value: Variant);
     procedure Rep3GetValue(const VarName: string; var Value: Variant);

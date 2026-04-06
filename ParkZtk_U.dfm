@@ -154,12 +154,8 @@ object FormParkZTK: TFormParkZTK
       Caption = '-'
     end
     object N7: TMenuItem
-      Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1089#1086#1089#1090#1086#1103#1085#1080#1077' '#1087#1072#1088#1082#1086#1074#1082#1080
+      Caption = #1056#1072#1089#1087#1077#1095#1072#1090#1072#1090#1100' '#1087#1072#1088#1082#1086#1074#1082#1091
       OnClick = N7Click
-    end
-    object N8: TMenuItem
-      Caption = #1048#1085#1092#1086#1088#1084#1072#1094#1080#1103' '#1086' '#1084#1077#1089#1090#1077
-      OnClick = N8Click
     end
   end
   object ImageList1: TImageList

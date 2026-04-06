@@ -336,6 +336,7 @@ type
     DS_InspLog: TDataSource;
     Qry_TicketPHONE: TIBStringField;
     Qry_TruckModels: TIBQuery;
+    Qry_PrintParkZTK: TIBQuery;
     procedure DataModuleCreate(Sender: TObject);
     procedure Qry_TicketCalcFields(DataSet: TDataSet);
     procedure IBEvents1EventAlert(Sender: TObject; EventName: string;

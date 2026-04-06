@@ -4,6 +4,7 @@ object DM: TDM
   Height = 843
   Width = 1120
   object DB: TIBDatabase
+    Connected = True
     DatabaseName = 'D:\db_2013\SIRIUS_25.FDB'
     Params.Strings = (
       'user_name=sysdba'
@@ -18,6 +19,7 @@ object DM: TDM
     Top = 16
   end
   object IBTR: TIBTransaction
+    Active = True
     DefaultDatabase = DB
     Params.Strings = (
       'read'
@@ -3587,6 +3589,24 @@ object DM: TDM
     SQL.Strings = (
       'select model from trucks_models order by model')
     Left = 120
+    Top = 600
+  end
+  object Qry_PrintParkZTK: TIBQuery
+    Database = DB
+    Transaction = IBTR
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      
+        'select a.id,a.num_park,a.cond_park, b.n_ts ,c.n_trailer,d.n_tick' +
+        'et'
+      ' from park_ztk a'
+      ' left join ts b on a.id_ts = b.id'
+      ' left join trailers c on b.id=c.id_truck'
+      ' left join ticket d on a.id_ticket=d.id'
+      'where a.cond_park =1')
+    Left = 168
     Top = 600
   end
 end

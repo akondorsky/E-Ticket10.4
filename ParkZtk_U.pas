@@ -20,7 +20,6 @@ type
     N5: TMenuItem;
     SB1: TStatusBar;
     N6: TMenuItem;
-    N7: TMenuItem;
     Shape1: TShape;
     Label1: TLabel;
     Label2: TLabel;
@@ -28,10 +27,10 @@ type
     Label3: TLabel;
     Shape3: TShape;
     Label4: TLabel;
-    N8: TMenuItem;
     Shape4: TShape;
     Label5: TLabel;
     Qry_ZTK: TIBQuery;
+    N7: TMenuItem;
     procedure FillCells;
     procedure StringGrid1MouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -86,7 +85,7 @@ var
   FormParkZTK: TFormParkZTK;
 
 implementation
-uses dm_u,main;
+uses dm_u,main,Reports_U;
 {$R *.dfm}
 
 procedure TFormParkZTK.Set_Park_Disable(NumP, State: Integer; Table: String);
@@ -379,7 +378,11 @@ end;
 
 procedure TFormParkZTK.N7Click(Sender: TObject);
 begin
-  ParkingCondition;
+  if not DM.Qry_PrintParkZTK.Active then DM.Qry_PrintParkZTK.Open;
+  if Reports_F.Rep1.LoadFromFile('rep_print_ztk.fr3') then
+    if Reports_F.Rep1.PrepareReport(True) then
+        Reports_F.Rep1.ShowPreparedReport;
+  DM.Qry_PrintParkZTK.Close;
 end;
 
 procedure TFormParkZTK.N8Click(Sender: TObject);
