@@ -514,6 +514,7 @@ var
   DynArrayInt: array of Integer; // Дин. массив общего назначения
   VatRate:Integer; // НДС
   IpKassa:String; // ip-адрес кассы
+  NumPlatDoc:String;//ном плат. документа в упд
 implementation
 
 {$R *.dfm}
@@ -3557,7 +3558,7 @@ try
           begin
             DM.Sql.Params[0].asInteger:=DM.Qry_TicketID.AsInteger;
             DM.Sql.Params[1].asInteger:=qry.Fields[0].AsInteger;
-            DM.Sql.Params[2].asInteger:=411 ;//услуга № 2.2
+            DM.Sql.Params[2].asInteger:=DM.Qry_Settings.FieldByName('ID_USL_ELECTRO').AsInteger;
             DM.SQL.Params[3].AsDouble:=1;
             DM.SQL.Params[4].AsInteger:=1;
             DM.SQL.Params[5].AsString:=User;

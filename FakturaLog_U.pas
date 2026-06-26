@@ -331,11 +331,28 @@ begin
 end;
 
 procedure TFakturaLog_F.A_FakturaPrintExecute(Sender: TObject);
+var
+  plat:Integer;
+  qry:TIBQuery;
 begin
  IdFHead:=DM.Qry_FheadLog.FieldByName('ID').AsInteger;
  DM.Qry_RepInFaktura.Close;
  DM.Qry_RepInFaktura.Params[0].AsInteger:=IdFHead;
  DM.Qry_RepInFaktura.Open;
+   try
+    qry := TIBQuery.Create(Self);
+    qry.Database:=Dm.DB;
+    qry.Transaction:=Dm.IBTR;
+  plat:=DM.Qry_RepInFaktura.FieldByName('PLAT_NAME').AsInteger;
+  qry.Close;
+  qry.Sql.Clear;
+  qry.Sql.Add('select n_doc, cast(dt as date) from cl_accounts where id = (select max(id) from cl_accounts where kod_vid=1 and zayv=:p0)');
+  qry.Params[0].AsInteger:=plat;
+  qry.Open;
+  NumPlatDoc:=qry.Fields[0].AsString+' от '+qry.Fields[1].AsString;
+  finally
+    qry.Free;
+  end;
  DM.Refresh_Settings;
  case DM.Qry_Settings.FieldByName('BUH_DOC').AsInteger of
   0:begin

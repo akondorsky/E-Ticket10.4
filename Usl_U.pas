@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DBGridEhGrouping, GridsEh, DBGridEh, ToolCtrlsEh, DBGridEhToolCtrls,
-  DynVarsEh, DBAxisGridsEh;
+  DynVarsEh, DBAxisGridsEh, EhLibVCL;
 
 type
   TUsl_F = class(TForm)

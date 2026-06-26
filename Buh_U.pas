@@ -910,12 +910,54 @@ begin
 end;
 
 procedure TBuh_F.A_FakturaPrintExecute(Sender: TObject);
+var
+ qry:TIBQuery;
+ plat:Integer;
 begin
  IdFHead:=DM.Qry_FHead.FieldByName('ID1').AsInteger;
  DM.Qry_RepInFaktura.Close;
  DM.Qry_RepInFaktura.Params[0].AsInteger:=IdFHead;
  DM.Qry_RepInFaktura.Open;
+    try
+    qry := TIBQuery.Create(Self);
+    qry.Database:=Dm.DB;
+    qry.Transaction:=Dm.IBTR;
+  plat:=DM.Qry_RepInFaktura.FieldByName('PLAT_NAME').AsInteger;
+  qry.Close;
+  qry.Sql.Clear;
+  qry.Sql.Add('select n_doc, cast(dt as date) from cl_accounts where id = (select max(id) from cl_accounts where kod_vid=1 and zayv=:p0)');
+  qry.Params[0].AsInteger:=plat;
+  qry.Open;
+  NumPlatDoc:=qry.Fields[0].AsString+' от '+qry.Fields[1].AsString;
+  finally
+    qry.Free;
+  end;
  DM.Refresh_Settings;
+
+ {
+  IdFHead:=DM.Qry_FheadLog.FieldByName('ID').AsInteger;
+ DM.Qry_RepInFaktura.Close;
+ DM.Qry_RepInFaktura.Params[0].AsInteger:=IdFHead;
+ DM.Qry_RepInFaktura.Open;
+   try
+    qry := TIBQuery.Create(Self);
+    qry.Database:=Dm.DB;
+    qry.Transaction:=Dm.IBTR;
+  plat:=DM.Qry_RepInFaktura.FieldByName('PLAT_NAME').AsInteger;
+  qry.Close;
+  qry.Sql.Clear;
+  qry.Sql.Add('select n_doc, cast(dt as date) from cl_accounts where id = (select max(id) from cl_accounts where kod_vid=1 and zayv=:p0)');
+  qry.Params[0].AsInteger:=plat;
+  qry.Open;
+  NumPlatDoc:=qry.Fields[0].AsString+' от '+qry.Fields[1].AsString;
+  finally
+    qry.Free;
+  end;
+ }
+
+
+
+
  case DM.Qry_Settings.FieldByName('BUH_DOC').AsInteger of
   0:begin
      Reports_F.Rep_buh.LoadFromFile('in_faktura.fr3');
@@ -1183,11 +1225,10 @@ begin
        DM.Sql.sql.Add(' insert into faktura_head (id,nomer,user_name,r_name,plat_name,type_f,user_dolj,is_actwork) ');
        DM.Sql.sql.Add(' values (:p0,:p1,:p2,:p3,:p4,:p5,:p6,:p7) ');
        DM.Sql.Params[0].AsInteger:=new_rec;
-       if Trim(QryTmp.Fields[1].AsString) = 'A'  then
-          DM.Sql.Params[1].AsInteger:=NextFactura;
-       if Trim(QryTmp.Fields[1].AsString) = 'B' then
-          DM.Sql.Params[1].AsInteger:=NextActWorks;
-       //DM.Sql.Params[2].AsDateTime:=Now;
+       //if Trim(QryTmp.Fields[1].AsString) = 'A'  then
+       DM.Sql.Params[1].AsInteger:=NextFactura;
+//       if Trim(QryTmp.Fields[1].AsString) = 'B' then
+//          DM.Sql.Params[1].AsInteger:=NextActWorks;
        DM.Sql.Params[2].AsString:=User;
        DM.Sql.Params[3].AsInteger:=DM.Qry_Regti_Buh.FieldByName('ID').AsInteger;
        DM.Sql.Params[4].AsInteger:=PlatNum;

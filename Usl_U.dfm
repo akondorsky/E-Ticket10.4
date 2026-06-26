@@ -30,7 +30,6 @@ object Usl_F: TUsl_F
     Font.Name = 'Tahoma'
     Font.Style = []
     FooterParams.Color = clWindow
-    IndicatorOptions = [gioShowRowIndicatorEh]
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
     ParentFont = False
     RowHeight = 1
@@ -40,6 +39,7 @@ object Usl_F: TUsl_F
     OnDblClick = DBGridEh1DblClick
     Columns = <
       item
+        CellButtons = <>
         DynProps = <>
         EditButtons = <>
         FieldName = 'USLUGA'
@@ -50,6 +50,7 @@ object Usl_F: TUsl_F
       end
       item
         Alignment = taCenter
+        CellButtons = <>
         DynProps = <>
         EditButtons = <>
         FieldName = 'COST'
@@ -60,6 +61,7 @@ object Usl_F: TUsl_F
       end
       item
         Alignment = taCenter
+        CellButtons = <>
         DynProps = <>
         EditButtons = <>
         FieldName = 'KOL_USLUG'
@@ -69,6 +71,7 @@ object Usl_F: TUsl_F
         Width = 60
       end
       item
+        CellButtons = <>
         DynProps = <>
         EditButtons = <>
         FieldName = 'DAYS'

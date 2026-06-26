@@ -85,7 +85,7 @@ implementation
 
 {$R *.dfm}
 uses main, dm_u,partfulledit_u,sumprops,reportselect_u,unit_select_date,buh_u,
-      DateSingle_U, Regti_U;
+      DateSingle_U, Regti_U,FakturaLog_U;
 
 function TReports_F.GetDTRaspiska(ADate: TdateTime): String;
 begin
@@ -255,6 +255,7 @@ procedure TReports_F.Rep_buhGetValue(const VarName: string; var Value: Variant);
 var
   qry:TIBQuery;
   i,n:Integer;
+  doc:String;
 begin
   try
     qry := TIBQuery.Create(Self);
@@ -298,6 +299,11 @@ begin
            else
             Value:='';
        end;
+    if VarName='NumPatDoc' then
+      begin
+        doc:=NumPlatDoc;
+        Value:=doc;
+      end;
   finally
     qry.Free;
   end;

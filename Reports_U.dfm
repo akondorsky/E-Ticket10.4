@@ -6073,22 +6073,22 @@ object Reports_F: TReports_F
     PrintOptions.Printer = #1055#1086' '#1091#1084#1086#1083#1095#1072#1085#1080#1102
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 40403.703565092600000000
-    ReportOptions.LastChange = 44397.448589363420000000
+    ReportOptions.LastChange = 46195.515816689820000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
-      '      '
-      '                                                  '
-      '  '
+      ''
+      ''
+      ''
       'var'
       ' sum_w_vat,stoim_w_vat,DTotalSum,dTotalSumVat:Double;'
-      ' vat,sum_vat:String;                           '
-      '                                         '
-      '          '
-      '  '
+      ' vat,sum_vat:String;'
+      ''
+      ''
+      ''
       'procedure MasterData1OnBeforePrint(Sender: TfrxComponent);'
       'begin'
-      '                             '
+      ''
       
         ' stoim_w_vat:=<frxDBRepInfaktura."SUMMA">/<frxDBRepInfaktura."KO' +
         'L">;'
@@ -6099,21 +6099,19 @@ object Reports_F: TReports_F
       
         ' if <frxDBRepInfaktura."SUM_VAT"> > 0 then sum_vat:=FloatToStr(<' +
         'frxDBRepInfaktura."SUM_VAT">) else'
-      '    sum_vat:='#39#39';                              '
+      '    sum_vat:='#39#39';'
       '         dTotalSum:=dTotalSum+<frxDBRepInfaktura."TOTAL_SUM">;'
-      
-        ' dTotalSumVat:=dTotalSumVat+<frxDBRepInfaktura."SUM_VAT">;      ' +
-        '               '
+      ' dTotalSumVat:=dTotalSumVat+<frxDBRepInfaktura."SUM_VAT">;'
       'end;'
       'procedure MasterFooter3OnBeforePrint(Sender: TfrxComponent);'
       'begin'
-      '                                        '
+      ''
       'end;'
       ''
-      'begin          '
-      ' dTotalSum:=0;  '
+      'begin'
+      ' dTotalSum:=0;'
       ' dTotalSumVat:=0;'
-      ' //TotalSumProp:='#39#39';               '
+      ' //TotalSumProp:='#39#39';'
       'end.')
     OnGetValue = Rep_buhGetValue
     Left = 168
@@ -6166,7 +6164,11 @@ object Reports_F: TReports_F
       end
       item
         Name = 'Doc_5a'
-        Value = ''
+        Value = Null
+      end
+      item
+        Name = 'NumPatDoc'
+        Value = Null
       end>
     Style = <>
     object Data: TfrxDataPage
@@ -6193,7 +6195,7 @@ object Reports_F: TReports_F
         FillGap.Right = 0
         Frame.Typ = []
         Height = 15.874015750000000000
-        Top = 842.835190000000000000
+        Top = 839.055660000000000000
         Width = 1065.827460000000000000
         OnAfterCalcHeight = 'MasterData1OnAfterCalcHeight'
         OnBeforePrint = 'MasterData1OnBeforePrint'
@@ -6528,14 +6530,14 @@ object Reports_F: TReports_F
         FillGap.Bottom = 0
         FillGap.Right = 0
         Frame.Typ = []
-        Height = 515.543492600000100000
+        Height = 510.543492600000000000
         Top = 18.897650000000000000
         Width = 1065.827460000000000000
         object Memo18: TfrxMemoView
           AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 121.779530000000000000
-          Top = 245.559060000000000000
+          Top = 241.559060000000000000
           Width = 80.000000000000000000
           Height = 15.874015750000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -6554,7 +6556,7 @@ object Reports_F: TReports_F
           AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 201.779530000000000000
-          Top = 245.559060000000000000
+          Top = 241.559060000000000000
           Width = 818.425170000000000000
           Height = 15.874015750000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -6575,7 +6577,7 @@ object Reports_F: TReports_F
           AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 121.779530000000000000
-          Top = 263.559060000000000000
+          Top = 259.559060000000000000
           Width = 48.000000000000000000
           Height = 15.874015750000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -6594,7 +6596,7 @@ object Reports_F: TReports_F
           AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 169.779530000000000000
-          Top = 263.559060000000000000
+          Top = 259.559060000000000000
           Width = 850.425170000000000000
           Height = 15.874015750000000000
           StretchMode = smActualHeight
@@ -6616,7 +6618,7 @@ object Reports_F: TReports_F
           AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 276.779530000000000000
-          Top = 281.559060000000000000
+          Top = 277.559060000000000000
           Width = 743.425170000000000000
           Height = 15.874015750000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -6636,7 +6638,7 @@ object Reports_F: TReports_F
           AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 121.779530000000000000
-          Top = 281.559060000000000000
+          Top = 277.559060000000000000
           Width = 154.000000000000000000
           Height = 15.874015750000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -6654,7 +6656,7 @@ object Reports_F: TReports_F
         object Memo67: TfrxMemoView
           AllowVectorExport = True
           Left = 259.779530000000000000
-          Top = 152.559060000000000000
+          Top = 134.559060000000000000
           Width = 759.425170000000000000
           Height = 15.874015750000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -6673,7 +6675,7 @@ object Reports_F: TReports_F
         object Memo11: TfrxMemoView
           AllowVectorExport = True
           Left = 121.779530000000000000
-          Top = 134.559060000000000000
+          Top = 116.559060000000000000
           Width = 52.000000000000000000
           Height = 15.874015750000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -6691,7 +6693,7 @@ object Reports_F: TReports_F
         object Memo12: TfrxMemoView
           AllowVectorExport = True
           Left = 173.779530000000000000
-          Top = 134.559060000000000000
+          Top = 116.559060000000000000
           Width = 846.425170000000000000
           Height = 15.874015750000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -6711,7 +6713,7 @@ object Reports_F: TReports_F
         object Memo13: TfrxMemoView
           AllowVectorExport = True
           Left = 121.779530000000000000
-          Top = 152.559060000000000000
+          Top = 134.559060000000000000
           Width = 135.000000000000000000
           Height = 15.874015750000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -6729,7 +6731,7 @@ object Reports_F: TReports_F
         object Memo64: TfrxMemoView
           AllowVectorExport = True
           Left = 121.779530000000000000
-          Top = 116.559060000000000000
+          Top = 98.559060000000000000
           Width = 72.000000000000000000
           Height = 15.874015750000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -6747,7 +6749,7 @@ object Reports_F: TReports_F
         object Memo14: TfrxMemoView
           AllowVectorExport = True
           Left = 121.779530000000000000
-          Top = 170.559060000000000000
+          Top = 152.559060000000000000
           Width = 199.559060000000000000
           Height = 15.874015750000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -6765,7 +6767,7 @@ object Reports_F: TReports_F
         object Memo15: TfrxMemoView
           AllowVectorExport = True
           Left = 317.779530000000000000
-          Top = 170.559060000000000000
+          Top = 152.559060000000000000
           Width = 702.425170000000000000
           Height = 15.874015750000000000
           StretchMode = smActualHeight
@@ -6785,7 +6787,7 @@ object Reports_F: TReports_F
         object Memo16: TfrxMemoView
           AllowVectorExport = True
           Left = 121.779530000000000000
-          Top = 188.559060000000000000
+          Top = 170.559060000000000000
           Width = 199.559060000000000000
           Height = 15.874015750000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -6804,7 +6806,7 @@ object Reports_F: TReports_F
           AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 317.779530000000000000
-          Top = 188.559060000000000000
+          Top = 170.559060000000000000
           Width = 702.425170000000000000
           Height = 15.874015750000000000
           StretchMode = smActualHeight
@@ -6825,7 +6827,7 @@ object Reports_F: TReports_F
           AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 121.779530000000000000
-          Top = 206.559060000000000000
+          Top = 202.559060000000000000
           Width = 252.000000000000000000
           Height = 15.874015750000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -6840,28 +6842,10 @@ object Reports_F: TReports_F
           WordWrap = False
           VAlign = vaCenter
         end
-        object Memo25: TfrxMemoView
-          AllowVectorExport = True
-          ShiftMode = smWhenOverlapped
-          Left = 373.779530000000000000
-          Top = 206.559060000000000000
-          Width = 646.425170000000000000
-          Height = 15.874015750000000000
-          Font.Charset = RUSSIAN_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsItalic]
-          Frame.Typ = []
-          ParentFont = False
-          Underlines = True
-          UnderlinesTextMode = ulmUnderlinesAll
-          VAlign = vaCenter
-        end
         object frxDBDataset_SVHG142: TfrxMemoView
           AllowVectorExport = True
           Left = 197.149660000000000000
-          Top = 113.385900000000000000
+          Top = 95.385900000000000000
           Width = 823.937540000000000000
           Height = 18.897650000000000000
           DataSetName = 'frxDBDataset_SVH'
@@ -6893,9 +6877,9 @@ object Reports_F: TReports_F
         end
         object Memo36: TfrxMemoView
           AllowVectorExport = True
-          Left = 597.338900000000000000
-          Top = 0.086580000000001430
-          Width = 442.433210000000000000
+          Left = 559.543600000000000000
+          Top = 0.086580000000000000
+          Width = 480.228510000000000000
           Height = 56.015770000000000000
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clBlack
@@ -6910,9 +6894,8 @@ object Reports_F: TReports_F
               #1082'  '#1087#1086#1089#1090#1072#1085#1086#1074#1083#1077#1085#1080#1102' '#1055#1088#1072#1074#1080#1090#1077#1083#1100#1089#1090#1074#1072' '#1056#1086#1089#1089#1080#1081#1089#1082#1086#1081' '#1060#1077#1076#1077#1088#1072#1094#1080#1080' '#1086#1090' 26 '#1076#1077#1082#1072#1073#1088 +
               #1103' 2011 '#1075'. N 1137'
             
-              '('#1074' '#1088#1077#1076'. '#1087#1086#1089#1090#1072#1085#1086#1074#1083#1077#1085#1080#1081' '#1055#1088#1072#1074#1080#1090#1077#1083#1100#1089#1090#1074#1072' '#1056#1086#1089#1089#1080#1081#1089#1082#1086#1081' '#1060#1077#1076#1077#1088#1072#1094#1080#1080' '#1086#1090' 25 '#1084 +
-              #1072#1103' 2017 '#1075'. '#8470' 625,'
-            #1086#1090' 19 '#1072#1074#1075#1091#1089#1090#1072' 2017 '#1075'. '#8470' 981, '#1086#1090' 2 '#1072#1087#1088#1077#1083#1103' 2021 '#1075'. '#8470' 534)')
+              '('#1074' '#1088#1077#1076'. '#1087#1086#1089#1090#1072#1085#1086#1074#1083#1077#1085#1080#1081' '#1055#1088#1072#1074#1080#1090#1077#1083#1100#1089#1090#1074#1072' '#1056#1086#1089#1089#1080#1081#1089#1082#1086#1081' '#1060#1077#1076#1077#1088#1072#1094#1080#1080' '#1086#1090' 23 '#1103 +
+              #1085#1074#1072#1088#1103' 2026 '#1075'. '#8470' 26)')
           ParentFont = False
         end
         object Memo37: TfrxMemoView
@@ -6934,7 +6917,7 @@ object Reports_F: TReports_F
         object Memo38: TfrxMemoView
           AllowVectorExport = True
           Left = 1027.882500000000000000
-          Top = 115.165430000000000000
+          Top = 97.165430000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -6950,7 +6933,7 @@ object Reports_F: TReports_F
         object Memo39: TfrxMemoView
           AllowVectorExport = True
           Left = 1027.882500000000000000
-          Top = 134.063080000000000000
+          Top = 116.063080000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -6966,7 +6949,7 @@ object Reports_F: TReports_F
         object Memo40: TfrxMemoView
           AllowVectorExport = True
           Left = 1027.882500000000000000
-          Top = 149.181200000000000000
+          Top = 131.181200000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -6982,7 +6965,7 @@ object Reports_F: TReports_F
         object Memo41: TfrxMemoView
           AllowVectorExport = True
           Left = 1027.882500000000000000
-          Top = 168.078850000000000000
+          Top = 150.078850000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -6998,7 +6981,7 @@ object Reports_F: TReports_F
         object Memo42: TfrxMemoView
           AllowVectorExport = True
           Left = 1027.882500000000000000
-          Top = 186.976500000000000000
+          Top = 168.976500000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -7014,7 +6997,7 @@ object Reports_F: TReports_F
         object Memo43: TfrxMemoView
           AllowVectorExport = True
           Left = 1027.882500000000000000
-          Top = 205.874150000000000000
+          Top = 201.874150000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -7030,7 +7013,7 @@ object Reports_F: TReports_F
         object Memo44: TfrxMemoView
           AllowVectorExport = True
           Left = 1027.882500000000000000
-          Top = 245.771800000000000000
+          Top = 241.771800000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -7046,7 +7029,7 @@ object Reports_F: TReports_F
         object Memo46: TfrxMemoView
           AllowVectorExport = True
           Left = 1027.882500000000000000
-          Top = 260.889920000000000000
+          Top = 256.889920000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -7062,7 +7045,7 @@ object Reports_F: TReports_F
         object Memo47: TfrxMemoView
           AllowVectorExport = True
           Left = 1027.882500000000000000
-          Top = 276.008040000000000000
+          Top = 272.008040000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -7079,7 +7062,7 @@ object Reports_F: TReports_F
           AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 121.779530000000000000
-          Top = 300.685220000000000000
+          Top = 296.685220000000000000
           Width = 184.236240000000000000
           Height = 19.653545750000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7098,7 +7081,7 @@ object Reports_F: TReports_F
           AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 310.756030000000000000
-          Top = 304.464566930000000000
+          Top = 300.464566930000000000
           Width = 709.409400000000000000
           Height = 12.094485750000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7117,7 +7100,7 @@ object Reports_F: TReports_F
         object Memo56: TfrxMemoView
           AllowVectorExport = True
           Left = 1023.882500000000000000
-          Top = 293.126160000000000000
+          Top = 289.126160000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -7217,7 +7200,7 @@ object Reports_F: TReports_F
         object Memo71: TfrxMemoView
           AllowVectorExport = True
           Left = 291.228510000000000000
-          Top = 77.606370000000000000
+          Top = 74.606370000000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7250,7 +7233,7 @@ object Reports_F: TReports_F
         object Memo73: TfrxMemoView
           AllowVectorExport = True
           Left = 404.071120000000000000
-          Top = 77.606370000000000000
+          Top = 74.606370000000000000
           Width = 113.385900000000000000
           Height = 18.897650000000000000
           DisplayFormat.FormatStr = 'dd.mm.yyyy'
@@ -7271,7 +7254,7 @@ object Reports_F: TReports_F
           Left = 108.094488190000000000
           Top = 25.354360000000000000
           Width = 7.559060000000000000
-          Height = 318.992169920000000000
+          Height = 311.433109920000000000
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clBlack
           Font.Height = -12
@@ -7285,7 +7268,7 @@ object Reports_F: TReports_F
         end
         object Memo112: TfrxMemoView
           AllowVectorExport = True
-          Top = 344.685220000000000000
+          Top = 339.685220000000000000
           Width = 45.000000000000000000
           Height = 154.960673860000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7304,7 +7287,7 @@ object Reports_F: TReports_F
         object Memo114: TfrxMemoView
           AllowVectorExport = True
           Left = 45.000000000000000000
-          Top = 344.685220000000000000
+          Top = 339.685220000000000000
           Width = 61.661410000000000000
           Height = 154.960673860000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7323,7 +7306,7 @@ object Reports_F: TReports_F
         object Memo115: TfrxMemoView
           AllowVectorExport = True
           Left = 108.118110240000000000
-          Top = 344.212740000000000000
+          Top = 339.212740000000000000
           Width = 7.559060000000000000
           Height = 170.834684720000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7340,7 +7323,7 @@ object Reports_F: TReports_F
         object Memo27: TfrxMemoView
           AllowVectorExport = True
           Left = 7.559060000000000000
-          Top = 51.133889999999990000
+          Top = 51.133890000000000000
           Width = 94.488250000000000000
           Height = 45.354360000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7417,7 +7400,7 @@ object Reports_F: TReports_F
           AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 121.732351810000000000
-          Top = 322.724490000000000000
+          Top = 318.724490000000000000
           Width = 524.126160000000000000
           Height = 15.874015750000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7438,7 +7421,7 @@ object Reports_F: TReports_F
           AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 649.638041810000000000
-          Top = 322.724490000000000000
+          Top = 318.724490000000000000
           Width = 370.519480000000000000
           Height = 15.874015750000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7455,7 +7438,7 @@ object Reports_F: TReports_F
         object Memo217: TfrxMemoView
           AllowVectorExport = True
           Left = 1027.835321810000000000
-          Top = 318.039580000000000000
+          Top = 314.039580000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -7471,7 +7454,7 @@ object Reports_F: TReports_F
         object Memo92: TfrxMemoView
           AllowVectorExport = True
           Left = 109.228346460000000000
-          Top = 344.779732600000000000
+          Top = 339.779732600000000000
           Width = 295.937007870000000000
           Height = 154.960673860000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7491,7 +7474,7 @@ object Reports_F: TReports_F
         object Memo93: TfrxMemoView
           AllowVectorExport = True
           Left = 435.944960000000000000
-          Top = 344.779732600000000000
+          Top = 339.779732600000000000
           Width = 77.102362200000000000
           Height = 28.724409450000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7510,7 +7493,7 @@ object Reports_F: TReports_F
         object Memo94: TfrxMemoView
           AllowVectorExport = True
           Left = 513.283550000000000000
-          Top = 344.779732600000000000
+          Top = 339.779732600000000000
           Width = 45.000000000000000000
           Height = 154.960673860000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7530,7 +7513,7 @@ object Reports_F: TReports_F
         object Memo96: TfrxMemoView
           AllowVectorExport = True
           Left = 776.590600000000000000
-          Top = 344.779732600000000000
+          Top = 339.779732600000000000
           Width = 65.338590000000000000
           Height = 154.960673860000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7548,7 +7531,7 @@ object Reports_F: TReports_F
         object Memo97: TfrxMemoView
           AllowVectorExport = True
           Left = 735.488250000000000000
-          Top = 344.779732600000000000
+          Top = 339.779732600000000000
           Width = 41.102350000000000000
           Height = 154.960673860000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7568,7 +7551,7 @@ object Reports_F: TReports_F
         object Memo98: TfrxMemoView
           AllowVectorExport = True
           Left = 698.488250000000000000
-          Top = 344.779732600000000000
+          Top = 339.779732600000000000
           Width = 37.000000000000000000
           Height = 154.960673860000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7586,8 +7569,8 @@ object Reports_F: TReports_F
         object Memo99: TfrxMemoView
           AllowVectorExport = True
           Left = 616.165430000000000000
-          Top = 344.779732600000000000
-          Width = 82.322819999999990000
+          Top = 339.779732600000000000
+          Width = 82.322820000000000000
           Height = 154.960673860000000000
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clBlack
@@ -7610,7 +7593,7 @@ object Reports_F: TReports_F
         object Memo100: TfrxMemoView
           AllowVectorExport = True
           Left = 558.283550000000000000
-          Top = 344.779732600000000000
+          Top = 339.779732600000000000
           Width = 57.881880000000000000
           Height = 154.960673860000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7632,7 +7615,7 @@ object Reports_F: TReports_F
         object Memo101: TfrxMemoView
           AllowVectorExport = True
           Left = 842.047310000000000000
-          Top = 344.779732600000000000
+          Top = 339.779732600000000000
           Width = 66.645640000000000000
           Height = 154.960673860000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7654,7 +7637,7 @@ object Reports_F: TReports_F
         object Memo102: TfrxMemoView
           AllowVectorExport = True
           Left = 908.708720000000000000
-          Top = 344.779732600000000000
+          Top = 339.779732600000000000
           Width = 79.897650000000000000
           Height = 50.645679060000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7674,8 +7657,8 @@ object Reports_F: TReports_F
         object Memo103: TfrxMemoView
           AllowVectorExport = True
           Left = 988.606370000000000000
-          Top = 344.779732600000000000
-          Width = 75.322819999999990000
+          Top = 339.779732600000000000
+          Width = 75.322820000000000000
           Height = 154.960673860000000000
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clBlack
@@ -7697,7 +7680,7 @@ object Reports_F: TReports_F
         object Memo104: TfrxMemoView
           AllowVectorExport = True
           Left = 908.818895200000000000
-          Top = 395.693152600000000000
+          Top = 390.693152600000000000
           Width = 34.771653540000000000
           Height = 103.937039610000000000
           Font.Charset = DEFAULT_CHARSET
@@ -7718,7 +7701,7 @@ object Reports_F: TReports_F
         object Memo105: TfrxMemoView
           AllowVectorExport = True
           Left = 943.590570710000000000
-          Top = 395.693152600000000000
+          Top = 390.693152600000000000
           Width = 44.976373070000000000
           Height = 103.937039610000000000
           Font.Charset = DEFAULT_CHARSET
@@ -7738,7 +7721,7 @@ object Reports_F: TReports_F
         object Memo107: TfrxMemoView
           AllowVectorExport = True
           Left = 436.071120000000000000
-          Top = 373.504139610000000000
+          Top = 368.504139610000000000
           Width = 22.299212600000000000
           Height = 126.236264410000000000
           Font.Charset = DEFAULT_CHARSET
@@ -7754,7 +7737,7 @@ object Reports_F: TReports_F
         object Memo109: TfrxMemoView
           AllowVectorExport = True
           Left = 458.614248900000000000
-          Top = 373.504139610000000000
+          Top = 368.504139610000000000
           Width = 54.425196850000000000
           Height = 126.236264410000000000
           Font.Charset = DEFAULT_CHARSET
@@ -7776,7 +7759,7 @@ object Reports_F: TReports_F
         object Memo220: TfrxMemoView
           AllowVectorExport = True
           Left = 405.630180000000000000
-          Top = 344.700990000000000000
+          Top = 339.700990000000000000
           Width = 30.236240000000000000
           Height = 154.960668980000000000
           Font.Charset = DEFAULT_CHARSET
@@ -7798,7 +7781,7 @@ object Reports_F: TReports_F
           AllowVectorExport = True
           ShiftMode = smWhenOverlapped
           Left = 120.944960000000000000
-          Top = 225.456710000000000000
+          Top = 221.456710000000000000
           Width = 138.614100000000000000
           Height = 15.874015750000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7816,7 +7799,7 @@ object Reports_F: TReports_F
         object Memo225: TfrxMemoView
           AllowVectorExport = True
           Left = 1027.047930000000000000
-          Top = 224.771800000000000000
+          Top = 220.771800000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -7851,7 +7834,7 @@ object Reports_F: TReports_F
         object Memo227: TfrxMemoView
           AllowVectorExport = True
           Left = 411.968770000000000000
-          Top = 225.637795280000000000
+          Top = 221.637795280000000000
           Width = 139.842610000000000000
           Height = 18.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7867,7 +7850,7 @@ object Reports_F: TReports_F
         object Memo228: TfrxMemoView
           AllowVectorExport = True
           Left = 557.370440000000000000
-          Top = 224.771800000000000000
+          Top = 220.771800000000000000
           Width = 22.677180000000000000
           Height = 18.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7883,7 +7866,7 @@ object Reports_F: TReports_F
         object Memo229: TfrxMemoView
           AllowVectorExport = True
           Left = 577.047620000000000000
-          Top = 225.637795280000000000
+          Top = 221.637795280000000000
           Width = 442.205010000000000000
           Height = 18.897650000000000000
           DisplayFormat.FormatStr = 'dd.mm.yyyy'
@@ -7901,7 +7884,7 @@ object Reports_F: TReports_F
         object Memo224: TfrxMemoView
           AllowVectorExport = True
           Left = 268.346630000000000000
-          Top = 225.637795280000000000
+          Top = 221.637795280000000000
           Width = 109.606370000000000000
           Height = 18.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7914,9 +7897,25 @@ object Reports_F: TReports_F
             '[Doc_5a]')
           ParentFont = False
         end
+        object Memo230: TfrxMemoView
+          AllowVectorExport = True
+          Left = 385.512060000000000000
+          Top = 202.740157480000000000
+          Width = 631.181510000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftBottom]
+          Memo.UTF8W = (
+            '[NumPatDoc]')
+          ParentFont = False
+        end
         object Memo110: TfrxMemoView
           AllowVectorExport = True
-          Top = 499.323022599999900000
+          Top = 494.323022600000000000
           Width = 45.000000000000000000
           Height = 16.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7934,7 +7933,7 @@ object Reports_F: TReports_F
         object Memo111: TfrxMemoView
           AllowVectorExport = True
           Left = 45.000000000000000000
-          Top = 499.543492599999900000
+          Top = 494.543492600000000000
           Width = 61.661410000000000000
           Height = 16.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7952,7 +7951,7 @@ object Reports_F: TReports_F
         object Memo6: TfrxMemoView
           AllowVectorExport = True
           Left = 109.606299212598000000
-          Top = 499.189178980000100000
+          Top = 494.189178980000000000
           Width = 295.937007870000000000
           Height = 16.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7970,7 +7969,7 @@ object Reports_F: TReports_F
         object Memo74: TfrxMemoView
           AllowVectorExport = True
           Left = 435.944960000000000000
-          Top = 499.189178980000100000
+          Top = 494.189178980000000000
           Width = 22.677162910000000000
           Height = 16.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -7988,7 +7987,7 @@ object Reports_F: TReports_F
         object Memo83: TfrxMemoView
           AllowVectorExport = True
           Left = 513.283550000000000000
-          Top = 499.189178980000100000
+          Top = 494.189178980000000000
           Width = 45.000000000000000000
           Height = 16.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8006,7 +8005,7 @@ object Reports_F: TReports_F
         object Memo84: TfrxMemoView
           AllowVectorExport = True
           Left = 558.283550000000000000
-          Top = 499.189178980000100000
+          Top = 494.189178980000000000
           Width = 57.881880000000000000
           Height = 16.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8024,7 +8023,7 @@ object Reports_F: TReports_F
         object Memo85: TfrxMemoView
           AllowVectorExport = True
           Left = 908.818895200000000000
-          Top = 499.267924020000000000
+          Top = 494.267924020000000000
           Width = 34.771653540000000000
           Height = 16.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8042,7 +8041,7 @@ object Reports_F: TReports_F
         object Memo86: TfrxMemoView
           AllowVectorExport = True
           Left = 616.165430000000000000
-          Top = 499.189178980000100000
+          Top = 494.189178980000000000
           Width = 82.322820000000000000
           Height = 16.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8060,7 +8059,7 @@ object Reports_F: TReports_F
         object Memo87: TfrxMemoView
           AllowVectorExport = True
           Left = 698.488250000000000000
-          Top = 499.189178980000100000
+          Top = 494.189178980000000000
           Width = 37.000000000000000000
           Height = 16.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8078,7 +8077,7 @@ object Reports_F: TReports_F
         object Memo88: TfrxMemoView
           AllowVectorExport = True
           Left = 735.488250000000000000
-          Top = 499.189178980000100000
+          Top = 494.189178980000000000
           Width = 41.102350000000000000
           Height = 16.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8096,7 +8095,7 @@ object Reports_F: TReports_F
         object Memo89: TfrxMemoView
           AllowVectorExport = True
           Left = 776.590600000000000000
-          Top = 499.189178980000100000
+          Top = 494.189178980000000000
           Width = 65.338590000000000000
           Height = 16.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8114,7 +8113,7 @@ object Reports_F: TReports_F
         object Memo90: TfrxMemoView
           AllowVectorExport = True
           Left = 842.047310000000000000
-          Top = 499.267924020000000000
+          Top = 494.267924020000000000
           Width = 66.645640000000000000
           Height = 16.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8132,7 +8131,7 @@ object Reports_F: TReports_F
         object Memo91: TfrxMemoView
           AllowVectorExport = True
           Left = 988.606370000000000000
-          Top = 499.267924020000000000
+          Top = 494.267924020000000000
           Width = 75.322820000000000000
           Height = 16.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8150,7 +8149,7 @@ object Reports_F: TReports_F
         object Memo106: TfrxMemoView
           AllowVectorExport = True
           Left = 943.370100710000000000
-          Top = 499.267982600000000000
+          Top = 494.267982600000000000
           Width = 44.976377950000000000
           Height = 16.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8168,7 +8167,7 @@ object Reports_F: TReports_F
         object Memo108: TfrxMemoView
           AllowVectorExport = True
           Left = 458.614248900000000000
-          Top = 499.189178980000100000
+          Top = 494.189178980000000000
           Width = 54.425196850000000000
           Height = 16.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8186,7 +8185,7 @@ object Reports_F: TReports_F
         object Memo221: TfrxMemoView
           AllowVectorExport = True
           Left = 405.165354330709000000
-          Top = 499.189178980000100000
+          Top = 494.189178980000000000
           Width = 30.614173228346500000
           Height = 16.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8210,12 +8209,12 @@ object Reports_F: TReports_F
         FillGap.Right = 0
         Frame.Typ = []
         Height = 526.110504720000000000
-        Top = 880.630490000000000000
+        Top = 876.850960000000000000
         Width = 1065.827460000000000000
         object Memo33: TfrxMemoView
           AllowVectorExport = True
           Left = 118.559060000000000000
-          Top = 87.338589999999950000
+          Top = 87.338590000000000000
           Width = 207.000000000000000000
           Height = 34.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8233,7 +8232,7 @@ object Reports_F: TReports_F
         object Memo34: TfrxMemoView
           AllowVectorExport = True
           Left = 332.338590000000000000
-          Top = 105.338590000000400000
+          Top = 105.338590000000000000
           Width = 73.322820000000000000
           Height = 18.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8250,7 +8249,7 @@ object Reports_F: TReports_F
         object Memo35: TfrxMemoView
           AllowVectorExport = True
           Left = 411.440940000000000000
-          Top = 105.338590000000400000
+          Top = 105.338590000000000000
           Width = 145.425170000000000000
           Height = 18.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8267,7 +8266,7 @@ object Reports_F: TReports_F
         object Memo45: TfrxMemoView
           AllowVectorExport = True
           Left = 602.338900000000000000
-          Top = 105.881880000000600000
+          Top = 105.881880000001000000
           Width = 364.141620000000000000
           Height = 26.559060000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8286,7 +8285,7 @@ object Reports_F: TReports_F
         object Memo48: TfrxMemoView
           AllowVectorExport = True
           Left = 568.629870000000000000
-          Top = 86.354301420000060000
+          Top = 86.354301420000100000
           Width = 430.385900000000000000
           Height = 19.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8300,7 +8299,7 @@ object Reports_F: TReports_F
         object Memo8: TfrxMemoView
           AllowVectorExport = True
           Left = 118.559060000000000000
-          Top = 44.779530000000030000
+          Top = 44.779530000000000000
           Width = 206.739950000000000000
           Height = 34.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8320,7 +8319,7 @@ object Reports_F: TReports_F
         object Memo50: TfrxMemoView
           AllowVectorExport = True
           Left = 326.433210000000000000
-          Top = 66.897650000000350000
+          Top = 66.897650000000400000
           Width = 80.881880000000000000
           Height = 18.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8337,7 +8336,7 @@ object Reports_F: TReports_F
         object Memo51: TfrxMemoView
           AllowVectorExport = True
           Left = 413.094620000000000000
-          Top = 66.897650000000350000
+          Top = 66.897650000000400000
           Width = 145.425170000000000000
           Height = 18.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8354,7 +8353,7 @@ object Reports_F: TReports_F
         object Memo52: TfrxMemoView
           AllowVectorExport = True
           Left = 568.323130000000000000
-          Top = 44.779530000000030000
+          Top = 44.779530000000000000
           Width = 187.842300000000000000
           Height = 34.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8374,7 +8373,7 @@ object Reports_F: TReports_F
         object Memo53: TfrxMemoView
           AllowVectorExport = True
           Left = 757.047620000000000000
-          Top = 67.677180000000140000
+          Top = 67.677180000000100000
           Width = 92.220470000000000000
           Height = 18.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8391,7 +8390,7 @@ object Reports_F: TReports_F
         object Memo54: TfrxMemoView
           AllowVectorExport = True
           Left = 855.047620000000000000
-          Top = 67.677180000000140000
+          Top = 67.677180000000100000
           Width = 141.645640000000000000
           Height = 18.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8408,7 +8407,7 @@ object Reports_F: TReports_F
         object Memo55: TfrxMemoView
           AllowVectorExport = True
           Left = 855.315400000000000000
-          Top = 48.779530000000030000
+          Top = 48.779530000000000000
           Width = 143.622140000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -8581,7 +8580,7 @@ object Reports_F: TReports_F
         object Memo10: TfrxMemoView
           AllowVectorExport = True
           Left = 108.094488190000000000
-          Top = 34.015769999999970000
+          Top = 34.015770000000000000
           Width = 7.559060000000000000
           Height = 114.141734720000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8598,7 +8597,7 @@ object Reports_F: TReports_F
         object Memo26: TfrxMemoView
           AllowVectorExport = True
           Left = 105.826840000000000000
-          Top = 147.401670000000200000
+          Top = 147.401670000000000000
           Width = 956.221090000000000000
           Height = 7.559060000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8615,7 +8614,7 @@ object Reports_F: TReports_F
         object Memo125: TfrxMemoView
           AllowVectorExport = True
           Left = 7.559060000000000000
-          Top = 45.574830000000020000
+          Top = 45.574830000000000000
           Width = 94.488250000000000000
           Height = 45.354360000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8633,7 +8632,7 @@ object Reports_F: TReports_F
         object Memo126: TfrxMemoView
           AllowVectorExport = True
           Left = 554.709030000000000000
-          Top = 241.889920000000100000
+          Top = 241.889920000000000000
           Width = 3.779530000000000000
           Height = 284.220584720000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8650,7 +8649,7 @@ object Reports_F: TReports_F
         object Memo127: TfrxMemoView
           AllowVectorExport = True
           Left = 7.559060000000000000
-          Top = 158.740260000000500000
+          Top = 158.740260000001000000
           Width = 306.141930000000000000
           Height = 22.677180000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8666,7 +8665,7 @@ object Reports_F: TReports_F
         object Memo128: TfrxMemoView
           AllowVectorExport = True
           Left = 317.480520000000000000
-          Top = 158.740260000000500000
+          Top = 158.740260000001000000
           Width = 702.992580000000000000
           Height = 22.677180000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8682,7 +8681,7 @@ object Reports_F: TReports_F
         object Memo129: TfrxMemoView
           AllowVectorExport = True
           Left = 1024.252630000000000000
-          Top = 162.519790000000300000
+          Top = 162.519790000000000000
           Width = 30.236240000000000000
           Height = 18.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8715,7 +8714,7 @@ object Reports_F: TReports_F
         object Memo131: TfrxMemoView
           AllowVectorExport = True
           Left = 7.559060000000000000
-          Top = 194.315090000000100000
+          Top = 194.315090000000000000
           Width = 204.094620000000000000
           Height = 22.677180000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8731,7 +8730,7 @@ object Reports_F: TReports_F
         object Memo160: TfrxMemoView
           AllowVectorExport = True
           Left = 215.480520000000000000
-          Top = 194.315090000000100000
+          Top = 194.315090000000000000
           Width = 805.039890000000000000
           Height = 22.677180000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8747,7 +8746,7 @@ object Reports_F: TReports_F
         object Memo161: TfrxMemoView
           AllowVectorExport = True
           Left = 1024.252630000000000000
-          Top = 196.094620000000100000
+          Top = 196.094620000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8784,7 +8783,7 @@ object Reports_F: TReports_F
         object Memo163: TfrxMemoView
           AllowVectorExport = True
           Left = 9.559060000000000000
-          Top = 241.889920000000100000
+          Top = 241.889920000000000000
           Width = 374.173470000000000000
           Height = 18.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8799,8 +8798,8 @@ object Reports_F: TReports_F
         end
         object Memo164: TfrxMemoView
           AllowVectorExport = True
-          Left = 566.929499999999900000
-          Top = 241.889920000000100000
+          Left = 566.929500000000000000
+          Top = 241.889920000000000000
           Width = 374.173470000000000000
           Height = 15.118120000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8901,7 +8900,7 @@ object Reports_F: TReports_F
         object Memo170: TfrxMemoView
           AllowVectorExport = True
           Left = 774.866730000000000000
-          Top = 280.126160000000300000
+          Top = 280.126160000000000000
           Width = 96.000000000000000000
           Height = 18.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8918,7 +8917,7 @@ object Reports_F: TReports_F
         object Memo171: TfrxMemoView
           AllowVectorExport = True
           Left = 877.394250000000000000
-          Top = 280.126160000000300000
+          Top = 280.126160000000000000
           Width = 141.645640000000000000
           Height = 18.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8935,7 +8934,7 @@ object Reports_F: TReports_F
         object Memo172: TfrxMemoView
           AllowVectorExport = True
           Left = 876.102970000000000000
-          Top = 261.126160000000300000
+          Top = 261.126160000000000000
           Width = 143.622140000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -8952,7 +8951,7 @@ object Reports_F: TReports_F
         object Memo173: TfrxMemoView
           AllowVectorExport = True
           Left = 567.268090000000000000
-          Top = 280.126160000000300000
+          Top = 280.126160000000000000
           Width = 202.118120000000000000
           Height = 18.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -8969,7 +8968,7 @@ object Reports_F: TReports_F
         object Memo174: TfrxMemoView
           AllowVectorExport = True
           Left = 569.756340000000000000
-          Top = 261.126160000000300000
+          Top = 261.126160000000000000
           Width = 200.315090000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -9002,7 +9001,7 @@ object Reports_F: TReports_F
         object Memo176: TfrxMemoView
           AllowVectorExport = True
           Left = 1020.811690000000000000
-          Top = 264.905690000000100000
+          Top = 264.905690000000000000
           Width = 37.795300000000000000
           Height = 18.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9018,7 +9017,7 @@ object Reports_F: TReports_F
         object Memo177: TfrxMemoView
           AllowVectorExport = True
           Left = 200.315090000000000000
-          Top = 298.480520000000100000
+          Top = 298.480520000000000000
           Width = 253.228510000000000000
           Height = 18.897650000000000000
           DisplayFormat.FormatStr = 'dd.mm.yyyy'
@@ -9036,7 +9035,7 @@ object Reports_F: TReports_F
         object Memo178: TfrxMemoView
           AllowVectorExport = True
           Left = 7.559060000000000000
-          Top = 299.700990000000100000
+          Top = 299.700990000000000000
           Width = 188.976500000000000000
           Height = 18.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9051,7 +9050,7 @@ object Reports_F: TReports_F
         end
         object Memo180: TfrxMemoView
           AllowVectorExport = True
-          Left = 566.929499999999900000
+          Left = 566.929500000000000000
           Top = 299.921460000000000000
           Width = 154.960730000000000000
           Height = 18.897650000000000000
@@ -9068,7 +9067,7 @@ object Reports_F: TReports_F
         object Memo181: TfrxMemoView
           AllowVectorExport = True
           Left = 476.220780000000000000
-          Top = 299.700990000000100000
+          Top = 299.700990000000000000
           Width = 37.795300000000000000
           Height = 18.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9084,7 +9083,7 @@ object Reports_F: TReports_F
         object Memo182: TfrxMemoView
           AllowVectorExport = True
           Left = 1024.252630000000000000
-          Top = 298.700990000000300000
+          Top = 298.700990000000000000
           Width = 37.795300000000000000
           Height = 18.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9116,7 +9115,7 @@ object Reports_F: TReports_F
         object Memo184: TfrxMemoView
           AllowVectorExport = True
           Left = 7.559060000000000000
-          Top = 341.173470000000200000
+          Top = 341.173470000000000000
           Width = 464.882190000000000000
           Height = 15.118120000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9130,7 +9129,7 @@ object Reports_F: TReports_F
         object Memo185: TfrxMemoView
           AllowVectorExport = True
           Left = 479.000310000000000000
-          Top = 337.614410000000100000
+          Top = 337.614410000000000000
           Width = 34.015770000000000000
           Height = 18.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9146,7 +9145,7 @@ object Reports_F: TReports_F
         object Memo186: TfrxMemoView
           AllowVectorExport = True
           Left = 18.322820000000000000
-          Top = 356.071120000000100000
+          Top = 356.071120000000000000
           Width = 404.409710000000000000
           Height = 18.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9164,7 +9163,7 @@ object Reports_F: TReports_F
         end
         object Memo187: TfrxMemoView
           AllowVectorExport = True
-          Left = 566.929499999999900000
+          Left = 566.929500000000000000
           Top = 320.716760000000000000
           Width = 222.992270000000000000
           Height = 18.897650000000000000
@@ -9180,7 +9179,7 @@ object Reports_F: TReports_F
         end
         object Memo188: TfrxMemoView
           AllowVectorExport = True
-          Left = 566.929499999999900000
+          Left = 566.929500000000000000
           Top = 340.953000000000000000
           Width = 453.543600000000000000
           Height = 15.118120000000000000
@@ -9195,8 +9194,8 @@ object Reports_F: TReports_F
         object Memo189: TfrxMemoView
           AllowVectorExport = True
           Left = 1023.252630000000000000
-          Top = 337.393939999999900000
-          Width = 34.015770000000010000
+          Top = 337.393940000000000000
+          Width = 34.015770000000000000
           Height = 18.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clBlack
@@ -9210,8 +9209,8 @@ object Reports_F: TReports_F
         end
         object Memo190: TfrxMemoView
           AllowVectorExport = True
-          Left = 566.354670000000100000
-          Top = 356.850649999999900000
+          Left = 566.354670000000000000
+          Top = 356.850650000000000000
           Width = 457.323130000000000000
           Height = 15.118120000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9230,7 +9229,7 @@ object Reports_F: TReports_F
         object Memo192: TfrxMemoView
           AllowVectorExport = True
           Left = 0.881880000000000000
-          Top = 370.409709999999900000
+          Top = 370.409710000000000000
           Width = 438.425480000000000000
           Height = 22.677180000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9248,7 +9247,7 @@ object Reports_F: TReports_F
         object Memo193: TfrxMemoView
           AllowVectorExport = True
           Left = 167.244280000000000000
-          Top = 416.645950000000100000
+          Top = 416.645950000000000000
           Width = 133.795300000000000000
           Height = 18.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9265,7 +9264,7 @@ object Reports_F: TReports_F
         object Memo194: TfrxMemoView
           AllowVectorExport = True
           Left = 318.905690000000000000
-          Top = 416.645950000000100000
+          Top = 416.645950000000000000
           Width = 134.086580000000000000
           Height = 18.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9282,7 +9281,7 @@ object Reports_F: TReports_F
         object Memo195: TfrxMemoView
           AllowVectorExport = True
           Left = 321.393940000000000000
-          Top = 397.645950000000100000
+          Top = 397.645950000000000000
           Width = 132.283550000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -9299,7 +9298,7 @@ object Reports_F: TReports_F
         object Memo196: TfrxMemoView
           AllowVectorExport = True
           Left = 1.220470000000000000
-          Top = 416.645950000000100000
+          Top = 416.645950000000000000
           Width = 145.425170000000000000
           Height = 18.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9316,7 +9315,7 @@ object Reports_F: TReports_F
         object Memo197: TfrxMemoView
           AllowVectorExport = True
           Left = 3.708720000000000000
-          Top = 397.645950000000100000
+          Top = 397.645950000000000000
           Width = 143.622140000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -9333,7 +9332,7 @@ object Reports_F: TReports_F
         object Memo198: TfrxMemoView
           AllowVectorExport = True
           Left = 477.441250000000000000
-          Top = 401.425479999999900000
+          Top = 401.425480000000000000
           Width = 37.795300000000000000
           Height = 18.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9348,8 +9347,8 @@ object Reports_F: TReports_F
         end
         object Memo191: TfrxMemoView
           AllowVectorExport = True
-          Left = 563.149970000000100000
-          Top = 372.189240000000100000
+          Left = 563.149970000000000000
+          Top = 372.189240000000000000
           Width = 438.425480000000000000
           Height = 22.677180000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9367,7 +9366,7 @@ object Reports_F: TReports_F
         object Memo204: TfrxMemoView
           AllowVectorExport = True
           Left = 1020.811690000000000000
-          Top = 403.205010000000100000
+          Top = 403.205010000000000000
           Width = 37.795300000000000000
           Height = 18.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9382,7 +9381,7 @@ object Reports_F: TReports_F
         end
         object Memo205: TfrxMemoView
           AllowVectorExport = True
-          Top = 439.220780000000100000
+          Top = 439.220780000000000000
           Width = 555.590910000000000000
           Height = 22.677180000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9399,8 +9398,8 @@ object Reports_F: TReports_F
         end
         object Memo206: TfrxMemoView
           AllowVectorExport = True
-          Left = 563.149970000000100000
-          Top = 440.220780000000100000
+          Left = 563.149970000000000000
+          Top = 440.220780000000000000
           Width = 555.590910000000000000
           Height = 22.677180000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9452,7 +9451,7 @@ object Reports_F: TReports_F
         object Memo209: TfrxMemoView
           AllowVectorExport = True
           Left = 41.574830000000000000
-          Top = 480.016079999999900000
+          Top = 480.016080000000000000
           Width = 404.409710000000000000
           Height = 18.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9470,8 +9469,8 @@ object Reports_F: TReports_F
         end
         object Memo210: TfrxMemoView
           AllowVectorExport = True
-          Left = 566.929499999999900000
-          Top = 462.897960000000300000
+          Left = 566.929500000000000000
+          Top = 462.897960000000000000
           Width = 453.543600000000000000
           Height = 15.118120000000000000
           StretchMode = smActualHeight
@@ -9491,7 +9490,7 @@ object Reports_F: TReports_F
         object Memo211: TfrxMemoView
           AllowVectorExport = True
           Left = 1024.252630000000000000
-          Top = 462.897960000000300000
+          Top = 462.897960000000000000
           Width = 37.795300000000000000
           Height = 18.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9507,7 +9506,7 @@ object Reports_F: TReports_F
         object Memo212: TfrxMemoView
           AllowVectorExport = True
           Left = 593.724800000000000000
-          Top = 481.016080000000300000
+          Top = 481.016080000000000000
           Width = 404.409710000000000000
           Height = 18.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9558,7 +9557,7 @@ object Reports_F: TReports_F
         object Memo179: TfrxMemoView
           AllowVectorExport = True
           Left = 733.228820000000000000
-          Top = 298.700990000000100000
+          Top = 298.700990000000000000
           Width = 219.212740000000000000
           Height = 18.897650000000000000
           DisplayFormat.FormatStr = 'dd.mm.yyyy'
@@ -9576,7 +9575,7 @@ object Reports_F: TReports_F
         object Memo199: TfrxMemoView
           AllowVectorExport = True
           Left = 770.748610000000000000
-          Top = 421.425480000000300000
+          Top = 421.425480000000000000
           Width = 96.000000000000000000
           Height = 18.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9593,7 +9592,7 @@ object Reports_F: TReports_F
         object Memo200: TfrxMemoView
           AllowVectorExport = True
           Left = 873.276130000000000000
-          Top = 421.425480000000300000
+          Top = 421.425480000000000000
           Width = 141.645640000000000000
           Height = 18.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9610,7 +9609,7 @@ object Reports_F: TReports_F
         object Memo201: TfrxMemoView
           AllowVectorExport = True
           Left = 871.984850000000000000
-          Top = 402.425480000000300000
+          Top = 402.425480000000000000
           Width = 143.622140000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -9626,8 +9625,8 @@ object Reports_F: TReports_F
         end
         object Memo202: TfrxMemoView
           AllowVectorExport = True
-          Left = 563.149970000000100000
-          Top = 421.425480000000300000
+          Left = 563.149970000000000000
+          Top = 421.425480000000000000
           Width = 202.118120000000000000
           Height = 18.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9643,8 +9642,8 @@ object Reports_F: TReports_F
         end
         object Memo203: TfrxMemoView
           AllowVectorExport = True
-          Left = 565.638220000000100000
-          Top = 402.425480000000300000
+          Left = 565.638220000000000000
+          Top = 402.425480000000000000
           Width = 200.315090000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -9667,7 +9666,7 @@ object Reports_F: TReports_F
         FillGap.Right = 0
         Frame.Typ = []
         Height = 228.267780000000000000
-        Top = 555.590910000000000000
+        Top = 551.811380000000000000
         Width = 1065.827460000000000000
         PrintOnFirstPage = False
         object Memo132: TfrxMemoView
@@ -9709,7 +9708,7 @@ object Reports_F: TReports_F
         object Memo134: TfrxMemoView
           AllowVectorExport = True
           Left = 513.063080000000000000
-          Top = 212.188976377953100000
+          Top = 212.188976377953000000
           Width = 45.000000000000000000
           Height = 16.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9763,7 +9762,7 @@ object Reports_F: TReports_F
         object Memo137: TfrxMemoView
           AllowVectorExport = True
           Left = 615.944960000000000000
-          Top = 212.188976377953100000
+          Top = 212.188976377953000000
           Width = 82.322820000000000000
           Height = 16.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9781,7 +9780,7 @@ object Reports_F: TReports_F
         object Memo138: TfrxMemoView
           AllowVectorExport = True
           Left = 698.267780000000000000
-          Top = 212.188976377953100000
+          Top = 212.188976377953000000
           Width = 37.000000000000000000
           Height = 16.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9799,7 +9798,7 @@ object Reports_F: TReports_F
         object Memo139: TfrxMemoView
           AllowVectorExport = True
           Left = 735.267780000000000000
-          Top = 212.188976377953100000
+          Top = 212.188976377953000000
           Width = 41.102350000000000000
           Height = 16.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9871,7 +9870,7 @@ object Reports_F: TReports_F
         object Memo143: TfrxMemoView
           AllowVectorExport = True
           Left = 109.385900000000000000
-          Top = 56.779530000000030000
+          Top = 56.779530000000000000
           Width = 295.937007870000000000
           Height = 154.960673860000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9891,7 +9890,7 @@ object Reports_F: TReports_F
         object Memo144: TfrxMemoView
           AllowVectorExport = True
           Left = 435.724490000000000000
-          Top = 56.779530000000130000
+          Top = 56.779530000000100000
           Width = 77.102362200000000000
           Height = 28.724409450000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9910,7 +9909,7 @@ object Reports_F: TReports_F
         object Memo145: TfrxMemoView
           AllowVectorExport = True
           Left = 513.259842520000000000
-          Top = 56.779530000000030000
+          Top = 56.779530000000000000
           Width = 45.000000000000000000
           Height = 154.960673860000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9930,7 +9929,7 @@ object Reports_F: TReports_F
         object Memo146: TfrxMemoView
           AllowVectorExport = True
           Left = 776.370130000000000000
-          Top = 56.779530000000030000
+          Top = 56.779530000000000000
           Width = 65.338590000000000000
           Height = 154.960673860000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9948,7 +9947,7 @@ object Reports_F: TReports_F
         object Memo147: TfrxMemoView
           AllowVectorExport = True
           Left = 735.267780000000000000
-          Top = 56.779530000000030000
+          Top = 56.779530000000000000
           Width = 41.102350000000000000
           Height = 154.960673860000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9968,7 +9967,7 @@ object Reports_F: TReports_F
         object Memo148: TfrxMemoView
           AllowVectorExport = True
           Left = 698.267780000000000000
-          Top = 56.779530000000030000
+          Top = 56.779530000000000000
           Width = 37.000000000000000000
           Height = 154.960673860000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -9986,8 +9985,8 @@ object Reports_F: TReports_F
         object Memo149: TfrxMemoView
           AllowVectorExport = True
           Left = 615.944960000000000000
-          Top = 56.779530000000030000
-          Width = 82.322819999999990000
+          Top = 56.779530000000000000
+          Width = 82.322820000000000000
           Height = 154.960673860000000000
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clBlack
@@ -10010,7 +10009,7 @@ object Reports_F: TReports_F
         object Memo150: TfrxMemoView
           AllowVectorExport = True
           Left = 558.063080000000000000
-          Top = 56.779530000000030000
+          Top = 56.779530000000000000
           Width = 57.881880000000000000
           Height = 154.960673860000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -10032,7 +10031,7 @@ object Reports_F: TReports_F
         object Memo151: TfrxMemoView
           AllowVectorExport = True
           Left = 841.826840000000000000
-          Top = 56.779530000000030000
+          Top = 56.779530000000000000
           Width = 66.645640000000000000
           Height = 154.960673860000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -10054,7 +10053,7 @@ object Reports_F: TReports_F
         object Memo152: TfrxMemoView
           AllowVectorExport = True
           Left = 908.488250000000000000
-          Top = 56.779530000000130000
+          Top = 56.779530000000100000
           Width = 79.897650000000000000
           Height = 39.307089060000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -10074,9 +10073,9 @@ object Reports_F: TReports_F
         object Memo153: TfrxMemoView
           AllowVectorExport = True
           Left = 988.385900000000000000
-          Top = 56.779530000000030000
-          Width = 75.322819999999990000
-          Height = 154.960629921259800000
+          Top = 56.779530000000000000
+          Width = 75.322820000000000000
+          Height = 154.960629921260000000
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clBlack
           Font.Height = -11
@@ -10097,7 +10096,7 @@ object Reports_F: TReports_F
         object Memo154: TfrxMemoView
           AllowVectorExport = True
           Left = 908.598425200000000000
-          Top = 96.354360000000040000
+          Top = 96.354360000000000000
           Width = 34.771653540000000000
           Height = 115.275629610000000000
           Font.Charset = DEFAULT_CHARSET
@@ -10118,7 +10117,7 @@ object Reports_F: TReports_F
         object Memo155: TfrxMemoView
           AllowVectorExport = True
           Left = 943.370100710000000000
-          Top = 96.354360000000040000
+          Top = 96.354360000000000000
           Width = 44.976373070000000000
           Height = 115.275629610000000000
           Font.Charset = DEFAULT_CHARSET
@@ -10156,7 +10155,7 @@ object Reports_F: TReports_F
         object Memo157: TfrxMemoView
           AllowVectorExport = True
           Left = 435.850650000000000000
-          Top = 85.503937009999960000
+          Top = 85.503937010000000000
           Width = 22.677165350000000000
           Height = 126.236264410000000000
           Font.Charset = DEFAULT_CHARSET
@@ -10190,7 +10189,7 @@ object Reports_F: TReports_F
         object Memo159: TfrxMemoView
           AllowVectorExport = True
           Left = 458.393778900000000000
-          Top = 85.503937009999960000
+          Top = 85.503937010000000000
           Width = 54.425196850000000000
           Height = 126.236264410000000000
           Font.Charset = DEFAULT_CHARSET
@@ -10211,7 +10210,7 @@ object Reports_F: TReports_F
         end
         object Memo1: TfrxMemoView
           AllowVectorExport = True
-          Top = 212.188976377953100000
+          Top = 212.188976377953000000
           Width = 45.000000000000000000
           Height = 16.000000000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -10246,7 +10245,7 @@ object Reports_F: TReports_F
         end
         object Memo3: TfrxMemoView
           AllowVectorExport = True
-          Top = 56.779530000000030000
+          Top = 56.779530000000000000
           Width = 45.000000000000000000
           Height = 154.960673860000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -10265,7 +10264,7 @@ object Reports_F: TReports_F
         object Memo28: TfrxMemoView
           AllowVectorExport = True
           Left = 45.000000000000000000
-          Top = 56.779530000000030000
+          Top = 56.779530000000000000
           Width = 61.661410000000000000
           Height = 154.960673860000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -10284,7 +10283,7 @@ object Reports_F: TReports_F
         object Memo29: TfrxMemoView
           AllowVectorExport = True
           Left = 108.118110240000000000
-          Top = 56.834569999999990000
+          Top = 56.834570000000000000
           Width = 3.779530000000000000
           Height = 170.834684720000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -10301,7 +10300,7 @@ object Reports_F: TReports_F
         object Memo5: TfrxMemoView
           AllowVectorExport = True
           Left = 2.645640000000000000
-          Top = 34.779530000000130000
+          Top = 34.779530000000100000
           Width = 653.858690000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -10319,7 +10318,7 @@ object Reports_F: TReports_F
         object Memo121: TfrxMemoView
           AllowVectorExport = True
           Left = 965.559680000000000000
-          Top = 34.779530000000130000
+          Top = 34.779530000000100000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
           Font.Charset = RUSSIAN_CHARSET
@@ -10337,7 +10336,7 @@ object Reports_F: TReports_F
         object Memo218: TfrxMemoView
           AllowVectorExport = True
           Left = 405.409710000000000000
-          Top = 56.700787399999970000
+          Top = 56.700787400000000000
           Width = 30.614173230000000000
           Height = 154.960668980000000000
           Font.Charset = DEFAULT_CHARSET
